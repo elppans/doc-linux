@@ -1,4 +1,4 @@
-# Instalando o Arch Linux (BASE)
+# Instalando o Arch Linux (BASE) configurando BTRFS
 
 Partindo do ponto de que [foi feito o boot do instalador no computador "1.1 a 1.4"](https://wiki.archlinux.org/title/Installation_guide_(Portugu%C3%AAs)):
 
