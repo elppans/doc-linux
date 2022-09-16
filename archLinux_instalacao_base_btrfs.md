@@ -141,7 +141,7 @@ ntp - Implementação de referência do Network Time Protocol
 reflector - Update mirrors, Opcional
 Um sistema mínimo exige o pacote do grupo base, também a instalação do grupo de pacote base-devel neste momento é altamente recomendado.
 
-```
+```bash
 pacstrap /mnt base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs nano ntp reflector
 ```
 
