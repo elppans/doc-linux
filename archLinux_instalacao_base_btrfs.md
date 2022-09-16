@@ -4,7 +4,7 @@ Partindo do ponto de que [foi feito o boot do instalador no computador "1.1 a 1.
 
 1) Teclado:
 
-```
+```bash
 loadkeys br-abnt2
 ```
 
@@ -12,7 +12,7 @@ loadkeys br-abnt2
 
 Primeiro, fazer um teste de comunicação com a internet:
 
-```
+```bash
 ping -c 4 archlinux.org
 ```
 
@@ -24,7 +24,7 @@ Também pode dar uma lida nestes links:
 
 Configurar espelhos:
 
-```
+```bash
 reflector --verbose --latest 3 --sort rate --country Brazil --save /etc/pacman.d/mirrorlist
 cat /etc/pacman.d/mirrorlist
 pacman -Syy
@@ -33,7 +33,7 @@ pacman -Syy
 
 3) Configurando partições e usando BTRFS, usando como exemplo: /dev/sda de 35 GB:
 
-```
+```bash
 cgdisk /dev/sda
 ```
 
@@ -45,7 +45,7 @@ sda3 = ROOT, Código 8300, 32,4GB
 
 3.1) Formatando
 
-```
+```bash
 mkswap -L swap /dev/sda1 && swapon /dev/sda1
 mkfs.fat -F32 -n EFI /dev/sda2
 mkfs.btrfs /dev/sda3
@@ -59,19 +59,20 @@ Sobre os principais subvolumes:
 > @ - Este é o subvolume raiz principal no topo do qual todos os subvolumes serão montados.  
 @home - Diretório HOME, se for usar uma partição separada, não adicionar nos comandos  
 @var - Contém logs, temp. arquivos, caches, jogos, etc.  
-@opt - Contém produtos de terceiros  (Opcional)
+@opt - Contém produtos de terceiros  (Opcional)  
 @tmp - Contém certos arquivos e caches temporários (por ser uma pasta volátil, é recomendável não usar este subvolume)  
 @.snapshots - Diretório para armazenar instantâneos para o pacote snapper (pode excluir isso se você planeja usar Timeshift) - Adicionado depois da instalação  
 
 Pode-se usar o subvolume e a configuração que quiser, dependendo do que for fazer com o sistema;  
+
 Se você usa a pasta /home em uma partição separada, não é necessário criar um subvolume @home, monte diretamente o seu /home na sua partição respectiva;  
-A pasta /var deve ser sempre junto com /usr, o motivo disso é o banco de dados do pacman.
-No opensuse, onde separa o /var, o banco de dados do zypper fica dentro de /usr.
-Então recomendável deixar tudo relacionado ao pacman que estiver em /var junto com /, com exceção do cache, do contrário pode ter problema sério, basicamente, um banco de dados do pacman q não corresponda ao conteúdo de /usr implica num sistema quebrado e muito difícil de recuperar.  
+A pasta /var deve ser sempre junto com /usr, o motivo disso é o banco de dados do pacman.  
+No opensuse, onde separa o /var, o banco de dados do zypper fica dentro de /usr.  
+Então é recomendável deixar tudo relacionado ao pacman que estiver em /var junto com /, com exceção do cache, do contrário pode ter problema sério, basicamente, um banco de dados do pacman q não corresponda ao conteúdo de /usr implica num sistema quebrado e muito difícil de recuperar.  
 Não há problema algum em criar 2 subvolumes como, `@cache = /var/cache` E `@log = /var/log`, como é feito no Manjaro.  
 Fonte: [Grupo Telegram Arch Linux Brasil, Usuário Victor Matheus](https://t.me/archlinuxbr)
 
-```
+```bash
 mount /dev/sda3 /mnt
 btrfs su cr /mnt/@
 btrfs su cr /mnt/@home
@@ -89,25 +90,25 @@ commit - Intervalo peridóico (em segundos) no qual os dados são sincronizados 
 compress - Escolhendo o algoritmo para compactar. Zstd, tem um bom nível de compactação e velocidade.  
 space_cache - Permite que o kernel saiba onde o bloco de espaço livre está em um disco para permitir que ele grave dados imediatamente após a criação do arquivo.  
 subvol - Escolhendo o subvol para montar.  
-discard=async - [Suporte a descarte assíncrono](https://wiki.archlinux.org/title/btrfs#SSD_TRIM)... Extensões liberadas não são descartadas imediatamente, mas agrupadas e aparadas posteriormente por um thread de trabalho separado, melhorando a latência de confirmação.  
+discard=async - [Suporte a descarte assíncrono](https://wiki.archlinux.org/title/btrfs#SSD_TRIM)  
 autodefrag - [Auxiliar de desfragmentação automática](https://www.thegeekdiary.com/how-to-tune-btrfs-filesystem-for-better-performance/).  
 ssd - Se está instalando no ssd, use a opção "ssd".
 
 Montando volume principal (root):
 
-```
+```bash
 mount -o relatime,space_cache=v2,discard=async,autodefrag,compress=zstd,commit=10,subvol=@ /dev/sda3 /mnt
 ```
 
 Criando pastas para os subvolumes:
 
-```
+```bash
 mkdir -p /mnt/{boot/efi,home,var/cache,var/log}
 ```
 
 Montando os subvolumes:
 
-```
+```bash
 mount -o relatime,space_cache=v2,discard=async,autodefrag,compress=zstd,commit=10,subvol=@home  /dev/sda3 /mnt/home
 mount -o relatime,space_cache=v2,discard=async,autodefrag,compress=zstd,commit=10,subvol=@cache  /dev/sda3 /mnt/var/cache
 mount -o relatime,space_cache=v2,discard=async,autodefrag,compress=zstd,commit=10,subvol=@log  /dev/sda3 /mnt/var/log
@@ -115,13 +116,13 @@ mount -o relatime,space_cache=v2,discard=async,autodefrag,compress=zstd,commit=1
 
 3.4) Montando EFI:
 
-```
+```bash
 mount /dev/sda2 /mnt/boot/efi
 ```
 
 3.5) Verificar se as partições montadas estão realmente montadas:
 
-```
+```bash
 mount
 ```
 
@@ -138,7 +139,9 @@ amd-ucode - Imagem de atualização de microcódigo para CPUs AMD
 btrfs-progs - utilitários do sistema de arquivos Btrfs  
 nano - Um editor de texto simples baseado em terminal  
 ntp - Implementação de referência do Network Time Protocol  
-reflector - Update mirrors, Opcional
+reflector - Update mirrors, Opcional  
+
+
 Um sistema mínimo exige o pacote do grupo base, também a instalação do grupo de pacote base-devel neste momento é altamente recomendado.
 
 ```bash
@@ -147,34 +150,18 @@ pacstrap /mnt base base-devel linux linux-headers linux-firmware intel-ucode btr
 
 6) Gerar o fstab
 
-```
+```bash
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
 7) Acesso ao sistema via Chroot
 
-```
+```bash
 arch-chroot /mnt
 ```
-
-7.1) Iniciar serviços no chroot (Opcional):
-
-Alguns comandos que usam serviços, podem apresentar o seguinte erro:
-
-> System has not been booted with systemd as init system (PID 1). Can't operate.
-Failed to connect to bus: Host está desligado
-
-Para resolver, faça o comando:
-
-```
-systemctl preset-all
-```
-
-Fonte: [preset-all](https://bbs.archlinux.org/viewtopic.php?id=241969)  
-
 8) Fuso horário
 
-```
+```bash
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc
 ntpdate a.ntp.br
@@ -183,7 +170,7 @@ hwclock -w
 
 9) Locales
 
-```
+```bash
 sed -i '/en_US/s/^/#/' /etc/locale.gen
 sed -i '/pt_BR.UTF-8/s/#//' /etc/locale.gen
 locale-gen
@@ -196,7 +183,7 @@ export LANG=pt_BR.UTF-8
 
 Ps.: Hostname criado para o teste: archvm
 
-```
+```bash
 HOSTNAME="archvm"
 echo -e "$HOSTNAME" | tee /etc/hostname
 echo -e "
@@ -215,7 +202,7 @@ Depois é feito o comando passwd para adicionar uma senha ao usuário.
 
 Ps.: Usuário criado para o teste: arch
 
-```
+```bash
 sed -i '/NOPASSWD/!s/# %wheel/%wheel/' /etc/sudoers
 grep wheel /etc/sudoers
 useradd -m -G wheel arch
@@ -225,7 +212,7 @@ passwd arch
 
 12) Pacotes:
 
-```
+```bash
 pacman -Syy
 pacman -S --needed --noconfirm man-db man-pages texinfo
 pacman -S --needed --noconfirm grub-efi-x86_64 efibootmgr dosfstools os-prober mtools
@@ -236,14 +223,14 @@ systemctl enable NetworkManager
 
 13) GRUB em EFI:
 
-```
+```bash
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 14) Sair e rebootar
 
-```
+```bash
 exit
 reboot
 ```
@@ -252,25 +239,25 @@ reboot
 
 Opcional, se estiver configurando o sistema via conexão remota:
 
-```
+```bash
 sudo systemctl start sshd
 sudo systemctl enable sshd
 ```
 
 A partir daqui, basta configurar a Distro conforme as suas necessidades.  
 
-Antes de continuar a instalação e configuração do sistema, é recomendável habilitar o repositório `multilib`. Para isso, edite o arquivo `/etc/pacman.conf` e descomente as seguintes linhas:
+Antes de continuar a instalação e configuração do sistema, é recomendável habilitar o repositório `multilib`. Para isso, edite o arquivo `/etc/pacman.conf` e descomente as seguintes linhas:  
 
 > [multilib]  
 Include = /etc/pacman.d/mirrorlist
 
-Aproveitando que já está editando o arquivo, descomente a seguinte linha para ativar instâncias de Download e configure o número de instâncias que quiser (Padrão 5):
+Aproveitando que já está editando o arquivo, descomente a seguinte linha para ativar instâncias de Download e configure o número de instâncias que quiser (Padrão 5):  
 
 > ParallelDownloads = 10
 
 Para a instalação do driver de vídeo, Intel, NVidia ou AMD, siga este link: [ArchWiki, Xorg, Driver Installation](https://wiki.archlinux.org/title/Xorg#Driver_installation)  
 
-15) Artigos e link's fonte, usados para compreender e instalar o ArchLinux:
+15) Artigos e link's fonte, usados para compreender e instalar o ArchLinux:  
 
 ArchLinux em BTRFS:  
 
@@ -279,7 +266,7 @@ https://plus.diolinux.com.br/t/tuto-instalacao-do-arch-uefi-com-btrfs-e-snapshot
 https://danielsales.com.br/pt-br/instalacao-arch-linux-com-btrfs/  
 https://thelostwanderer.tedomum.org/linux/3_install_guide_arch/  
 https://www.nishantnadkarni.tech/posts/arch_installation/  
-https://www.arcolinuxd.com/installing-arch-linux-with-a-btrfs-filesystem/
+https://www.arcolinuxd.com/installing-arch-linux-with-a-btrfs-filesystem/  
 
 Outros tópicos:  
 
@@ -291,7 +278,7 @@ https://wiki.archlinux.org/title/GRUB#UEFI_systems_2
 https://wiki.archlinux.org/title/EFI_system_partition#Mount_the_partition
 
 
-16) Vídeos ensinando a fazer instalação usando Archinstall, [canal Caravana Cloud](https://www.youtube.com/c/CaravanaCloud):
+16) Vídeos ensinando a fazer instalação usando Archinstall, [canal Caravana Cloud](https://www.youtube.com/c/CaravanaCloud):  
 
 [Nova Instalação do Arch Linux 2021 - Archinstall](https://www.youtube.com/watch?v=eRruveslMBY)  
 [Arch Linux Instalação 2022 - DEFINITIVA](https://www.youtube.com/watch?v=8jnjjYmuq3s)  
