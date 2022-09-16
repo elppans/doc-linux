@@ -261,21 +261,21 @@ Para a instalação do driver de vídeo, Intel, NVidia ou AMD, siga este link: [
 
 ArchLinux em BTRFS:  
 
-https://wiki.archlinux.org/title/Btrfs_(Portugu%C3%AAs)  
-https://plus.diolinux.com.br/t/tuto-instalacao-do-arch-uefi-com-btrfs-e-snapshots-15-09-2021/38384  
-https://danielsales.com.br/pt-br/instalacao-arch-linux-com-btrfs/  
-https://thelostwanderer.tedomum.org/linux/3_install_guide_arch/  
-https://www.nishantnadkarni.tech/posts/arch_installation/  
-https://www.arcolinuxd.com/installing-arch-linux-with-a-btrfs-filesystem/  
+[https://wiki.archlinux.org/title/Btrfs_(Portugu%C3%AAs)](https://wiki.archlinux.org/title/Btrfs_(Portugu%C3%AAs))  
+[https://plus.diolinux.com.br/t/tuto-instalacao-do-arch-uefi-com-btrfs-e-snapshots-15-09-2021/38384](https://plus.diolinux.com.br/t/tuto-instalacao-do-arch-uefi-com-btrfs-e-snapshots-15-09-2021/38384)  
+[https://danielsales.com.br/pt-br/instalacao-arch-linux-com-btrfs/](https://danielsales.com.br/pt-br/instalacao-arch-linux-com-btrfs/)  
+[https://thelostwanderer.tedomum.org/linux/3_install_guide_arch/](https://thelostwanderer.tedomum.org/linux/3_install_guide_arch/)  
+[https://www.nishantnadkarni.tech/posts/arch_installation/](https://www.nishantnadkarni.tech/posts/arch_installation/)  
+[https://www.arcolinuxd.com/installing-arch-linux-with-a-btrfs-filesystem/](https://www.arcolinuxd.com/installing-arch-linux-with-a-btrfs-filesystem/)  
 
 Outros tópicos:  
 
-https://diolinux.com.br/2019/07/como-instalar-arch-linux-tutorial-iniciantes.html  
-https://livrelinux.wordpress.com/2016/05/11/instalando-arch-linux-descomplicado/  
-https://wiki.archlinux.org/index.php/Installation_guide_(Portugu%C3%AAs)  
-https://forum.archlinux-br.org/viewtopic.php?id=3624  
-https://wiki.archlinux.org/title/GRUB#UEFI_systems_2  
-https://wiki.archlinux.org/title/EFI_system_partition#Mount_the_partition
+[https://diolinux.com.br/2019/07/como-instalar-arch-linux-tutorial-iniciantes.html](https://diolinux.com.br/2019/07/como-instalar-arch-linux-tutorial-iniciantes.html)  
+[https://livrelinux.wordpress.com/2016/05/11/instalando-arch-linux-descomplicado/](https://livrelinux.wordpress.com/2016/05/11/instalando-arch-linux-descomplicado/)  
+[https://wiki.archlinux.org/index.php/Installation_guide_(Portugu%C3%AAs)](https://wiki.archlinux.org/index.php/Installation_guide_(Portugu%C3%AAs))  
+[https://forum.archlinux-br.org/viewtopic.php?id=3624](https://forum.archlinux-br.org/viewtopic.php?id=3624)  
+[https://wiki.archlinux.org/title/GRUB#UEFI_systems_2](https://wiki.archlinux.org/title/GRUB#UEFI_systems_2)  
+[https://wiki.archlinux.org/title/EFI_system_partition#Mount_the_partition](https://wiki.archlinux.org/title/EFI_system_partition#Mount_the_partition)  
 
 
 16) Vídeos ensinando a fazer instalação usando Archinstall, [canal Caravana Cloud](https://www.youtube.com/c/CaravanaCloud):  
