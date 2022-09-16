@@ -257,7 +257,7 @@ Aproveitando que já está editando o arquivo, descomente a seguinte linha para 
 
 Para a instalação do driver de vídeo, Intel, NVidia ou AMD, siga este link: [ArchWiki, Xorg, Driver Installation](https://wiki.archlinux.org/title/Xorg#Driver_installation)  
 
-15) Artigos e link's fonte, usados para compreender e instalar o ArchLinux:  
+16) Artigos e link's fonte, usados para compreender e instalar o ArchLinux:  
 
 ArchLinux em BTRFS:  
 
