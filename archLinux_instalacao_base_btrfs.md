@@ -270,12 +270,11 @@ Para a instalação do driver de vídeo, Intel, NVidia ou AMD, siga este link: [
 
 16) Ingerface gráfica
 
-Após uma pequena pesquisa na internet, achei uma boa combinação de pacotes para uma instalação mínima do Gnome:
+Após uma pequena pesquisa na internet, achei uma boa combinação de pacotes para uma [instalação mínima do Gnome](https://gist.github.com/thacoon/96e66f5d475a059cc6d66b61c6366b7a):
 
-[Minimal gnome installation](https://gist.github.com/thacoon/96e66f5d475a059cc6d66b61c6366b7a)
-
+```bash
 pacman -S gnome-shell nautilus gnome-terminal gnome-tweak-tool gnome-control-center xdg-user-dirs gdm archlinux-wallpaper
-
+```
 
 
 ### Artigos e link's fonte, usados para compreender e instalar o ArchLinux:  
