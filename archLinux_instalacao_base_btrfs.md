@@ -128,11 +128,11 @@ mount
 Sobre os principais pacotes:
 
 base - sistema linux básico  
-linux - Kernal e módulos linux mais recentes (você pode substituir por linux-lts se quiser um kernel mais estável)  
+linux - [Kernel](https://wiki.archlinux.org/title/Kernel_(Portugu%C3%AAs)) e módulos linux mais recentes (você pode substituir por linux-lts se quiser um kernel mais estável)  
 linux-headers - Cabeçalhos e scripts para construir módulos para o kernel Linux (também pode substituir por linux-lts-headers)  
 linux-firmware - Arquivos de firmware para linux (você pode pular isso em uma vm)  
-intel-ucode - Arquivos de atualização de microcódigo para CPUs Intel  
-amd-ucode - Imagem de atualização de microcódigo para CPUs AMD  
+intel-ucode - Arquivos de atualização de [microcódigo](https://wiki.archlinux.org/title/Microcode) para CPUs Intel  
+amd-ucode - Imagem de atualização de [microcódigo](https://wiki.archlinux.org/title/Microcode) para CPUs AMD  
 btrfs-progs - utilitários do sistema de arquivos Btrfs  
 nano - Um editor de texto simples baseado em terminal  
 ntp - Implementação de referência do Network Time Protocol  
@@ -250,6 +250,11 @@ sudo systemctl enable sshd
 ```
 
 A partir daqui, basta configurar a Distro conforme as suas necessidades.  
+
+Leitura recomendada:  
+
+[Recomendações Gerais](https://wiki.archlinux.org/title/General_recommendations_(Portugu%C3%AAs))  
+[Lista de aplicações](https://wiki.archlinux.org/title/List_of_applications_(Portugu%C3%AAs))
 
 Antes de continuar a instalação e configuração do sistema, é recomendável habilitar o repositório `multilib`. Para isso, edite o arquivo `/etc/pacman.conf` e descomente as seguintes linhas:  
 
