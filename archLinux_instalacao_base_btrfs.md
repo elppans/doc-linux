@@ -58,19 +58,16 @@ Sobre os principais subvolumes:
 
 > @ - Este é o subvolume raiz principal no topo do qual todos os subvolumes serão montados.  
 @home - Diretório HOME, se for usar uma partição separada, não adicionar nos comandos  
-@var - Contém logs, temp. arquivos, caches, jogos, etc.  
-@opt - Contém produtos de terceiros  (Opcional)  
-@tmp - Contém certos arquivos e caches temporários (por ser uma pasta volátil, é recomendável não usar este subvolume)  
-@.snapshots - Diretório para armazenar instantâneos para o pacote snapper (pode excluir isso se você planeja usar Timeshift) - Adicionado depois da instalação  
+@cache - Contém [dados armazenados em cache de aplicativos](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch05s05.html)  
+@log - Contém todos os [arquivos de logs do Linux](https://www.cyberciti.biz/faq/linux-log-files-location-and-how-do-i-view-logs-files/)  
+@var - Contém logs, temp. arquivos, caches, jogos, etc. ***(Recomendável NÃO USAR ESTE SUBVOLUME. Use @cache e @log)***  
+@opt - Contém produtos de terceiros ***(Opcional)***  
+@tmp - Contém certos arquivos e caches temporários ***(por ser uma pasta volátil, é recomendável NÃO USAR ESTE SUBVOLUME)***  
+@.snapshots - Diretório para armazenar instantâneos para o pacote snapper ***(pode excluir isso se você planeja usar Timeshift)***  
 
 Pode-se usar o subvolume e a configuração que quiser, dependendo do que for fazer com o sistema;  
 
 Se você usa a pasta /home em uma partição separada, não é necessário criar um subvolume @home, monte diretamente o seu /home na sua partição respectiva;  
-A pasta /var deve ser sempre junto com /usr, o motivo disso é o banco de dados do pacman.  
-No opensuse, onde separa o /var, o banco de dados do zypper fica dentro de /usr.  
-Então é recomendável deixar tudo relacionado ao pacman que estiver em /var junto com /, com exceção do cache, do contrário pode ter problema sério, basicamente, um banco de dados do pacman q não corresponda ao conteúdo de /usr implica num sistema quebrado e muito difícil de recuperar.  
-Não há problema algum em criar 2 subvolumes como, `@cache = /var/cache` E `@log = /var/log`, como é feito no Manjaro.  
-Fonte: [Grupo Telegram Arch Linux Brasil, Usuário Victor Matheus](https://t.me/archlinuxbr)
 
 ```bash
 mount /dev/sda3 /mnt
@@ -270,6 +267,7 @@ ArchLinux em BTRFS:
 
 Outros tópicos:  
 
+[...btrfs root partition mounted on /,/var/cache & log](https://forum.manjaro.org/t/why-is-my-btrfs-root-partition-mounted-on-var-cache-log/83076)  
 [https://diolinux.com.br/2019/07/como-instalar-arch-linux-tutorial-iniciantes.html](https://diolinux.com.br/2019/07/como-instalar-arch-linux-tutorial-iniciantes.html)  
 [https://livrelinux.wordpress.com/2016/05/11/instalando-arch-linux-descomplicado/](https://livrelinux.wordpress.com/2016/05/11/instalando-arch-linux-descomplicado/)  
 [https://wiki.archlinux.org/index.php/Installation_guide_(Portugu%C3%AAs)](https://wiki.archlinux.org/index.php/Installation_guide_(Portugu%C3%AAs))  
@@ -277,8 +275,16 @@ Outros tópicos:
 [https://wiki.archlinux.org/title/GRUB#UEFI_systems_2](https://wiki.archlinux.org/title/GRUB#UEFI_systems_2)  
 [https://wiki.archlinux.org/title/EFI_system_partition#Mount_the_partition](https://wiki.archlinux.org/title/EFI_system_partition#Mount_the_partition)  
 
+Link's recomendáveis:
+[https://btrfs.readthedocs.io/en/latest/index.html](https://btrfs.readthedocs.io/en/latest/index.html)  
+[https://wiki.manjaro.org/index.php/Btrfs](https://wiki.manjaro.org/index.php/Btrfs)  
 
-16) Vídeos ensinando a fazer instalação usando Archinstall, [canal Caravana Cloud](https://www.youtube.com/c/CaravanaCloud):  
+17) Vídeos ensinando a fazer instalação usando Archinstall, [canal Caravana Cloud](https://www.youtube.com/c/CaravanaCloud):  
 
 [Nova Instalação do Arch Linux 2021 - Archinstall](https://www.youtube.com/watch?v=eRruveslMBY)  
 [Arch Linux Instalação 2022 - DEFINITIVA](https://www.youtube.com/watch?v=8jnjjYmuq3s)  
+
+Grupo Telegram recomendável:  
+
+[Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
+
