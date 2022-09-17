@@ -275,7 +275,7 @@ Após uma pequena pesquisa na internet, achei uma boa combinação de pacotes pa
 ```bash
 pacman -S gnome-shell nautilus gnome-terminal gnome-tweak-tool gnome-control-center xdg-user-dirs gdm archlinux-wallpaper
 ```
-
+> Os papeis de parede do ArchLinux ficam localizadas em `/usr/share/backgrounds/archlinux/`
 
 ### Artigos e link's fonte, usados para compreender e instalar o ArchLinux:  
 
@@ -302,6 +302,7 @@ Link's recomendáveis:
 
 [https://btrfs.readthedocs.io/en/latest/index.html](https://btrfs.readthedocs.io/en/latest/index.html)  
 [https://wiki.manjaro.org/index.php/Btrfs](https://wiki.manjaro.org/index.php/Btrfs)  
+[https://github.com/rtxx/arch-minimal-install](https://github.com/rtxx/arch-minimal-install)  
 
 Vídeos ensinando a fazer instalação usando Archinstall, [canal Caravana Cloud](https://www.youtube.com/c/CaravanaCloud):  
 
