@@ -256,7 +256,7 @@ Leitura recomendada:
 [Recomendações Gerais](https://wiki.archlinux.org/title/General_recommendations_(Portugu%C3%AAs))  
 [Lista de aplicações](https://wiki.archlinux.org/title/List_of_applications_(Portugu%C3%AAs))
 
-Antes de continuar a instalação e configuração do sistema, se assim como eu, usa aplicações como VPN ou jogos que exigem bibliotecas 32 bits, é recomendável habilitar o repositório [multilib](https://wiki.archlinux.org/title/Official_repositories#multilib). Se pra você, não for necessário, não precisa.
+Antes de continuar a instalação e configuração do sistema, se assim como eu, usa aplicações como VPN ou jogos que exigem bibliotecas 32 bits, é recomendável habilitar o repositório [multilib](https://wiki.archlinux.org/title/Official_repositories#multilib). Se você não usa nada que exige dependências de bibliotecas ou outras aplicações 32 bits, não precisa habilitar este repositório.  
 Para configurar multilib, edite o arquivo `/etc/pacman.conf` e descomente as seguintes linhas:  
 
 > [multilib]  
