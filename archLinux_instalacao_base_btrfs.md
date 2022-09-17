@@ -268,7 +268,17 @@ Aproveitando que já está editando o arquivo, descomente a seguinte linha para 
 
 Para a instalação do driver de vídeo, Intel, NVidia ou AMD, siga este link: [ArchWiki, Xorg, Driver Installation](https://wiki.archlinux.org/title/Xorg#Driver_installation)  
 
-16) Artigos e link's fonte, usados para compreender e instalar o ArchLinux:  
+16) Ingerface gráfica
+
+Após uma pequena pesquisa na internet, achei uma boa combinação de pacotes para uma instalação mínima do Gnome:
+
+[Minimal gnome installation](https://gist.github.com/thacoon/96e66f5d475a059cc6d66b61c6366b7a)
+
+pacman -S gnome-shell nautilus gnome-terminal gnome-tweak-tool gnome-control-center xdg-user-dirs gdm archlinux-wallpaper
+
+
+
+### Artigos e link's fonte, usados para compreender e instalar o ArchLinux:  
 
 ArchLinux em BTRFS:  
 
