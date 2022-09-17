@@ -67,7 +67,7 @@ Sobre os principais subvolumes:
 
 Pode-se usar o subvolume e a configuração que quiser, dependendo do que for fazer com o sistema;  
 
-Se você usa a pasta /home em uma partição separada, não é necessário criar um subvolume @home, monte diretamente o seu /home na sua partição respectiva;  
+> Se você usa a pasta /home em uma partição separada, não é necessário criar um subvolume @home, monte diretamente o seu /home na sua partição respectiva;  
 
 ```bash
 mount /dev/sda3 /mnt
@@ -129,17 +129,18 @@ Sobre os principais pacotes:
 
 base - sistema linux básico  
 linux - Kernal e módulos linux mais recentes (você pode substituir por linux-lts se quiser um kernel mais estável)  
-linux-headers - Cabeçalhos e scripts para construir módulos para o kernel Linux (assim como linux, pode substituir por linux-lts-headers)  
+linux-headers - Cabeçalhos e scripts para construir módulos para o kernel Linux (também pode substituir por linux-lts-headers)  
 linux-firmware - Arquivos de firmware para linux (você pode pular isso em uma vm)  
 intel-ucode - Arquivos de atualização de microcódigo para CPUs Intel  
 amd-ucode - Imagem de atualização de microcódigo para CPUs AMD  
 btrfs-progs - utilitários do sistema de arquivos Btrfs  
 nano - Um editor de texto simples baseado em terminal  
 ntp - Implementação de referência do Network Time Protocol  
-reflector - Update mirrors, Opcional  
+reflector - [Update mirrors](https://wiki.archlinux.org/title/Reflector_(Portugu%C3%AAs)) ***(Opcional)***  
 
 
-Um sistema mínimo exige o pacote do grupo base, também a instalação do grupo de pacote base-devel neste momento é altamente recomendado.
+Um sistema mínimo exige o pacote do grupo base, também a instalação do grupo de pacote base-devel neste momento é altamente recomendado.  
+> Ps.: Eu uso uma máquina com CPU Intel, então vou usar o pacote ***"intel-ucode"***. Se você usa máquina com CPU AMD, troque o pacote por ***"amd-ucode"***.  
 
 ```bash
 pacstrap /mnt base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs nano ntp reflector
@@ -178,7 +179,7 @@ export LANG=pt_BR.UTF-8
 
 10) HOSTNAME:
 
-Ps.: Hostname criado para o teste: archvm
+> Ps.: Hostname criado para o teste: ***archvm***  
 
 ```bash
 HOSTNAME="archvm"
@@ -194,10 +195,11 @@ ff02::2    ip6-allrouters
 
 11) Usuários:
 
-É ativado a linha do grupo "wheel" no arquivo sudoers e posteriormente é criado o usuário "arch" já adicionado no grupo do sudo e criação automática da pasta HOME do mesmo.
+Nesta configuração, é ativado a linha do grupo "wheel" no arquivo sudoers e posteriormente é criado o usuário já adicionado no grupo do sudo e criação automática da pasta HOME do mesmo.  
+Opcionalmente, foi adicionado o usuário em mais 3 grupos. Pode adicionar os grupos que achar necessário ou não adicionar, é de preferência de cada um.  
 Depois é feito o comando passwd para adicionar uma senha ao usuário.
 
-Ps.: Usuário criado para o teste: arch
+> Ps.: Usuário criado para o teste: ***arch***  
 
 ```bash
 sed -i '/NOPASSWD/!s/# %wheel/%wheel/' /etc/sudoers
@@ -209,6 +211,12 @@ passwd arch
 
 12) Pacotes:
 
+Os pacotes foram instalados por categorias:  
+
+Pacotes de manuais, pois são muito úteis para consultas;  
+Pacotes para a instalação do gerenciador de boot. Se não for usar Dual Boot, só é necessário o pacote GRUB e o EFI;  
+Pacotes para o gerenciamento de rede.  
+
 ```bash
 pacman -Syy
 pacman -S --needed --noconfirm man-db man-pages texinfo
@@ -218,7 +226,7 @@ systemctl enable NetworkManager
 ```
 
 
-13) GRUB em EFI:
+13) Instalação do GRUB EFI:
 
 ```bash
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux --recheck
@@ -275,11 +283,12 @@ Outros tópicos:
 [https://wiki.archlinux.org/title/GRUB#UEFI_systems_2](https://wiki.archlinux.org/title/GRUB#UEFI_systems_2)  
 [https://wiki.archlinux.org/title/EFI_system_partition#Mount_the_partition](https://wiki.archlinux.org/title/EFI_system_partition#Mount_the_partition)  
 
-Link's recomendáveis:
+Link's recomendáveis:  
+
 [https://btrfs.readthedocs.io/en/latest/index.html](https://btrfs.readthedocs.io/en/latest/index.html)  
 [https://wiki.manjaro.org/index.php/Btrfs](https://wiki.manjaro.org/index.php/Btrfs)  
 
-17) Vídeos ensinando a fazer instalação usando Archinstall, [canal Caravana Cloud](https://www.youtube.com/c/CaravanaCloud):  
+Vídeos ensinando a fazer instalação usando Archinstall, [canal Caravana Cloud](https://www.youtube.com/c/CaravanaCloud):  
 
 [Nova Instalação do Arch Linux 2021 - Archinstall](https://www.youtube.com/watch?v=eRruveslMBY)  
 [Arch Linux Instalação 2022 - DEFINITIVA](https://www.youtube.com/watch?v=8jnjjYmuq3s)  
