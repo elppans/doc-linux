@@ -137,13 +137,13 @@ btrfs-progs - utilitários do sistema de arquivos Btrfs
 nano - Um editor de texto simples baseado em terminal  
 ntp - Implementação de referência do Network Time Protocol  
 reflector - [Update mirrors](https://wiki.archlinux.org/title/Reflector_(Portugu%C3%AAs)) ***(Opcional)***  
-
+[git](https://wiki.archlinux.org/title/git) - Sistema de controle de versão (VCS), no Arch é usado para manter pacotes [AUR](https://wiki.archlinux.org/title/Arch_User_Repository_(Portugu%C3%AAs)).  
 
 Um sistema mínimo exige o pacote do grupo base, também a instalação do grupo de pacote base-devel neste momento é altamente recomendado.  
 > Ps.: Eu uso uma máquina com CPU Intel, então vou usar o pacote ***"intel-ucode"***. Se você usa máquina com CPU AMD, troque o pacote por ***"amd-ucode"***.  
 
 ```bash
-pacstrap /mnt base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs nano ntp reflector
+pacstrap /mnt base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs nano ntp reflector git
 ```
 
 6) Gerar o fstab
