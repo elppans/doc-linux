@@ -52,4 +52,4 @@ Grupo Telegram recomendável:
 [Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
 
 
-Para comentários e sugestões, [clique aqui](https://github.com/elppans/guias/issues)
+Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)
