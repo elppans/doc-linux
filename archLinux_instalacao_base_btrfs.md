@@ -316,7 +316,27 @@ A melhor opção foi o Celluloid, que é o frontend do MPV, que funcionou perfei
 ```bash
 sudo pacman -S celluloid
 ```
+17) Suite Office ***(OPCIONAL)***
 
+[libreoffice](https://wiki.archlinux.org/title/LibreOffice) - São 2 versões para escolher e instalar:  
+
+> still - Versão estável, para usuários conservadores.  
+fresh - Versão corrente, com pacotes mais atuais, novos aprimoramentos do programa para os primeiros usuários ou usuários avançados.  
+
+Se quiser instalar, escolha a versão e faça, como no exemplo:
+
+```bash
+sudo pacman -S libreoffice-fresh-pt-br
+```
+
+[onlyoffice](https://www.onlyoffice.com/blog/pt-br/) - Uma boa alternativa de uma suite office. Mais fácil de usar, principalmente para os novatos no Linux.  
+Este pacote fica no repositório AUR, então se quiser instalar, faça:  
+
+```bash
+git clone https://aur.archlinux.org/onlyoffice-bin.git
+cd onlyoffice-bin
+makepkg -sirL --needed --noconfirm
+```
 
 ### Artigos e link's fonte, usados para compreender e instalar o ArchLinux:  
 
