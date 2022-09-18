@@ -333,6 +333,7 @@ sudo pacman -S libreoffice-fresh-pt-br
 Este pacote fica no repositório AUR, então se quiser instalar, faça:  
 
 ```bash
+cd ~/Downloads
 git clone https://aur.archlinux.org/onlyoffice-bin.git
 cd onlyoffice-bin
 makepkg -sirL --needed --noconfirm
