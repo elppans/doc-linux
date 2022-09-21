@@ -121,3 +121,10 @@ https://medium.com/tech-notes-and-geek-stuff/install-zsh-on-arch-linux-manjaro-a
 https://www.linuxfordevices.com/tutorials/linux/make-arch-terminal-awesome
 https://linuxhint.com/setup-configure-autocomplete-zsh/
 https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync
+
+Grupo Telegram recomendável:  
+
+[Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
+
+
+Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)
