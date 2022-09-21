@@ -114,13 +114,13 @@ Com isso, já dá pra saber que além de usar os plugins do OMZ, dá pra criar e
 
 * Fontes:  
 
-https://ohmyz.sh/
-https://alesonmedeiros.dev.br/configurando-o-power-level-10k-com-oh-my-zsh
-https://blog.betrybe.com/ferramentas/oh-my-zsh/
-https://medium.com/tech-notes-and-geek-stuff/install-zsh-on-arch-linux-manjaro-and-make-it-your-default-shell-b0098b756a7a
-https://www.linuxfordevices.com/tutorials/linux/make-arch-terminal-awesome
-https://linuxhint.com/setup-configure-autocomplete-zsh/
-https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync
+[https://ohmyz.sh/](https://ohmyz.sh/)
+[https://alesonmedeiros.dev.br/configurando-o-power-level-10k-com-oh-my-zsh](https://alesonmedeiros.dev.br/configurando-o-power-level-10k-com-oh-my-zsh)  
+[https://blog.betrybe.com/ferramentas/oh-my-zsh/](https://blog.betrybe.com/ferramentas/oh-my-zsh/)  
+[https://medium.com/tech-notes-and-geek-stuff/install-zsh-on-arch-linux-manjaro-and-make-it-your-default-shell-b0098b756a7a](https://medium.com/tech-notes-and-geek-stuff/install-zsh-on-arch-linux-manjaro-and-make-it-your-default-shell-b0098b756a7a)  
+[https://www.linuxfordevices.com/tutorials/linux/make-arch-terminal-awesome](https://www.linuxfordevices.com/tutorials/linux/make-arch-terminal-awesome)
+[https://linuxhint.com/setup-configure-autocomplete-zsh/](https://linuxhint.com/setup-configure-autocomplete-zsh/)  
+[https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync)  
 
 Grupo Telegram recomendável:  
 
