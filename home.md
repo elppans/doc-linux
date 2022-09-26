@@ -7,7 +7,7 @@ Indice:
 3) [Escolhendo e instalando uma Suite Office no ArchLinux](https://elppans.github.io/doc-linux/archlinux_suite_office)  
 4) [ArchLinux com zsh, oh my zsh e powerlevel10k](https://elppans.github.io/doc-linux/archlinux_zsh_ohmyzsh_powerlevel10k)  
 5) [Arch Linux AUR Helpers](https://elppans.github.io/doc-linux/archlinux_aur_helpers)  
-6) [ArchLinux NVidia Legacy + Wayland no Gnome](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome.md)  
+6) [ArchLinux NVidia Legacy + Wayland no Gnome](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome)  
 
 
 * Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
