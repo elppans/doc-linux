@@ -124,7 +124,7 @@ Se retornar como resposta:
 
 > wayland
 
-Significa que a configuração deu certo e finalmente está usando Wayland.  
+Significa que a configuração deu certo e finalmente está usando NVidia + Wayland no Gnome.  
 
 * Fontes e recomendações:
 
