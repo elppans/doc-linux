@@ -8,6 +8,7 @@ Indice:
 4) [ArchLinux com zsh, oh my zsh e powerlevel10k](https://elppans.github.io/doc-linux/archlinux_zsh_ohmyzsh_powerlevel10k)  
 5) [Arch Linux AUR Helpers](https://elppans.github.io/doc-linux/archlinux_aur_helpers)  
 6) [ArchLinux NVidia Legacy + Wayland no Gnome](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome)  
+7) [ArchLinux, Virt-Manager + Cockpit](https://elppans.github.io/doc-linux/archlinux_virt-manager_cockpit)  
 
 
 * Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
