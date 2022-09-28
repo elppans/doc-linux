@@ -42,7 +42,7 @@ nvidia              40071168  351 nvidia_uvm,nvidia_modeset
 Porém, ao instalar o pacote NVidia, é desabilitado o Wayland por padrão e a Distro automaticamente começa a usar o Xorg.  
 Se sua placa de vídeo usa um driver versão 470 ou menor, recomendável continuar no XORG mesmo.  
 Se sua placa de vídeo usa um driver versão MAIOR que 470 e quiser usar o Wayland, deve fazer uma pequena configuração.  
-Se você for usar aplicativos que usam bibliotecas 32 bits, como Jogos por exemplo, instale também o pacote [lib32-nvidia-utils](https://archlinux.org/packages/multilib/x86_64/lib32-nvidia-utils/). Se for usar o [Steam](https://archlinux.org/packages/multilib/x86_64/steam/), será instalado como dependência.
+Se você for usar aplicativos que usam bibliotecas 32 bits, como Jogos por exemplo, instale também o [pacote](https://archlinux.org/packages/multilib/x86_64/lib32-nvidia-utils/) [lib32-nvidia-utils](https://wiki.archlinux.org/title/Xorg_(Portugu%C3%AAs)#Instala%C3%A7%C3%A3o_de_driver). Se for usar o [Steam](https://archlinux.org/packages/multilib/x86_64/steam/), será instalado como dependência.
 
 * Configurando o GRUB:
 
