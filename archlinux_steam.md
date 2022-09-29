@@ -1,6 +1,6 @@
 # Instalando [Steam](https://wiki.archlinux.org/title/Steam_(Portugu%C3%AAs)) no ArchLinux
 
-* Instalação pacote 32 bits, driver de vídeo:
+### Instalação pacote 32 bits, driver de vídeo:
 
 Para instalar o Steam, deve primeiro instalar o pacote 32 bits do driver de vídeo, como mencionado em minha marcação [ArchLinux NVidia Legacy + Wayland no Gnome](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome).  
 
@@ -20,7 +20,7 @@ cd lib32-nvidia-470xx-utils
 makepkg -siL --needed --noconfirm
 ```
 
-* Instalação do Steam:
+### Instalação do Steam:
 
 Após a instalação do seu pacote 32 bits do driver de vídeo, finalmente, instale o Steam:
 
@@ -28,7 +28,7 @@ Após a instalação do seu pacote 32 bits do driver de vídeo, finalmente, inst
 sudo pacman -S steam
 ```
 
-* Corrigindo problemas:
+### Corrigindo problemas:
 
 Em minha instalação, ocorreu 2 problemas ao tentar iniciar o Steam, mas foi fácil corrigir:
 
@@ -64,13 +64,66 @@ sudo pacman -R steam lib32-nvidia-utils
 
 Depois instale o pacote 32 bits da mesma versão do seu driver e somente depois, instale o Steam.  
 
-* Fontes:
+### DICAS:  
+
+* Configurar o botão fechar para minimizar a janela:  
+
+Para fechar a janela do Steam (e removê-lo da barra de tarefas) quando pressionar x, mas continuar funcionando o Steam na bandeja, deve exportar a variável de ambiente `STEAM_FRAME_FORCE_CLOSE=1`.  
+
+Para fazer o export da variável há 2 formas, configurando apenas para o seu usuário e para todos os usuários, caso tiver mais de 1 usuário no sistema:  
+
+1) Para fazer o export ***apenas para o usuário***, apenas execute este comando em um terminal:  
+
+```bash
+echo 'STEAM_FRAME_FORCE_CLOSE DEFAULT=1' >> ~/.pam_environment
+```
+
+2) Alternativamente, para adicioná-lo para ***todos os usuários*** (o que eu uso), faça este comando:  
+
+```bash
+echo 'STEAM_FRAME_FORCE_CLOSE=1' | sudo tee -a /etc/environment
+```
+Em qualquer uma das 2 formas, para ter o efeito, deve deslogar e logar novamente.  
+
+* Configurar início automático minimizado:  
+
+Há algumas formas de se configurar, dependendo do GUI utilizado também. Eu uso Gnome-Shell, então irei explicar como configurar nele.  
+
+1) Gnome-Shell:  
+
+Abra o aplicativo "***Ajustes***" e vá até a opção "***Aplicativos de inicialização***". Clique no botão `+`, procure por Steam e selecione.  
+
+2) Terminal:
+
+Copie o arquivo `steam.desktop` para a pasta de usuário `~/.config/autostart`. Se não existir, crie a pasta:  
+
+```bash
+mkdir -p ~/.config/autostart
+cp -a /usr/share/applications/steam.desktop ~/.config/autostart
+chmod +x ~/.config/autostart/steam.desktop
+```
+3) Configurando Start Steam via Steam:  
+
+Abra o Steam e clique no menú `Steam > Configurações`, vá até a aba lateral com o nome Interface e marque `Iniciar o Steam ao ligar o computador` e clique em OK.
+
+Em qualquer uma destas opções, quando fizemos logout/login, o Steam é iniciado já na janela principal sem minimizar para o Systray. Então, se quiser que o Steam seja iniciado minimizado para o Systray, vá ao gerenciador de arquivos e vá até a pasta `~/.config/autostart`.  
+
+Clique com o botão direito em "steam.desktop" e vá em Propriedades. Em comando adicione no final da linha o parâmetro "-silent".  
+Se no seu Gnome não tiver a aba `Comandos`, clique com o botão direito e em editar. Na linha `Exec` vai ter o comando para iniciar o Steam, então coloque o parâmetro `-silent` e salve o arquivo. Vai ficar assim:  
+
+> Exec=/usr/bin/steam-runtime %U -silent  
+
+Após salvar, deslogue e logue no sistema para ver se deu certo.
+
+### Fontes:
 
 [https://wiki.archlinux.org/title/Steam/Troubleshooting](https://wiki.archlinux.org/title/Steam/Troubleshooting)  
-[https://wiki.archlinux.org/title/Locale#Generating_locales](https://wiki.archlinux.org/title/Locale#Generating_locales)
+[https://wiki.archlinux.org/title/Locale#Generating_locales](https://wiki.archlinux.org/title/Locale#Generating_locales)  
+[http://askubuntu.com/questions/318688/how-to-minimise-steam-to-the-unity-panel-system-tray](http://askubuntu.com/questions/318688/how-to-minimise-steam-to-the-unity-panel-system-tray)  
+[https://wiki.archlinux.org/title/Steam_(Português)#Iniciar_minimizado](https://wiki.archlinux.org/title/Steam_(Portugu%C3%AAs)#Iniciar_minimizado)  
 
-Grupo Telegram recomendável:  
+* Grupo Telegram recomendável:  
 
 [Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
 
-Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
+* Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
