@@ -42,11 +42,20 @@ nvidia              40071168  351 nvidia_uvm,nvidia_modeset
 Porém, ao instalar o pacote NVidia, é desabilitado o Wayland por padrão e a Distro automaticamente começa a usar o Xorg.  
 Se sua placa de vídeo usa um driver versão 470 ou menor, recomendável continuar no XORG mesmo.  
 Se sua placa de vídeo usa um driver versão MAIOR que 470 e quiser usar o Wayland, deve fazer uma pequena configuração.  
-Se você for usar aplicativos que usam bibliotecas 32 bits, como Jogos por exemplo, instale também o [pacote](https://archlinux.org/packages/multilib/x86_64/lib32-nvidia-utils/) [lib32-nvidia-utils](https://wiki.archlinux.org/title/Xorg_(Portugu%C3%AAs)#Instala%C3%A7%C3%A3o_de_driver). Se for usar o [Steam](https://archlinux.org/packages/multilib/x86_64/steam/), será instalado como dependência.
+Se você for usar aplicativos que usam bibliotecas 32 bits, como Jogos por exemplo, instale também o pacote [lib32-nvidia-utils](https://wiki.archlinux.org/title/Xorg_(Portugu%C3%AAs)#Instala%C3%A7%C3%A3o_de_driver). Se for usar o [Steam](https://archlinux.org/packages/multilib/x86_64/steam/) por exemplo, será listado para escolher o pacote 32 bits do driver para instalar como dependência, porém, é recomendável instalar este pacote ***ANTES*** do Steam.  
+
+Para instalar o pacote 32 bits do driver que se encontra no repositório AUR, [nvidia-470xx-dkms](https://aur.archlinux.org/packages/nvidia-470xx-dkms), deve usar o pacote [lib32-nvidia-470xx-utils](https://aur.archlinux.org/packages/lib32-nvidia-470xx-utils):  
+
+```bash
+cd ~/Downloads
+git clone https://aur.archlinux.org/lib32-nvidia-470xx-utils.git
+cd lib32-nvidia-470xx-utils
+makepkg -siL --needed --noconfirm
+```
 
 * Configurando o GRUB:
 
-O Driver da versão do AUR, já é configurado de um jeito que não precisa configurar mais nada, porém, como eu estava procurando na internet como fazer o Wayland funcionar, adicionei estas opções no grub:  
+O Driver da versão do AUR, já é configurado de um jeito que não precisa configurar mais nada, porém, como eu estava procurando na internet como fazer o Wayland funcionar, adicionei estas opções no arquivo `/etc/default/grub`:  
 
 ```bash
 i915.modeset=0 nouveau.modeset=0 nvidia-drm.modeset=1
@@ -60,6 +69,7 @@ Depois executar:
 
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo reboot
 ```
 Só que deu na mesma, então se não quiser adicionar, deixe como está.  
 > Se sua placa de vídeo for do repositório oficial, ***DEVE*** adicionar estas opções no GRUB.  
