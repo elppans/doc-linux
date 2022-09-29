@@ -46,6 +46,22 @@ A melhor opção foi o Celluloid, que é o frontend do MPV, que funcionou perfei
 ```bash
 sudo pacman -S celluloid
 ```
+* Aplicativos no System Tray  
+
+O Gnome não vem com suporte a adicionar ícones dos aplicativos no Systray, como o [Telegram](https://archlinux.org/packages/community/x86_64/telegram-desktop/), [Steam](https://archlinux.org/packages/multilib/x86_64/steam/), etc.  
+Para resolver, basta instalar o pacote que se encontra no AUR, [gnome-shell-extension-tray-icons](https://aur.archlinux.org/packages/gnome-shell-extension-tray-icons):  
+
+```bash
+cd ~/build
+git clone https://aur.archlinux.org/gnome-shell-extension-tray-icons.git
+cd gnome-shell-extension-tray-icons
+makepkg -siL --needed --noconfirm
+```
+
+Após a instalação, vá até o aplicativo "Extenção" e ative-o.  
+Agora, os aplicativos que adicionam ícones no Systray irão aparecer normalmente.
+
+Uma outra alternativa é ativar a extenção do site [extensions.gnome, tray-icons-reloaded](https://extensions.gnome.org/extension/2890/tray-icons-reloaded/).
 
 Grupo Telegram recomendável:  
 
