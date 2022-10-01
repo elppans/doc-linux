@@ -144,7 +144,7 @@ Eram problemas de inconsistências com o vídeo e alguns ícones ficavam com cor
 Seguindo o [Wiki do Arch Linux, referente ao problema de Flickering/Tearing](https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend), foi configurado apenas 2 parâmetros no sistema e deu certo:  
 
 ```bash
-echo -e 'options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/tmp/' | sudo tee /etc/modprobe.d/nvidia-power-management.conf
+echo -e 'options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/tmp' | sudo tee /etc/modprobe.d/nvidia-power-management.conf
 sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service
 sudo reboot
 ```
