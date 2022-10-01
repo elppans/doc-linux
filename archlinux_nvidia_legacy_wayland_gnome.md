@@ -93,6 +93,7 @@ Depois executar:
 ```bash
 sudo /usr/bin/mkinitcpio -P
 ```
+#### Atualização do Kernel, NVidia, Pacman Hook
 
 > Se sua placa de vídeo for do repositório oficial, ***DEVE*** configurar também um arquivo chamado nvidia.hook, então veja [Wiki ArchLinux, NVidia, pacman hook](https://wiki.archlinux.org/title/NVIDIA_(Portugu%C3%AAs)#pacman_hook) para saber como configurar.  
 
