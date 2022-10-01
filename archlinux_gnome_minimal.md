@@ -1,4 +1,4 @@
-# Instalndo Gnome Minimal no ArchLinux
+# Instalando Gnome Minimal no ArchLinux
 
 Uma maneira simples de se instalar o [GNOME](https://wiki.archlinux.org/title/GNOME_(Portugu%C3%AAs)) no [ArchLinux](https://wiki.archlinux.org/title/Main_page_(Portugu%C3%AAs)) é usando o [grupo de pacotes](https://wiki.archlinux.org/title/Meta_package_and_package_group_(Portugu%C3%AAs)), porém, se na confirmação de pacotes apenas apertar ENTER, vai instalar todos os pacotes referentes ao Gnome e então vai ser um [Gnome Shell](https://wiki.archlinux.org/title/GNOME_(Portugu%C3%AAs)) completo.  
 
