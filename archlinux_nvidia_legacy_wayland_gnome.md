@@ -26,7 +26,7 @@ makepkg -siL --needed --noconfirm
 sudo nvidia-xconfig
 ```
 Com esta versão não é necessário configurar mais nada, então basta reiniciar o computador.  
-Se seu driver de vídeo NÃO for versão legado, NÃO reinicie. Veja o resto da matéria, para configurar o módulo e o GRUB, somente depois de configurar os 2, reinicie.  
+Se seu driver de vídeo NÃO for versão legado, NÃO reinicie, veja a parte da matéria, configurar o [GRUB](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome#configurando-o-grub) E o [módulo](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome#configurando-o-m%C3%B3dulo-no-initramfs). Somente depois de configurar os 2, reinicie.  
 
 Para saber se realmente está usando o driver da NVidia após a inicialização, dê o comando:  
 
