@@ -66,7 +66,7 @@ Após a instalação, reinicie o sistema e após logar, vá até o aplicativo de
 Este pacote também funciona muito bem e também é bem fluido e MUITO simples. Para instalar, deve baixar do AUR:
 
 ```bash
-cd ~/build
+cd ~/Downloads
 git clone https://aur.archlinux.org/gnome-shell-extension-tray-icons.git
 cd gnome-shell-extension-tray-icons
 makepkg -siL --needed --noconfirm
@@ -80,7 +80,7 @@ Agora, os aplicativos que adicionam ícones no Systray irão aparecer normalment
 Exta extensão também tem no AUR, se quiser usar:
 
 ```bash
-cd ~/Download
+cd ~/Downloads
 git clone https://aur.archlinux.org/gnome-shell-extension-tray-icons-reloaded
 cd gnome-shell-extension-tray-icons-reloaded
 makepkg -siL --needed --noconfirm
