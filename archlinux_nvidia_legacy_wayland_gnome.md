@@ -5,7 +5,7 @@ Para verificar se a placa de vídeo NVidia é legada, vá até a página [nvidia
 Se sua placa de vídeo for das mais recentes, apenas instale o pacote [nvidia](https://archlinux.org/packages/extra/x86_64/nvidia) se seu kernel for versão [corrente](https://archlinux.org/packages/core/x86_64/linux/), OU [nvidia-lts](https://archlinux.org/packages/extra/x86_64/nvidia-lts) se seu Kernel for versão [lts](https://archlinux.org/packages/core/x86_64/linux-lts/).  
 Antes de instalar qualquer driver NVidia, é bom verificar se a sua Distro tem o pacote [linux-headers](https://archlinux.org/packages/core/x86_64/linux-headers/) OU [linux-lts-headers](https://archlinux.org/packages/core/x86_64/linux-lts-headers/). Se não tiver, instale antes de instalar o driver.  
 
-* Instalando o driver legado:
+### Instalando o driver legado:
 
 Para verificar qual placa de vídeo está sendo usada:  
 
@@ -53,7 +53,7 @@ cd lib32-nvidia-470xx-utils
 makepkg -siL --needed --noconfirm
 ```
 
-* Configurando o GRUB:
+### Configurando o GRUB:
 
 O Driver da versão do AUR, já é configurado de um jeito que não precisa configurar mais nada, porém, como eu estava procurando na internet como fazer o Wayland funcionar, adicionei estas opções no arquivo `/etc/default/grub`:  
 
@@ -74,7 +74,7 @@ sudo reboot
 Só que deu na mesma, então se não quiser adicionar, deixe como está.  
 > Se sua placa de vídeo for do repositório oficial, ***DEVE*** adicionar estas opções no GRUB.  
 
-* Configurando o módulo no initramfs:
+### Configurando o módulo no initramfs:
 
 Seguindo mais dicas do Wiki e outras páginas, também adicionei os módulos no arquivo `/etc/mkinitcpio.conf`, porém, com este pacote do AUR também não é necessário.
 > Se sua placa de vídeo for do repositório oficial, ***DEVE*** adicionar estes módulos no arquivo mkinitcpio.conf:  
@@ -96,7 +96,7 @@ sudo /usr/bin/mkinitcpio -P
 
 > Se sua placa de vídeo for do repositório oficial, ***DEVE*** configurar também um arquivo chamado nvidia.hook, então veja [Wiki ArchLinux, NVidia, pacman hook](https://wiki.archlinux.org/title/NVIDIA_(Portugu%C3%AAs)#pacman_hook) para saber como configurar.  
 
-* Configurando regras de inicialização:
+### Configurando regras de inicialização:
 
 Finalmente, após ler algumas páginas e fóruns ví algo que talvez desse certo.  
 
@@ -136,6 +136,21 @@ Se retornar como resposta:
 
 Significa que a configuração deu certo e finalmente está usando NVidia + Wayland no Gnome.  
 
+## Resolvendo problema de [Flickering](https://en.wikipedia.org/wiki/Flicker_(screen))  
+
+O problema de Flickering/Tearing independe da versão do driver de vídeo.  
+Em meu sistema, com interface Gnome-Shell e gerenciador de login GDM com NVidia + Wiland, estava enfrentando problemas de [Flickering](https://www.tecmundo.com.br/voxel/especiais/183041-defeitos-graficos-flicker.htm).  
+Eram problemas de inconsistências com o vídeo e alguns ícones ficavam com cores estranhas, dava para perceber um certo atraso com o FPS e problema de buffer ou algo assim, na imagem.  
+Seguindo o [Wiki do Arch Linux, referente ao problema de Flickering/Tearing](https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend), foi configurado apenas 2 parâmetros no sistema e deu certo:  
+
+```bash
+echo -e 'options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/tmp/' | sudo tee /etc/modprobe.d/nvidia-power-management.conf
+sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service
+sudo reboot
+```
+
+Após bastante uso, percebi que o problema foi resolvido, pois os ícones pararam de ficar com cores estranhas e outros aplicativos pararam com o delay na imagem.
+
 * Fontes e recomendações:
 
 [https://wiki.archlinux.org/title/NVIDIA_(Portugu%C3%AAs)](https://wiki.archlinux.org/title/NVIDIA_(Portugu%C3%AAs))  
@@ -149,9 +164,10 @@ Significa que a configuração deu certo e finalmente está usando NVidia + Wayl
 [https://en.wikipedia.org/wiki/Direct_Rendering_Manager](https://en.wikipedia.org/wiki/Direct_Rendering_Manager)  
 [https://howto.lintel.in/install-nvidia-arch-linux/](https://howto.lintel.in/install-nvidia-arch-linux/)  
 [https://www.reddit.com/r/archlinux/comments/oq1cqg/how_to_get_nvidia_wayland_session_under_gnome/](https://www.reddit.com/r/archlinux/comments/oq1cqg/how_to_get_nvidia_wayland_session_under_gnome/)  
+[https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend](https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend)  
 
-Grupo Telegram recomendável:  
+* Grupo Telegram recomendável:  
 
 [Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
 
-Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
+* Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
