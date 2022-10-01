@@ -75,7 +75,7 @@ makepkg -siL --needed --noconfirm
 Após a instalação, vá até o aplicativo "Extenção" e ative-o.  
 Agora, os aplicativos que adicionam ícones no Systray irão aparecer normalmente.
 
-3) Uma outra alternativa é ativar a extenção do site [extensions.gnome, tray-icons-reloaded](https://extensions.gnome.org/extension/2890/tray-icons-reloaded/).  
+3) Uma outra alternativa é ativar a extenção do site [extensions.gnome, tray-icons-reloaded](https://extensions.gnome.org/extension/2890/tray-icons-reloaded/). Para usar uma extenção do site, deve seguir [mais adiante, como configurar](https://github.com/elppans/doc-linux/edit/main/archlinux_gnome_minimal.md#gnome-extensions)  
 
 Exta extensão também tem no AUR, se quiser usar:
 
@@ -85,6 +85,24 @@ git clone https://aur.archlinux.org/gnome-shell-extension-tray-icons-reloaded
 cd gnome-shell-extension-tray-icons-reloaded
 makepkg -siL --needed --noconfirm
 ```
+### GNOME Extensions
+
+Se quer usar as extensoes do site [Gnome Extensions](https://extensions.gnome.org/), instale o pacote [gnome-browser-connector (AUR)](https://aur.archlinux.org/packages/gnome-browser-connector), um Conector de navegador nativo para integração com [extensions.gnome.org](https://extensions.gnome.org/):
+
+```bash
+cd ~/Downloads
+git clone https://aur.archlinux.org/gnome-browser-connector.git
+cd gnome-browser-connector
+makepkg -siL --needed --noconfirm
+```
+Também deve integrar uma extenção em seu navegador:  
+
+Chrome ou qualquer navegador com base nele: [Chrome - GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep)  
+
+Firefox ou qualquer navegador com base nele: [Firefox - GNOME Shell integration](https://addons.mozilla.org/pt-BR/firefox/addon/gnome-shell-integration/)  
+
+Com uma destas extensões no navegador mais o pacote Gnome Browser Connector, você já consegue instalar/habilitar/desabilitar/remover as extensões que quiser em sua Distro.  
+Para mais informações, acesse [nocache, Gnome extensions no ArchLinux/Manjaro](https://nocache.org/p/how-to-install-gnome-extensions-on-arch-linux-manjaro)  
 
 * Grupo Telegram recomendável:  
 
