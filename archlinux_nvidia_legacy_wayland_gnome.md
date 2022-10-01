@@ -76,7 +76,7 @@ Só que deu na mesma, então se não quiser adicionar, deixe como está.
 
 ### Configurando o módulo no initramfs:
 
-Seguindo mais dicas do Wiki e outras páginas, também adicionei os módulos no arquivo `/etc/mkinitcpio.conf`, porém, com este pacote do AUR também não é necessário.
+Seguindo mais dicas do Wiki e outras páginas, também adicionei os módulos no arquivo `/etc/mkinitcpio.conf`, porém, com este pacote do AUR também é opcional.
 > Se sua placa de vídeo for do repositório oficial, ***DEVE*** adicionar estes módulos no arquivo mkinitcpio.conf:  
 
 ```bash
@@ -101,7 +101,7 @@ sudo /usr/bin/mkinitcpio -P
 
 Finalmente, após ler algumas páginas e fóruns ví algo que talvez desse certo.  
 
-Para usar o Wayland em ez do XORG, no Gnome, após instalar o driver NVidia, edite o arquivo:
+Para usar o Wayland em vez do XORG, no Gnome com GDM, após instalar o driver NVidia, edite o arquivo:
 
 > ***/usr/lib/udev/rules.d/61-gdm.rules***
 
@@ -140,7 +140,8 @@ Significa que a configuração deu certo e finalmente está usando NVidia + Wayl
 ## Resolvendo problema de [Flickering](https://en.wikipedia.org/wiki/Flicker_(screen))  
 
 O problema de Flickering/Tearing independe da versão do driver de vídeo.  
-Em meu sistema, com interface Gnome-Shell e gerenciador de login GDM com NVidia + Wiland, estava enfrentando problemas de [Flickering](https://www.tecmundo.com.br/voxel/especiais/183041-defeitos-graficos-flicker.htm).  
+
+Em meu sistema, com interface Gnome-Shell e gerenciador de login GDM com NVidia + Wayland, estava enfrentando problemas de [Flickering](https://www.tecmundo.com.br/voxel/especiais/183041-defeitos-graficos-flicker.htm).  
 Eram problemas de inconsistências com o vídeo e alguns ícones ficavam com cores estranhas, dava para perceber um certo atraso com o FPS e problema de buffer ou algo assim, na imagem.  
 Seguindo o [Wiki do Arch Linux, referente ao problema de Flickering/Tearing](https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend), foi configurado apenas 2 parâmetros no sistema e deu certo:  
 
