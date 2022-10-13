@@ -11,7 +11,7 @@ sudo pacman -S gamemode lib32-gamemode lutris wine-staging winetricks
 ### Funcionar o som no jogo:
 
 ```
-sudo pacman -S libwrap lib32-libwrap lib32-libsndfile lib32-libasyncns apparmor lib32-libpulse
+sudo pacman -S apparmor lib32-libpulse lib32-libwrap lib32-libsndfile lib32-libasyncns
 ```
 
 ### Instalar o jogo
