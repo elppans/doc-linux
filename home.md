@@ -10,6 +10,7 @@ Indice:
 6) [ArchLinux NVidia Legacy + Wayland no Gnome](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome)  
 7) [ArchLinux, Virt-Manager + Cockpit](https://elppans.github.io/doc-linux/archlinux_virt-manager_cockpit)  
 8) [Instalando Steam no ArchLinux](https://elppans.github.io/doc-linux/archlinux_steam)  
+9) [Lutris, Need For Speed World, no ArchLinux](https://elppans.github.io/doc-linux/arch_lutris_nfs)
 
 
 * Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
