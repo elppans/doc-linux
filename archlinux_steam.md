@@ -115,6 +115,22 @@ Se no seu Gnome não tiver a aba `Comandos`, clique com o botão direito e em ed
 
 Após salvar, deslogue e logue no sistema para ver se deu certo.
 
+### Instalando driver GamePad, Steam
+
+Alguns jogos não funcionam sem ao menos reconhecer um Gamepad no sistema e, pra quem não tem um na hora de jogar, chega a ser um incômodo.  
+Para resolver, a melhor maneira é instalar um [driver para XBox One Joystic](https://aur.archlinux.org/packages/xboxdrv) para emular no Steam como se estivesse usando um Controle. Assim o jogo funciona normalmente, mesmo se estiver usando um teclado. E é fácil:
+
+```bash
+cd ~/Downloads
+git clone https://aur.archlinux.org/xboxdrv.git
+cd xboxdrv
+makepkg -siLCfc --needed --noconfirm
+sudo systemctl enable --now xboxdrv.service
+```
+
+Com isso, o problema é resolvido.  
+Para mais informações ou se estiver usando um GamePad específico e quer instalar um driver para ele, verificar no [Wiki do ArchLinux, GamePad](https://wiki.archlinux.org/index.php/Gamepad).  
+
 ### Fontes:
 
 [https://wiki.archlinux.org/title/Steam/Troubleshooting](https://wiki.archlinux.org/title/Steam/Troubleshooting)  
