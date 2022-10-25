@@ -49,7 +49,7 @@ sudo pacman -S celluloid
 ### Aplicativos no System Tray  
 
 O Gnome não vem com suporte a adicionar ícones dos aplicativos no Systray, como o [Telegram](https://archlinux.org/packages/community/x86_64/telegram-desktop/), [Steam](https://archlinux.org/packages/multilib/x86_64/steam/), etc.  
-Para resolver, existem algumas extensões para ajudar:  
+Para resolver, existem algumas extensões para ajudar. Irei mencionar aqui 3 extensões, sendo o 1º o mais recomendável e, claro, escolha 1 dos 3 para instalar:  
 
 1) [gnome-shell-extension-appindicator](https://archlinux.org/packages/community/any/gnome-shell-extension-appindicator/) ***(RECOMENDÁVEL)***:  
 
