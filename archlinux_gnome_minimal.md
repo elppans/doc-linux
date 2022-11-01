@@ -5,7 +5,7 @@ Uma maneira simples de se instalar o [GNOME](https://wiki.archlinux.org/title/GN
 ### Para obter apenas o mínimo do Gnome, deve fazer a seguinte instalação:
 
 ```bash
-pacman -S gnome-shell nautilus gnome-terminal gnome-tweak-tool gnome-control-center xdg-user-dirs gdm archlinux-wallpaper
+pacman -S gnome-shell nautilus gnome-console gnome-tweak-tool gnome-control-center xdg-user-dirs gdm archlinux-wallpaper
 ```
 > archlinux-wallpaper = Os papeis de parede do ArchLinux ficam localizadas em `/usr/share/backgrounds/archlinux/`. ***(OPCIONAL)***  
 [xdg-user-dirs](https://wiki.archlinux.org/title/XDG_user_directories_(Portugu%C3%AAs)) = "Ferramenta para ajudar a gerenciar diretórios de usuário". Após a instalação, é recomendável fazer o comando:
@@ -17,7 +17,7 @@ xdg-user-dirs-update
 ### Para uma instalação de uma forma que fique o melhor "usável" possível deixando leve, recomendo fazer esta instalação:
 
 ```bash
-sudo pacman -S gnome-shell gnome-tweaks gdm file-roller gedit gnome-control-center gnome-system-monitor gnome-terminal gvfs-google nautilus xdg-user-dirs archlinux-wallpaper
+sudo pacman -S gnome-shell gnome-tweaks gdm file-roller gnome-text-editor gnome-control-center gnome-system-monitor gnome-console gvfs-google nautilus xdg-user-dirs archlinux-wallpaper
 sudo systemctl enable gdm
 xdg-user-dirs-update
 ```
@@ -28,6 +28,17 @@ nautilus - Fiz um teste de instalação do gerenciador nemo, mas achei bem ruim 
 gnome-tweaks - É o conhecido Gnome Tweak Tool, sempre é bom ter ele pra fazer algumas configurações que seriam trabalhosas;  
 gnome-control-center - Ele não faz parte das dependências do gnome-shell, então deve adicionar na linha de instalação, ou não vai dar pra configurar o Gnome;  
 [gdm](https://wiki.archlinux.org/title/GDM_(Portugu%C3%AAs)) - Gerenciador de login do Gnome. Fiz um teste com lightdm e também com o sddm e, claro, melhor o GDM mesmo.  
+
+* Ícones do gnome-text-editor e gnome-console (Opcional)
+
+Como estes 2 pacotes são praticamente "novos", ainda não tem o ícone customizado nos pacotes de temas de ícones, então, se não gostar dos ícones atuais deles (Eu achei bem feio) pode trocar pelos ícones dos pacotes antigos, o gedit e o gnome-terminal, se já estiver bom não precisa. Para trocar, pode fazer desta maneira:
+
+```bash
+cp -v /usr/share/applications/org.gnome.Console.desktop ~/.local/share/applications
+cp -v /usr/share/applications/org.gnome.TextEditor.desktop ~/.local/share/applications
+sed -i '/Icon/s/org.gnome.TextEditor/org.gnome.gedit/' ~/.local/share/applications/org.gnome.TextEditor.desktop
+sed -i '/Icon/s/org.gnome.Console/org.gnome.Terminal/' ~/.local/share/applications/org.gnome.Console.desktop
+```
 
 ### Aplicação de Imagens:  
 
@@ -46,6 +57,23 @@ A melhor opção foi o Celluloid, que é o frontend do MPV, que funcionou perfei
 ```bash
 sudo pacman -S celluloid
 ```
+
+### Pacotes OPCIONAIS
+
+Existem alguns pacotes que podem ser úteis de se instalar, se guiser deixar sua Distro e Gnome mais completo:  
+
+> [cheese](https://archlinux.org/packages/extra/x86_64/cheese/): Webcam. Tire fotos e vídeos com sua webcam, com efeitos gráficos divertidos  
+[dconf-editor](https://archlinux.org/packages/extra/x86_64/dconf-editor/). Editor de configurações do GNOME (Avançado)  
+[evince](https://archlinux.org/packages/extra/x86_64/evince/): Visualizador de documentos (PDF, PostScript, XPS, djvu, dvi, tiff, cbr, cbz, cb7, cbt)  
+[fragments](https://archlinux.org/packages/community/x86_64/fragments/): Cliente BitTorrent para GNOME !!!  
+[gnome-calculator](https://archlinux.org/packages/extra/x86_64/gnome-calculator/): Calculadora Científica GNOME !!!  
+[gnome-logs](https://archlinux.org/packages/extra/x86_64/gnome-logs/): Um visualizador de log para o diário do systemd !!!  
+[gnome-weather](https://archlinux.org/packages/extra/any/gnome-weather/): Acesse as condições e previsões meteorológicas atuais  
+[gsmartcontrol](https://archlinux.org/packages/community/x86_64/gsmartcontrol/): Uma interface gráfica do usuário para a ferramenta de inspeção de integridade da unidade de disco rígido smartctl.  
+[gtkhash (AUR)](https://aur.archlinux.org/packages/gtkhash): Um utilitário GTK+ para calcular resumos de mensagens ou somas de verificação  
+
+`!!! = Instalei estes pacotes posteriormente`
+
 ### Aplicativos no System Tray  
 
 O Gnome não vem com suporte a adicionar ícones dos aplicativos no Systray, como o [Telegram](https://archlinux.org/packages/community/x86_64/telegram-desktop/), [Steam](https://archlinux.org/packages/multilib/x86_64/steam/), etc.  
