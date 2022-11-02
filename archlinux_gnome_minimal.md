@@ -71,6 +71,7 @@ Existem alguns pacotes que podem ser úteis de se instalar, se guiser deixar sua
 [gnome-weather](https://archlinux.org/packages/extra/any/gnome-weather/): Acesse as condições e previsões meteorológicas atuais  
 [gsmartcontrol](https://archlinux.org/packages/community/x86_64/gsmartcontrol/): Uma interface gráfica do usuário para a ferramenta de inspeção de integridade da unidade de disco rígido smartctl.  
 [gtkhash (AUR)](https://aur.archlinux.org/packages/gtkhash): Um utilitário GTK+ para calcular resumos de mensagens ou somas de verificação  
+[power-profiles-daemon](https://archlinux.org/packages/extra/x86_64/power-profiles-daemon/): Disponibiliza o manuseio de perfis de energia via D-Bus (Ativa/Desativa Economia de energia)  
 
 `!!! = Instalei estes pacotes posteriormente`
 
