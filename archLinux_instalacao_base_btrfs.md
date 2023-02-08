@@ -29,7 +29,24 @@ reflector --verbose --latest 3 --sort rate --country Brazil --save /etc/pacman.d
 cat /etc/pacman.d/mirrorlist
 pacman -Syy
 ```
+* Se você receber um aviso como este
 
+>WARNING: failed to rate PROTOCOLO download (PROTOCOLO://SERVIDOR/archlinux/community/os/x86_64/community.db):  
+Download timed out after 5 second(s).
+
+Tente usar a opção "--download-timeout XX" e, se continuar o erro, use o comando sem a opção "--country PAÍS".  
+Opcionalmente use a opção "--age XX".
+
+>--age XX Significa horas após a última atualização do espelho, use um número pequeno  
+--download-timeout XX Segundos a aguardar antes de um download atingir o tempo limite. Padrão: 5
+
+* Observação:
+
+A opção --sort rate torna a classificação geralmente muito lenta. Ao usar países, você pode não precisar usar a opção de taxa. Usar também a opção --sort country pode ser útil.
+
+```
+reflector --verbose --age 2 --latest 5 --sort rate --download-timeout 10 --save /etc/pacman.d/mirrorlist
+```
 
 3) Configurando partições e usando BTRFS, usando como exemplo: /dev/sda de 35 GB:
 
@@ -288,6 +305,7 @@ Outros tópicos:
 [https://forum.archlinux-br.org/viewtopic.php?id=3624](https://forum.archlinux-br.org/viewtopic.php?id=3624)  
 [https://wiki.archlinux.org/title/GRUB#UEFI_systems_2](https://wiki.archlinux.org/title/GRUB#UEFI_systems_2)  
 [https://wiki.archlinux.org/title/EFI_system_partition#Mount_the_partition](https://wiki.archlinux.org/title/EFI_system_partition#Mount_the_partition)  
+[https://forum.endeavouros.com/t/mirrors-are-really-slow-reflector-cant-rate-any-mirror/15135/3](https://forum.endeavouros.com/t/mirrors-are-really-slow-reflector-cant-rate-any-mirror/15135/3)
 
 Link's recomendáveis:  
 
