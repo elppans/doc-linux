@@ -3,14 +3,15 @@ Dicas e tutoriais sobre Linux
 Indice:
 
 1) [Instalando ArchLinux, base, em BTRFS](https://elppans.github.io/doc-linux/archLinux_instalacao_base_btrfs)  
-2) [Instalando Gnome Minimal no ArchLinux](https://elppans.github.io/doc-linux/archlinux_gnome_minimal)  
-3) [Escolhendo e instalando uma Suite Office no ArchLinux](https://elppans.github.io/doc-linux/archlinux_suite_office)  
-4) [ArchLinux com zsh, oh my zsh e powerlevel10k](https://elppans.github.io/doc-linux/archlinux_zsh_ohmyzsh_powerlevel10k)  
-5) [Arch Linux AUR Helpers](https://elppans.github.io/doc-linux/archlinux_aur_helpers)  
-6) [ArchLinux NVidia Legacy + Wayland no Gnome](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome)  
-7) [ArchLinux, Virt-Manager + Cockpit](https://elppans.github.io/doc-linux/archlinux_virt-manager_cockpit)  
-8) [Instalando Steam no ArchLinux](https://elppans.github.io/doc-linux/archlinux_steam)  
-9) [Lutris, Need For Speed World, no ArchLinux](https://elppans.github.io/doc-linux/arch_lutris_nfs)
+2) [Sobre o Archinstall](https://elppans.github.io/doc-linux/archinstall)  
+3) [Instalando Gnome Minimal no ArchLinux](https://elppans.github.io/doc-linux/archlinux_gnome_minimal)  
+4) [Escolhendo e instalando uma Suite Office no ArchLinux](https://elppans.github.io/doc-linux/archlinux_suite_office)  
+5) [ArchLinux com zsh, oh my zsh e powerlevel10k](https://elppans.github.io/doc-linux/archlinux_zsh_ohmyzsh_powerlevel10k)  
+6) [Arch Linux AUR Helpers](https://elppans.github.io/doc-linux/archlinux_aur_helpers)  
+7) [ArchLinux NVidia Legacy + Wayland no Gnome](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome)  
+8) [ArchLinux, Virt-Manager + Cockpit](https://elppans.github.io/doc-linux/archlinux_virt-manager_cockpit)  
+9) [Instalando Steam no ArchLinux](https://elppans.github.io/doc-linux/archlinux_steam)  
+10) [Lutris, Need For Speed World, no ArchLinux](https://elppans.github.io/doc-linux/arch_lutris_nfs)
 
 
 * Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
