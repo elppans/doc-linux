@@ -38,14 +38,25 @@ Tente usar a opção "--download-timeout XX" e, se continuar o erro, use o coman
 Opcionalmente use a opção "--age XX".
 
 >--age XX Significa horas após a última atualização do espelho, use um número pequeno  
---download-timeout XX Segundos a aguardar antes de um download atingir o tempo limite. Padrão: 5
+--download-timeout XX Segundos a aguardar antes de um download atingir o tempo limite. Padrão: 5  
+--latest XX Busca os servidores sincronizados mais recentemente  
+--sort rate Classificar mirrorlist com base na taxa de download  
+--fastest XX Retorne os n espelhos mais rápidos que atendem aos outros critérios.  
+--threads XX Esta opção acelerará a etapa de classificação, mas os resultados serão imprecisos se a largura de banda local estiver saturada em qualquer ponto durante a operação, se a classificação demorar muito.  
 
 * Observação:
 
 A opção --sort rate torna a classificação geralmente muito lenta. Ao usar países, você pode não precisar usar a opção de taxa. Usar também a opção --sort country pode ser útil.
 
+Exemplo 01:
+
 ```
 reflector --verbose --age 2 --latest 5 --sort rate --download-timeout 10 --save /etc/pacman.d/mirrorlist
+```
+Exemplo 02:
+
+```
+reflector --verbose --age 2 --latest 5 --fastest 20 --threads 20 --sort rate --download-timeout 5 --save /etc/pacman.d/mirrorlist
 ```
 
 3) Configurando partições e usando BTRFS, usando como exemplo: /dev/sda de 35 GB:
