@@ -129,6 +129,29 @@ sudo systemctl enable --now xboxdrv.service
 ```
 
 Com isso, o problema é resolvido.  
+
+### Configurar Gamepad
+
+Há alguns aplicativos bons para testar e configurar os Gamepads
+
+[jstest-gtk-git](https://aur.archlinux.org/packages/jstest-gtk-git)  
+[sdl2-jstest-git](https://aur.archlinux.org/packages/sdl2-jstest-git)  
+[evtest](https://archlinux.org/packages/?name=evtest)  
+[evtest-qt-git](https://aur.archlinux.org/packages/evtest-qt-git)  
+[qjoypad](https://aur.archlinux.org/packages/qjoypad)  
+[sc-controller](https://aur.archlinux.org/packages/sc-controller)  
+[antimicrox](https://aur.archlinux.org/packages/antimicrox)  
+
+
+Para mim, pareceu mais fácil configurar o Gamepad usando o antimicrox, então instalei ele mesmo:  
+
+```
+cd ~/build
+git clone https://aur.archlinux.org/antimicrox.git
+cd antimicrox
+makepkg -siLCfc --needed --noconfirm
+```
+
 Para mais informações ou se estiver usando um GamePad específico e quer instalar um driver para ele, verificar no [Wiki do ArchLinux, GamePad](https://wiki.archlinux.org/index.php/Gamepad).  
 
 ### Fontes:
