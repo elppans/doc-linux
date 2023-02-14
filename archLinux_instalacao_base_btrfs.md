@@ -56,7 +56,7 @@ reflector --verbose --age 2 --latest 5 --sort rate --download-timeout 10 --save 
 Exemplo 02:
 
 ```
-reflector --verbose --age 2 --latest 5 --fastest 20 --threads 20 --sort rate --download-timeout 5 --save /etc/pacman.d/mirrorlist
+reflector --verbose --age 2 --latest 5 --fastest 20 --threads 20 --sort rate --download-timeout 10 --save /etc/pacman.d/mirrorlist
 ```
 
 3) Configurando partições e usando BTRFS, usando como exemplo: /dev/sda de 35 GB:
