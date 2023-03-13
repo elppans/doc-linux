@@ -106,7 +106,7 @@ Agora, os aplicativos que adicionam ícones no Systray irão aparecer normalment
 
 3) Uma outra alternativa é ativar a extenção do site [extensions.gnome, tray-icons-reloaded](https://extensions.gnome.org/extension/2890/tray-icons-reloaded/). Para usar uma extenção do site, deve seguir [mais adiante, como configurar](https://github.com/elppans/doc-linux/edit/main/archlinux_gnome_minimal.md#gnome-extensions)  
 
-Exta extensão também tem no AUR, se quiser usar:
+Esta extensão também tem no AUR, se quiser usar:
 
 ```bash
 cd ~/Downloads
@@ -132,6 +132,19 @@ Firefox ou qualquer navegador com base nele: [Firefox - GNOME Shell integration]
 
 Com uma destas extensões no navegador mais o pacote Gnome Browser Connector, você já consegue instalar/habilitar/desabilitar/remover as extensões que quiser em sua Distro.  
 Para mais informações, acesse [nocache, Gnome extensions no ArchLinux/Manjaro](https://nocache.org/p/how-to-install-gnome-extensions-on-arch-linux-manjaro)  
+
+### Sugestão de Extenção
+
+[gnome-shell-extension-caffeine](https://aur.archlinux.org/packages/gnome-shell-extension-caffeine)  
+Extensão para o GNOME Shell para desabilitar o protetor de tela e suspender automaticamente. Funciona como [caffeine](https://aur.archlinux.org/packages/caffeine-ng), que é um aplicativo de barra de status capaz de inibir temporariamente o protetor de tela e o modo de suspensão.  
+Com a instalação desta extenção, também é adicionado várias outras configurações que pode habilitar/desabilitar, se preferir.  
+
+```bash
+cd ~/Downloads
+git clone https://aur.archlinux.org/gnome-shell-extension-caffeine.git
+cd gnome-shell-extension-caffeine
+makepkg -siL --needed --noconfirm
+```
 
 * Grupo Telegram recomendável:  
 
