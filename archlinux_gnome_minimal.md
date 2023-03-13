@@ -136,7 +136,7 @@ Para mais informações, acesse [nocache, Gnome extensions no ArchLinux/Manjaro]
 ### Sugestão de Extenção
 
 [gnome-shell-extension-caffeine](https://aur.archlinux.org/packages/gnome-shell-extension-caffeine)  
-Extensão para o GNOME Shell para desabilitar o protetor de tela e suspender automaticamente. Funciona como [caffeine](https://aur.archlinux.org/packages/caffeine-ng), que é um aplicativo de barra de status capaz de inibir temporariamente o protetor de tela e o modo de suspensão.  
+Extensão para o GNOME Shell para desabilitar o protetor de tela e suspender automaticamente. Funciona como [caffeine-ng](https://aur.archlinux.org/packages/caffeine-ng), que é um aplicativo de barra de status capaz de inibir temporariamente o protetor de tela e o modo de suspensão.  
 Com a instalação desta extenção, também é adicionado várias outras configurações que pode habilitar/desabilitar, se preferir.  
 
 ```bash
