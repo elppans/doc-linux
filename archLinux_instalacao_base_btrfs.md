@@ -155,17 +155,17 @@ mount
 
 Sobre os principais pacotes:
 
-base - sistema linux básico  
-linux - [Kernel](https://wiki.archlinux.org/title/Kernel_(Portugu%C3%AAs)) e módulos linux mais recentes (você pode substituir por linux-lts se quiser um kernel mais estável)  
-linux-headers - Cabeçalhos e scripts para construir módulos para o kernel Linux (também pode substituir por linux-lts-headers)  
-linux-firmware - Arquivos de firmware para linux (você pode pular isso em uma vm)  
-intel-ucode - Arquivos de atualização de [microcódigo](https://wiki.archlinux.org/title/Microcode) para CPUs Intel  
-amd-ucode - Imagem de atualização de [microcódigo](https://wiki.archlinux.org/title/Microcode) para CPUs AMD  
-btrfs-progs - utilitários do sistema de arquivos Btrfs  
-nano - Um editor de texto simples baseado em terminal  
-ntp - Implementação de referência do Network Time Protocol  
-reflector - [Update mirrors](https://wiki.archlinux.org/title/Reflector_(Portugu%C3%AAs)) ***(Opcional)***  
-[git](https://wiki.archlinux.org/title/git) - Sistema de controle de versão (VCS), no Arch é usado para manter pacotes [AUR](https://wiki.archlinux.org/title/Arch_User_Repository_(Portugu%C3%AAs)).  
+> [base](https://archlinux.org/packages/core/any/base/) - sistema linux básico  
+[linux](https://archlinux.org/packages/core/x86_64/linux/) - [Kernel](https://wiki.archlinux.org/title/Kernel_(Portugu%C3%AAs)) e módulos linux mais recentes (você pode substituir por linux-lts se quiser um kernel mais estável)  
+[linux-headers](https://archlinux.org/packages/core/x86_64/linux-headers/) - Cabeçalhos e scripts para construir módulos para o kernel Linux (também pode substituir por linux-lts-headers)  
+[linux-firmware](https://archlinux.org/packages/core/any/linux-firmware/) - Arquivos de firmware para linux (você pode pular isso em uma vm)  
+[intel-ucode](https://archlinux.org/packages/extra/any/intel-ucode/) - Arquivos de atualização de [microcódigo](https://wiki.archlinux.org/title/Microcode) para CPUs Intel  
+[amd-ucode](https://archlinux.org/packages/core/any/amd-ucode/) - Imagem de atualização de [microcódigo](https://wiki.archlinux.org/title/Microcode) para CPUs AMD  
+[btrfs-progs](https://archlinux.org/packages/core/x86_64/btrfs-progs/) - utilitários do sistema de arquivos Btrfs  
+[nano](https://archlinux.org/packages/core/x86_64/nano/) - Um editor de texto simples baseado em terminal  
+[ntp](https://archlinux.org/packages/extra/x86_64/ntp/) - Implementação de referência do Network Time Protocol  
+[reflector](https://archlinux.org/packages/community/any/reflector/) - [Update mirrors](https://wiki.archlinux.org/title/Reflector_(Portugu%C3%AAs)) ***(Opcional)***  
+[git](https://archlinux.org/packages/extra/x86_64/git/) - Sistema de controle de versão (VCS), no Arch é usado para manter pacotes [AUR](https://wiki.archlinux.org/title/Arch_User_Repository_(Portugu%C3%AAs)). Veja o [wiki](https://wiki.archlinux.org/title/git) para mais informações.  
 
 Um sistema mínimo exige o pacote do grupo base, também a instalação do grupo de pacote base-devel neste momento é altamente recomendado.  
 > Ps.: Eu uso uma máquina com CPU Intel, então vou usar o pacote ***"intel-ucode"***. Se você usa máquina com CPU AMD, troque o pacote por ***"amd-ucode"***.  
@@ -249,10 +249,12 @@ Pacotes para o gerenciamento de rede.
 pacman -Syy
 pacman -S --needed --noconfirm man-db man-pages texinfo
 pacman -S --needed --noconfirm grub-efi-x86_64 efibootmgr dosfstools os-prober mtools
-pacman -S --needed --noconfirm networkmanager network-manager-applet wpa_supplicant wireless_tools dialog sudo
+pacman -S --needed --noconfirm networkmanager wpa_supplicant wireless_tools dialog sudo
 systemctl enable NetworkManager
 ```
 
+> [network-manager-applet](https://archlinux.org/packages/extra/x86_64/network-manager-applet/). Applet para gerenciar conexões de rede.  
+Se for usar uma GUI como o Gnome, Budgie, Cinnamon, instale este pacote junto. Se for usar outro, por exemplo o Plasma que não usa, este pacote não é necessário.  
 
 13) Instalação do GRUB EFI:
 
