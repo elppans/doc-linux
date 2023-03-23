@@ -49,6 +49,7 @@ sudo systemctl enable sddm
 [plasma-pa](https://archlinux.org/packages/extra/x86_64/plasma-pa/). Gerenciador de áudio que se integra ao Plasma desktop.  
 [Dolphin](https://archlinux.org/packages/extra/x86_64/dolphin/). Gerenciador de arquivos do KDE Plasma.  
 [Konsole](https://archlinux.org/packages/extra/x86_64/konsole/). Aplicativo de terminal padrão para o KDE Plasma  
+[kate](https://archlinux.org/packages/extra/x86_64/kate/). Editor de texto avançado  
 [kdeplasma-addons](https://archlinux.org/packages/extra/x86_64/kdeplasma-addons/)(**OPCIONAL**). Ele fornece alguns widgets extras para a barra de status, como indicador de bloqueio de caps, indicador de microfone, comutador de cores noturno, etc.  
 [kde-gtk-config](https://archlinux.org/packages/extra/x86_64/kde-gtk-config/). Estilo GTK, correção de estilos. P/ configurar, após instalação, vá em Configurações> Aparência> Estilo de aplicativo> Estilo de aplicativo GNOME/GTK.  
 [powerdevil](https://archlinux.org/packages/extra/x86_64/powerdevil/) (**OPCIONAL**). Se estiver instalando o kde em um dispositivo como um laptop ou notebook. **Já contém no pacote plasma-desktop**.  
@@ -68,7 +69,7 @@ Então não vou listar o mesmo aqui.
 Se alguém, consegue fazer funcionar, por favor, comente sobre como fazer.  
 
 ```
-sudo pacman -S plasma-desktop plasma-wayland-session plasma-nm plasma-pa dolphin konsole kde-gtk-config
+sudo pacman -S plasma-desktop plasma-wayland-session plasma-nm plasma-pa dolphin konsole kate kde-gtk-config
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
 ```
@@ -127,7 +128,6 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 > [p7zip](https://archlinux.org/packages/extra/x86_64/p7zip/). 7Z format support  
 [unarchiver](https://archlinux.org/packages/community/x86_64/unarchiver/). unar e lsar: ferramentas Objective-C para descompactar arquivos compactados  
 [rar (AUR)](https://aur.archlinux.org/packages/rar).  Utilitário CLI para compressão rar  
-[unrar](https://archlinux.org/packages/extra/x86_64/unrar/). Utilitário CLI para DEScompressão rar  
 
 ### Dependências opcionais para dolphin  
 
@@ -175,17 +175,28 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 
 ## Instalando os pacotes listados:
 
+### Pacotes de repositorios oficiais
+
 ```
-yay -S dolphin-plugins kscreen kinfocenter kfind kcalc spectacle ark 
-yay -S plasma-systemmonitor yakuake filelight neofetch btrfs-assistant
-yay -S p7zip unarchiver unrar rar
-yay -S kdegraphics-thumbnailers ffmpegthumbs ruby kde-service-menu-reimage jhead
-yay -S kgamma5 qbittorrent kio-gdrive gamemode
-yay -S simplescreenrecorder guvcview skanpage
-yay -S dragon clementine gwenview okular kimageformats qt5-imageformats poppler-data kde-service-menu-reimage jhead microsoft-edge-stable-bin
-yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
+sudo pacman -S --needed dolphin-plugins kscreen kinfocenter kfind kcalc spectacle ark 
+sudo pacman -S --needed plasma-systemmonitor yakuake filelight neofetch
+sudo pacman -S --needed p7zip unarchiver
+sudo pacman -S --needed kdegraphics-thumbnailers ffmpegthumbs ruby
+sudo pacman -S --needed kgamma5 qbittorrent kio-gdrive gamemode
+sudo pacman -S --needed simplescreenrecorder guvcview skanpage
+sudo pacman -S --needed dragon clementine gwenview okular kimageformats qt5-imageformats poppler-data
 ```
 
+### Pacotes AUR
+
+```
+yay -S btrfs-assistant
+yay -S rar 
+yay -S kde-service-menu-reimage jhead
+yay -S mystiq 
+yay -S microsoft-edge-stable-bin
+yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
+```
 
 # Solução de problemas no Plasma
 
