@@ -12,12 +12,23 @@ Se assim como eu, não quer criar um novo usuário mas quer a pasta de usuário 
 ```
 sudo mv /home/usuário /home/usuário_BKP
 sudo mkdir -p /home/usuário
-sudo chown $USER:$USER /home/usuário
+cp -av /etc/skel/.bash* /home/usuário
+sudo chown -R $USER:$USER /home/usuário
 ```
 
 Com isso, não precisa criar um novo usuário e vai ter um novo diretório limpo para o mesmo e ainda vai ter um backup, para caso precise copiar algo de importância para o diretório de usuário novo.  
 
 > Observação: Por garantia, faça um BACKUP dos seus arquivos.  
+
+### Shell padrão do usuário
+
+Antes de começar o processo da "formatação" do Archlinux, é importante redefinir o Shell padrão do seu usuário, principalmente se o seu Shell é customizado.  
+Aconteceu que, eu estava usando zsh e como removí ao fazer o processo de "reset", tive um problema de "login ou senha inválido" mesmo adicionando a senha correta e, a fim de corrigir fiz uma pesquisa e vi sobre [gerenciamento de usuários](https://wiki.archlinux.org/title/Users_and_groups_(Portugu%C3%AAs)#Gerenciamento_de_usu%C3%A1rio) que se o Shell não está listado no arquivo `/etc/shells`, o usuário fica impossibilitado de logar.  
+Para corrigir, deve [alterar o Shell padrão](https://wiki.archlinux.org/title/Command-line_shell_(Portugu%C3%AAs)#Alterando_seu_shell_padr%C3%A3o) para o "original", então, deve fazer o comando para configurar o Shell padrão:
+
+```
+sudo chsh -s /bin/bash $USER
+```
 
 ### [Removendo tudo exceto os pacotes essenciais](https://wiki.archlinux.org/title/Pacman_(Portugu%C3%AAs)/Tips_and_tricks_(Portugu%C3%AAs)#Removendo_tudo_exceto_os_pacotes_essenciais)  
 
@@ -32,7 +43,12 @@ sudo pacman -D --asdeps $(pacman -Qqe)
 Faça o mesmo com seus pacotes utilizados na instalação.  
 
 ```
-sudo pacman -D --asexplicit base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs nano ntp reflector git man-db man-pages texinfo grub-efi-x86_64 efibootmgr dosfstools os-prober mtools networkmanager wpa_supplicant wireless_tools dialog sudo
+sudo pacman -D --asexplicit base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs git fakeroot reflector nano ntp man-db man-pages texinfo grub-efi-x86_64 efibootmgr dosfstools os-prober mtools networkmanager wpa_supplicant wireless_tools dialog sudo
+```
+> Mais especificamente, como não queria recompilar o yay e ter o trabalho de instalar meu driver NVidia novamente, meu comando completo ficou assim, lembrando que você pode adicionar os pacotes que quiser, assim como fiz:
+
+```
+sudo pacman -D --asexplicit base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs git fakeroot reflector nano ntp man-db man-pages texinfo grub-efi-x86_64 efibootmgr dosfstools os-prober mtools networkmanager wpa_supplicant wireless_tools dialog sudo yay nvidia-470xx-dkms nvidia-470xx-dkms nvidia-470xx-dkms mlocate wget
 ```
 
 * 3° - [Remover os pacotes](https://wiki.archlinux.org/title/Pacman_(Portugu%C3%AAs)/Tips_and_tricks_(Portugu%C3%AAs)#Removendo_pacotes_n%C3%A3o_usados_(%C3%B3rf%C3%A3os)), menos os configurados como "Instalados Explicitamente"  
