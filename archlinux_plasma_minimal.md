@@ -165,7 +165,7 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
 [microsoft-edge-stable-bin (AUR)](https://aur.archlinux.org/packages/microsoft-edge-stable-bin). Navegador com base no Chromium  
 [midori](https://archlinux.org/packages/community/x86_64/midori/). Navegador da Web leve  
 [opera](https://archlinux.org/packages/community/x86_64/opera/). Um navegador da Web rápido e seguro  
-[yandex-browser (AUR)](https://aur.archlinux.org/packages/yandex-browser). O navegador da Web do Yandex. Design minimalista com tecnologia sofisticada para tornar a web mais rápida, segura e fácil  
+[yandex-browser (AUR)](https://aur.archlinux.org/packages/yandex-browser). Navegador Web Yandex. Design minimalista com tecnologia sofisticada para tornar a web mais rápida, segura e fácil  
 [vivaldi](https://archlinux.org/packages/community/x86_64/vivaldi/). Um navegador avançado feito com o usuário avançado em mente.  
 
 ### Dependências opcionais para gwenview  
