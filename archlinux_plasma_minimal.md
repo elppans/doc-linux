@@ -154,7 +154,19 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 [gwenview](https://archlinux.org/packages/extra/x86_64/gwenview/). Um visualizador de imagens rápido e fácil de usar  
 [okular](https://archlinux.org/packages/extra/x86_64/okular/). Visualizador de documentos  
 [mystiq (AUR)](https://aur.archlinux.org/packages/mystiq). Converter audio e video  
+
+### Navegadores
+
+Lista dos principais navegadores usados pela maioria, pode escolher um ou mais para instalar.  
+
+> [brave-bin (AUR)](https://aur.archlinux.org/packages/brave-bin). Navegador da Web que bloqueia anúncios e rastreadores por padrão (versão binária)  
+[firefox](https://archlinux.org/packages/extra/any/firefox-i18n-pt-br/). Navegador da Web do mozilla.org  
+[google-chrome (AUR)](https://aur.archlinux.org/packages/google-chrome). O navegador popular e confiável do Google (Stable Channel)  
 [microsoft-edge-stable-bin (AUR)](https://aur.archlinux.org/packages/microsoft-edge-stable-bin). Navegador com base no Chromium  
+[midori](https://archlinux.org/packages/community/x86_64/midori/). Navegador da Web leve  
+[opera](https://archlinux.org/packages/community/x86_64/opera/). Um navegador da Web rápido e seguro  
+[yandex-browser (AUR)](https://aur.archlinux.org/packages/yandex-browser). O navegador da Web do Yandex. Design minimalista com tecnologia sofisticada para tornar a web mais rápida, segura e fácil  
+[vivaldi](https://archlinux.org/packages/community/x86_64/vivaldi/). Um navegador avançado feito com o usuário avançado em mente.  
 
 ### Dependências opcionais para gwenview  
 
@@ -197,6 +209,9 @@ yay -S mystiq
 yay -S microsoft-edge-stable-bin
 yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
 ```
+### Sugestão
+
+Se assim como eu, em seu sistema é utilizado o yay (Não sei se funciona com outros Wrappers), pode instalar um ADDON para o Plasma chamado [Arch Update](https://elppans.github.io/doc-linux/archlinux_aur_helpers#arch-update-para-quem-usa-plasma-kde) após subir o sistema com o GUI Plasma funcionando.  
 
 # Solução de problemas no Plasma
 
