@@ -21,12 +21,14 @@ O melhor servidor pra logar e jogar é o principal (WorldUnited.gg)
 
 ### Resolver Crash
 
-Dentro do jogo, pra evitar Crash, faça esta configuração:
+1) Dentro do jogo, pra evitar Crash, faça esta configuração:
 
 ```
 Entrar em Opções > Social
 Deixe ativado "Social Freeroam Filtering"
 ```
+
+2) Com winetricks, instale o pacote vcrun2019, para evitar o erro "Unable to load Modloader.asi"
 
 Mais informações:  
 [Pastebin - Arch, NFS no Lutri, correção de erros](https://pastebin.com/1pVqZjFE)
