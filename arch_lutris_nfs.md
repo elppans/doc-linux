@@ -9,9 +9,10 @@ sudo pacman -S gamemode lib32-gamemode lutris wine-staging winetricks
 ```
 
 ### Funcionar o som no jogo:
+> lib32-libwrap foi removido dos repositórios, mas mesmo sem, o som funciona.
 
 ```
-sudo pacman -S apparmor lib32-libpulse lib32-libwrap lib32-libsndfile lib32-libasyncns
+sudo pacman -S apparmor lib32-libpulse lib32-libsndfile lib32-libasyncns
 ```
 
 ### Instalar o jogo
@@ -28,7 +29,20 @@ Entrar em Opções > Social
 Deixe ativado "Social Freeroam Filtering"
 ```
 
-2) Com winetricks, instale o pacote vcrun2019, para evitar o erro "Unable to load Modloader.asi"
+2) Com winetricks do jogo instale o pacote vcrun2019, para evitar o erro "Unable to load Modloader.asi"  
 
-Mais informações:  
+3) Após logar, se der erro informando que está faltando o DirectX e pedindo pra instalar GPU Driver configure:  
+
+* Clique em Jogar (seta) e vá em Configurar, aba "Opções do runner";  
+Desabilite a opção "**Habilitar DXVK**"  
+
+4) Outras configurações  
+
+* Clique em Jogar (seta) e vá em Configurar, aba "Opções do sistema";  
+Habilite a opção "Restaurar a resolução ao sair do jogo"  
+
+* Clique em Jogar (seta) e vá em Configurar, aba "Opções do sistema";  
+Vá até variáveis de ambiente e adicione "**DXVK_HUD=fps**"  
+
+Para mais informações, acesse:  
 [Pastebin - Arch, NFS no Lutri, correção de erros](https://pastebin.com/1pVqZjFE)
