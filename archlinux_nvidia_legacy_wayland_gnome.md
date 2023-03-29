@@ -153,6 +153,37 @@ sudo reboot
 
 Após bastante uso, percebi que o problema foi resolvido, pois os ícones pararam de ficar com cores estranhas e outros aplicativos pararam com o delay na imagem.
 
+### Opções no xorg.onf  
+
+Eu adicionei algumas opções em meu xorg.conf, na seção "**Screen**":  
+
+>    #Option        ""ForceCompositionPipeline" "On"  
+    Option         "ForceFullCompositionPipeline" "on"  
+    Option         "UseNvKmsCompositionPipeline" "Off"  
+    Option         "AllowIndirectGLXProtocol" "off"  
+    Option         "TripleBuffer" "on"  
+
+A seção ficou configurada assim:  
+
+```
+Section "Screen"
+    Identifier     "Screen0"
+    Device         "Device0"
+    Monitor        "Monitor0"
+    #Option        ""ForceCompositionPipeline" "On"
+    Option         "ForceFullCompositionPipeline" "on"
+    Option         "UseNvKmsCompositionPipeline" "Off"
+    Option         "AllowIndirectGLXProtocol" "off"
+    Option         "TripleBuffer" "on"
+    DefaultDepth    24
+    SubSection     "Display"
+        Depth       24
+    EndSubSection
+EndSection
+```
+
+Até o momento, o vídeo está funcionando normalmente.  
+
 * Fontes e recomendações:
 
 [https://wiki.archlinux.org/title/NVIDIA_(Portugu%C3%AAs)](https://wiki.archlinux.org/title/NVIDIA_(Portugu%C3%AAs))  
