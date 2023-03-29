@@ -224,6 +224,45 @@ Vai aparecer o Widget de teclado no Systray, perto do ícone de rede e do relóg
 
 Opcionalmente, após adicionar o Layout do seu teclado, pode remover o padrão da instalação, "**Inglês (EUA)**".  
 
+### Wayland no Plasma
+
+Para que o Plasma fique mais estável com o Wayland, instale o pacote [plasma-wayland-protocols](https://archlinux.org/packages/extra/any/plasma-wayland-protocols/) e adicione no arquivo /etc/environment, a variável `QT_QPA_PLATFORM=xcb` OU `QT_QPA_PLATFORM=wayland-egl`.  
+Se você usa o navegador Firefox, adicione também a variável `MOZ_ENABLE_WAYLAND=1`.  
+Como eu estava testando, achei algumas variáveis interessantes que podem ajudar (ou não) quem usa NVidia, assim como eu.  
+Já aproveitei e adicionei todas elas no arquivo /etc/environment. Ficou assim, pode usar a variável que quiser:  
+
+```
+## KDE Wayland
+#KWIN_COMPOSE=0 # Screen, Spactacle não funciona com esta linha ativada
+QT_QPA_PLATFORMTHEME=qt6ct
+QT_IM_MODULE=ibus
+QT_AUTO_SCREEN_SCALE_FACTOR=1
+QT_QPA_EGLFS_ALWAYS_SET_MODE=1
+
+#QT_QPA_PLATFORM=wayland
+QT_QPA_PLATFORM=xcb
+#QT_QPA_PLATFORM=wayland-egl
+#QT_QPA_PLATFORM=eglfs
+#QT_QPA_PLATFORM=linuxfb
+#QT_QPA_PLATFORM=qt5cb
+#QT_QPA_PLATFORM=minimal
+
+QSG_RENDERER_LOOP=basic
+GBM_BACKEND=nvidia-drm
+__GLX_VENDOR_LIBRARY_NAME=nvidia
+__GL_SYNC_TO_VBLANK=0
+KWIN_DRM_FORM_EGL_STREAMS=1
+NV_PRIME_RENDER_OFFLOAD=1
+VK_LAYER_NV_optimus=NVIDIA_only
+#CLUTTER_DEFAULT_FPS=YOUR_MAIN_DISPLAY_REFRESHRATE
+#__GL_SYNC_DISPLAY_DEVICE=YOUR_MAIN_DISPLAY_OUTPUT_NAME
+__GL_ExperimentalPerfStrategy=1
+__GL_MaxFramesAllowed=1
+GLX_SGI_video_sync=1
+GLX_OML_sync_control=1
+MOZ_ENABLE_WAYLAND=1
+```
+
 # Solução de problemas no Plasma
 
 Uma lista do que ví no Arch Wiki e também em outros locais.  
