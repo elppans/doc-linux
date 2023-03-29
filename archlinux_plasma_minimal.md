@@ -122,6 +122,7 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 [filelight](https://archlinux.org/packages/extra/x86_64/filelight/) (**Opcional**). Estatisticas de uso de discos  
 [neofetch](https://archlinux.org/packages/community/any/neofetch/). Ferramenta de informações do sistema de linha de comando.  
 [btrfs-assistant (AUR)](https://aur.archlinux.org/packages/btrfs-assistant) (**OPCIONAL**). Aplicativo para gerenciar subvolumes BTRFS e instantâneos do Snapper  
+[plasma-browser-integration](https://archlinux.org/packages/extra/x86_64/plasma-browser-integration/) (**OPCIONAL**). Componentes necessários para integrar navegadores no Plasma Desktop. saiba mais clicando [aqui](https://community.kde.org/Plasma/Browser_Integration).  
 
 ### Dependências opcionais para ark  
 
