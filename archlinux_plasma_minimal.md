@@ -213,6 +213,17 @@ yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
 
 Se assim como eu, em seu sistema é utilizado o yay (Não sei se funciona com outros Wrappers), pode instalar um ADDON para o Plasma chamado [Arch Update](https://elppans.github.io/doc-linux/archlinux_aur_helpers#arch-update-para-quem-usa-plasma-kde) após subir o sistema com o GUI Plasma funcionando.  
 
+### Configurar Layout teclado no Plasma  
+
+Acesse "Configurações";  
+Vá até "Hardware, Dispositivos de entrada, Teclado", aba "Layouts";  
+Marque a opção "Configurar layouts";  
+Clique em "Adicionar" e escolha "**Português (Brasil)**" e clique em aplicar.  
+
+Vai aparecer o Widget de teclado no Systray, perto do ícone de rede e do relógio. É só clicar pra trocar de Layout.  
+
+Opcionalmente, após adicionar o Layout do seu teclado, pode remover o padrão da instalação, "**Inglês (EUA)**".  
+
 # Solução de problemas no Plasma
 
 Uma lista do que ví no Arch Wiki e também em outros locais.  
