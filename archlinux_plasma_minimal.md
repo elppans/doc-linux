@@ -262,6 +262,18 @@ GLX_SGI_video_sync=1
 GLX_OML_sync_control=1
 MOZ_ENABLE_WAYLAND=1
 ```
+### Chromium ou baseado com Wayland  
+
+Pra quem usa o navegador Chrome ou algum outro com base no mesmo, como o Chrome, Edge, etc. deve configurar um parâmetro no comando do arquivo .desktop ou então irá ficar muito lento.  
+Primeiro copie o .desktop encontrado em `/usr/share/applications/` para `~/.local/share/applications` e depois edite.  
+No exemplo, mostro como ficou a linha Exec do meu Edge:  
+
+```
+Exec=/usr/bin/microsoft-edge-stable --enable-features=UseOzonePlatform --ozone-platform=wayland %U
+```
+
+Para quem usa toutch, pode adicionar também a opção **--touch-events=enabled**.  
+Para mais informações acesse [Chromium, Dicas e Truques](https://wiki.archlinux.org/title/chromium#Tips_and_tricks_2). 
 
 # Solução de problemas no Plasma
 
