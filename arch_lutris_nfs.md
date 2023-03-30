@@ -16,14 +16,14 @@ sudo pacman -S gamemode lib32-gamemode lutris wine-staging winetricks
 sudo pacman -S apparmor lib32-libpulse lib32-libsndfile lib32-libasyncns
 ```
 
-### Instalar o jogo  
+### Instalar o jogo  Soapbox Race World (Need for Speed World)  
 
 E só logar no Lutris, ir na página do jogo e clicar em instalar.  
 O melhor servidor pra logar e jogar é o principal (WorldUnited.gg)  
 
-### Resolver Crash  
+### Dependência do Soapbox Race World (Need for Speed World) no Lutris  
 
-1) Com winetricks do jogo instale o pacote vcrun2019, para evitar o erro "Unable to load Modloader.asi":  
+1) Com winetricks do jogo instale o pacote **vcrun2019**, para evitar o erro "Unable to load Modloader.asi":  
 
 * No Lutris, selecione o jogo `Soapbox Race World (Need for Speed World)` e vá até o símbolo do Wine e clique na seta.
 Ao clicar na seta vá até "Abrir terminal Bash" e faça o comando:
@@ -45,7 +45,9 @@ Habilite a opção "Restaurar a resolução ao sair do jogo"
 * Clique em Jogar (seta) e vá em Configurar, aba "Opções do sistema";  
 Vá até variáveis de ambiente e adicione "**DXVK_HUD=fps**"  
 
-4) Dentro do jogo, pra evitar Crash, faça esta configuração:
+### Resolver Crash do Soapbox Race World (Need for Speed World)  
+
+Dentro do jogo, pra evitar Crash, faça esta configuração:
 
 ```
 Entrar em Opções > Social
