@@ -186,6 +186,11 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
 [arc-icon-theme](https://archlinux.org/packages/community/any/arc-icon-theme/). Tema do ícone do Arc. Somente lançamentos oficiais.  
 [archlinux-wallpaper](https://archlinux.org/packages/community/any/archlinux-wallpaper/) (**OPCIONAL**). Os papeis de parede do pacote ficam localizadas em **/usr/share/backgrounds/archlinux**.  
 
+### Temas QT/GTK (**OPCIONAL**)  
+
+>[kvantum](https://archlinux.org/packages/community/x86_64/kvantum/). [KVantum](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#Kvantum) é um mecanismo de tema baseado em SVG para Qt5/6.  
+[qt5-styleplugins (AUR)](https://aur.archlinux.org/packages/qt5-styleplugins). [QTGTK](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#QGtkStyle) Plugins de estilo adicionais para Qt5. Defina uma variável como `QT_QPA_PLATFORMTHEME=gtk2`.  
+
 ## Instalando os pacotes listados:
 
 ### Pacotes de repositorios oficiais
@@ -210,6 +215,13 @@ yay -S mystiq
 yay -S microsoft-edge-stable-bin
 yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
 ```
+
+### Pacotes QT/GTK
+
+```
+yay -Syu kvantum qt5-styleplugins
+```
+
 ### Sugestão
 
 Se assim como eu, em seu sistema é utilizado o yay (Não sei se funciona com outros Wrappers), pode instalar um ADDON para o Plasma chamado [Arch Update](https://elppans.github.io/doc-linux/archlinux_aur_helpers#arch-update-para-quem-usa-plasma-kde) após subir o sistema com o GUI Plasma funcionando.  
@@ -235,7 +247,7 @@ Já aproveitei e adicionei todas elas no arquivo /etc/environment. Ficou assim, 
 ```
 ## KDE Wayland
 #KWIN_COMPOSE=0 # Screen, Spactacle não funciona com esta linha ativada
-QT_QPA_PLATFORMTHEME=qt6ct
+QT_QPA_PLATFORMTHEME=gtk2
 QT_IM_MODULE=ibus
 QT_AUTO_SCREEN_SCALE_FACTOR=1
 QT_QPA_EGLFS_ALWAYS_SET_MODE=1
