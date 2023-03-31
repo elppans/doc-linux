@@ -192,9 +192,10 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
 [qt5ct](https://archlinux.org/packages/community/x86_64/qt5ct/). Utilitário de configuração Qt5.  
 [qt5-styleplugins (AUR)](https://aur.archlinux.org/packages/qt5-styleplugins). [QTGTK](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#QGtkStyle) Plugins de estilo adicionais para Qt5. Defina uma variável como `QT_QPA_PLATFORMTHEME=qt6ct`.  
 
-* Ps.: Fiz um teste com kvantum mas pra mim o sistema ficou muito feio, então desabilitei. Como vi que não ia usar, desinstalei.  
-* Ps.2: Foi feito testes com a variavel QT_QPA_PLATFORMTHEME para usar qt5ct e qt6ct. O 1º fica muito ruim, o 2º é MUITO bom.  
+> Ps.: Fiz um teste com kvantum mas pra mim o sistema ficou muito feio, então desabilitei. Como vi que não ia usar, desinstalei.  
+  Ps.2: Foi feito testes com a variavel QT_QPA_PLATFORMTHEME para usar qt5ct e qt6ct. O 1º fica muito ruim, o 2º é MUITO bom.  
   Porém, com minha configuração de temas, foi melhor manter a linha comentada.  
+  
 
 ## Instalando os pacotes listados:
 
@@ -221,12 +222,6 @@ yay -S microsoft-edge-stable-bin
 yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
 ```
 
-### Pacotes QT/GTK
-
-```
-yay -Syu qt5ct qt5-styleplugins
-```
-
 ### Sugestão
 
 Se assim como eu, em seu sistema é utilizado o yay (Não sei se funciona com outros Wrappers), pode instalar um ADDON para o Plasma chamado [Arch Update](https://elppans.github.io/doc-linux/archlinux_aur_helpers#arch-update-para-quem-usa-plasma-kde) após subir o sistema com o GUI Plasma funcionando.  
@@ -242,14 +237,14 @@ Vai aparecer o Widget de teclado no Systray, perto do ícone de rede e do relóg
 
 Opcionalmente, após adicionar o Layout do seu teclado, pode remover o padrão da instalação, "**Inglês (EUA)**".  
 
-### Wayland no Plasma
+# Wayland no Plasma
 
 Para que o Plasma fique mais estável com o Wayland, instale o pacote [plasma-wayland-protocols](https://archlinux.org/packages/extra/any/plasma-wayland-protocols/) e adicione no arquivo /etc/environment, a variável `QT_QPA_PLATFORM=xcb` OU `QT_QPA_PLATFORM=wayland-egl`.  
 Se você usa o navegador Firefox, adicione também a variável `MOZ_ENABLE_WAYLAND=1`.  
 Como eu estava testando, achei algumas variáveis interessantes que podem ajudar (ou não) quem usa NVidia, assim como eu.  
 Já aproveitei e adicionei todas elas no arquivo /etc/environment. Ficou assim, pode usar a variável que quiser:  
 
-> Em meus testes, Wayland ainta está MUITO instável em comparação ao xorg, então é recomendável usar XORG como gerenciador gráfico.  
+> Em meus testes, Wayland com NVidia ainta está MUITO instável em comparação ao xorg, então é recomendável usar XORG como gerenciador gráfico.  
 Por conta disso, voltei ao xorg.  
 Você pode manter esta minha configuração OU pode NÃO adicionar a configuração a seguir.  
 
