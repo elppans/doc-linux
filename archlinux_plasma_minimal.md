@@ -190,9 +190,11 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
 
 >[kvantum](https://archlinux.org/packages/community/x86_64/kvantum/). [KVantum](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#Kvantum) é um mecanismo de tema baseado em SVG para Qt5/6.  
 [qt5ct](https://archlinux.org/packages/community/x86_64/qt5ct/). Utilitário de configuração Qt5.  
-[qt5-styleplugins (AUR)](https://aur.archlinux.org/packages/qt5-styleplugins). [QTGTK](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#QGtkStyle) Plugins de estilo adicionais para Qt5. Defina uma variável como `QT_QPA_PLATFORMTHEME=gtk2`.  
+[qt5-styleplugins (AUR)](https://aur.archlinux.org/packages/qt5-styleplugins). [QTGTK](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#QGtkStyle) Plugins de estilo adicionais para Qt5. Defina uma variável como `QT_QPA_PLATFORMTHEME=qt6ct`.  
 
-> Observação: Fiz um teste com kvantum mas pra mim o sistema ficou muito feio, então desabilitei. Como vi que não ia usar, desinstalei.  
+* Ps.: Fiz um teste com kvantum mas pra mim o sistema ficou muito feio, então desabilitei. Como vi que não ia usar, desinstalei.  
+* Ps.2: Foi feito testes com a variavel QT_QPA_PLATFORMTHEME para usar qt5ct e qt6ct. O 1º fica muito ruim, o 2º é MUITO bom.  
+  Porém, com minha configuração de temas, foi melhor manter a linha comentada.  
 
 ## Instalando os pacotes listados:
 
@@ -247,10 +249,14 @@ Se você usa o navegador Firefox, adicione também a variável `MOZ_ENABLE_WAYLA
 Como eu estava testando, achei algumas variáveis interessantes que podem ajudar (ou não) quem usa NVidia, assim como eu.  
 Já aproveitei e adicionei todas elas no arquivo /etc/environment. Ficou assim, pode usar a variável que quiser:  
 
+> Em meus testes, Wayland ainta está MUITO instável em comparação ao xorg, então é recomendável usar XORG como gerenciador gráfico.  
+Por conta disso, voltei ao xorg.  
+Você pode manter esta minha configuração OU pode NÃO adicionar a configuração a seguir.  
+
 ```
 ## KDE Wayland
 #KWIN_COMPOSE=0 # Screen, Spactacle não funciona com esta linha ativada
-QT_QPA_PLATFORMTHEME=gtk2
+#QT_QPA_PLATFORMTHEME=qt6ct
 QT_IM_MODULE=ibus
 QT_AUTO_SCREEN_SCALE_FACTOR=1
 QT_QPA_EGLFS_ALWAYS_SET_MODE=1
@@ -263,9 +269,10 @@ QT_QPA_PLATFORM=xcb
 #QT_QPA_PLATFORM=qt5cb
 #QT_QPA_PLATFORM=minimal
 
-QSG_RENDERER_LOOP=basic
+QSG_RENDERER_LOOP=basic # Necessário para não haver BUG de processamento alto.  
 GBM_BACKEND=nvidia-drm
-__GLX_VENDOR_LIBRARY_NAME=nvidia
+#__GLX_VENDOR_LIBRARY_NAME=nvidia # NVidia 470.182.03-1+ não inicia login gráfico.  
+
 __GL_SYNC_TO_VBLANK=0
 KWIN_DRM_FORM_EGL_STREAMS=1
 NV_PRIME_RENDER_OFFLOAD=1
@@ -276,7 +283,8 @@ __GL_ExperimentalPerfStrategy=1
 __GL_MaxFramesAllowed=1
 GLX_SGI_video_sync=1
 GLX_OML_sync_control=1
-MOZ_ENABLE_WAYLAND=1
+#MOZ_ENABLE_WAYLAND=1
+
 ```
 ### Chromium ou baseado com Wayland  
 
