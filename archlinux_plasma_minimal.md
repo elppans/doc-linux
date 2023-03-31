@@ -189,7 +189,10 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
 ### Temas QT/GTK (**OPCIONAL**)  
 
 >[kvantum](https://archlinux.org/packages/community/x86_64/kvantum/). [KVantum](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#Kvantum) é um mecanismo de tema baseado em SVG para Qt5/6.  
+[qt5ct](https://archlinux.org/packages/community/x86_64/qt5ct/). Utilitário de configuração Qt5.  
 [qt5-styleplugins (AUR)](https://aur.archlinux.org/packages/qt5-styleplugins). [QTGTK](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#QGtkStyle) Plugins de estilo adicionais para Qt5. Defina uma variável como `QT_QPA_PLATFORMTHEME=gtk2`.  
+
+> Observação: Fiz um teste com kvantum mas pra mim o sistema ficou muito feio, então desabilitei. Como vi que não ia usar, desinstalei.  
 
 ## Instalando os pacotes listados:
 
@@ -219,7 +222,7 @@ yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
 ### Pacotes QT/GTK
 
 ```
-yay -Syu kvantum qt5-styleplugins
+yay -Syu qt5ct qt5-styleplugins
 ```
 
 ### Sugestão
