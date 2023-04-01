@@ -48,7 +48,7 @@ sudo pacman -D --asexplicit base base-devel linux linux-headers linux-firmware i
 > Mais especificamente, como não queria recompilar o yay e ter o trabalho de instalar meu driver NVidia novamente, meu comando completo ficou assim, lembrando que você pode adicionar os pacotes que quiser, assim como fiz:
 
 ```
-sudo pacman -D --asexplicit base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs git fakeroot reflector nano ntp man-db man-pages texinfo grub-efi-x86_64 efibootmgr dosfstools os-prober mtools networkmanager wpa_supplicant wireless_tools dialog sudo yay nvidia-470xx-dkms nvidia-470xx-dkms nvidia-470xx-dkms mlocate wget
+sudo pacman -D --asexplicit base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs git fakeroot reflector nano ntp man-db man-pages texinfo grub-efi-x86_64 efibootmgr dosfstools os-prober mtools networkmanager wpa_supplicant wireless_tools dialog sudo yay mlocate pkgconf wget nvidia-470xx-dkms nvidia-470xx-dkms nvidia-470xx-dkms lib32-nvidia-470xx-utils lib32-opencl-nvidia-470xx
 ```
 
 * 3° - [Remover os pacotes](https://wiki.archlinux.org/title/Pacman_(Portugu%C3%AAs)/Tips_and_tricks_(Portugu%C3%AAs)#Removendo_pacotes_n%C3%A3o_usados_(%C3%B3rf%C3%A3os)), menos os configurados como "Instalados Explicitamente"  
