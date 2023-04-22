@@ -92,10 +92,12 @@ touch ~/.oh-my-zsh/plugins/rsync2/rsync2.plugin.zsh
 ```
 Com o editor de texto, foi adicionado o conteúdo:
 
-> alias rsync-copy="rsync -ahz --info=progress2"  
+```
+alias rsync-copy="rsync -ahz --info=progress2"  
 alias rsync-move="rsync -ahz --info=progress2 --remove-source-files"  
 alias rsync-update="rsync -ahzu --info=progress2"  
-alias rsync-synchronize="rsync -ahzu --delete --info=progress2"  
+alias rsync-synchronize="rsync -ahzu --delete --info=progress2"
+```
 
 Opcionalmente, pode usar a opção --stats no comando, desta forma ao copiar os arquivos mostra como resultado um resumo do que acabou de fazer.
 Depois da customização, basta adicionar na lista de plugins junto com os outros. Pra mim ficou assim:
