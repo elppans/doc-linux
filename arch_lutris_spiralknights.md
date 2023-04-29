@@ -113,6 +113,21 @@ Vendo que a biblioteca no Steam é a necessária, deve fazer o Lutris usar a mes
 ```
 ln -sf $HOME/.local/share/Steam/ubuntu12_32/steam-runtime/usr/lib/x86_64-linux-gnu/libfreetype.so.6 $HOME/.local/share/lutris/runtime/Ubuntu-18.04-x86_64
 ```
+### Falha ao usar Terminal Gnome por padrão  
+
+Usando o ArchLinux com o Gnome-Shell 43 com o Terminal padrão desta versão, ocorre o seguinte erro ao reinstalar o jojo usando este terminal:  
+>lutris-wrapper: /home/arch/.cache/lutris/installer/spiral-knights/file1/spiral-install.bin  
+Started initial process 5874 from /usr/bin/kgx -e /home/arch/.cache/lutris/run_in_term.sh  
+Start monitoring process.  
+/usr/bin/kgx: symbol lookup error: /usr/lib/libgtk-4.so.1: undefined symbol: pango_layout_line_get_length  
+Monitored process exited.  
+Initial process has exited (return code: 32512)  
+All processes have quit  
+Exit with return code 32512  
+
+### Solução:
+
+Instale o xterm e, em seguida, o jogo será instalado normalmente
 
 ### Jogo não inicia
 
