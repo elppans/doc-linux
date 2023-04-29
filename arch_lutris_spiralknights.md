@@ -78,7 +78,7 @@ Após esse ajuste, o jogo funciona normalmente:
 
 ## Erros e soluções  
 
-### Falha 32512
+### Falha com Freetype
 
 No Arch eu não recebi este erro, mas na época em que postei a matéria no fórum, eu estava recebendo um erro ao tentar instalar:
 
@@ -86,13 +86,13 @@ No Arch eu não recebi este erro, mas na época em que postei a matéria no fór
 
 Log:
 
->Started initial process 11711 from /usr/sbin/xterm -e /home/elppans/.cache/lutris/run_in_term.sh
-Start monitoring process.
-/usr/sbin/xterm: symbol lookup error: /usr/lib/libfreetype.so.6: undefined symbol: hb_ot_tags_from_script_and_language
-Monitored process exited.
-Initial process has exited (return code: 32512)
-All processes have quit
-Exit with return code 32512
+>Started initial process 11711 from /usr/sbin/xterm -e /home/elppans/.cache/lutris/run_in_term.sh  
+Start monitoring process.  
+/usr/sbin/xterm: symbol lookup error: /usr/lib/libfreetype.so.6: undefined symbol: hb_ot_tags_from_script_and_language  
+Monitored process exited.  
+Initial process has exited (return code: 32512)  
+All processes have quit  
+Exit with return code 32512  
 
 ### Solução
 
