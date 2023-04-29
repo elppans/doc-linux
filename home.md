@@ -13,7 +13,8 @@ Indice:
 9) [ArchLinux, Virt-Manager + Cockpit](https://elppans.github.io/doc-linux/archlinux_virt-manager_cockpit)  
 10) [Instalando Steam no ArchLinux](https://elppans.github.io/doc-linux/archlinux_steam)  
 11) [Lutris, Need For Speed World, no ArchLinux](https://elppans.github.io/doc-linux/arch_lutris_nfs)  
-12) [ArchLinux, Formatar "sem" formatar](https://elppans.github.io/doc-linux/archlinux_formatar_sem_formatar)  
+12) [Lutris, Spiral Knights, no ArchLinux](https://elppans.github.io/doc-linux/arch_lutris_spiralknights)  
+13) [ArchLinux, Formatar "sem" formatar](https://elppans.github.io/doc-linux/archlinux_formatar_sem_formatar)  
 
 
 * Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
