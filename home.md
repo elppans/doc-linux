@@ -15,6 +15,7 @@ Indice:
 11) [Lutris, Need For Speed World, no ArchLinux](https://elppans.github.io/doc-linux/arch_lutris_nfs)  
 12) [Lutris, Spiral Knights, no ArchLinux](https://elppans.github.io/doc-linux/arch_lutris_spiralknights)  
 13) [ArchLinux, Formatar "sem" formatar](https://elppans.github.io/doc-linux/archlinux_formatar_sem_formatar)  
+14) [Converter antigo $HOME para subvolume btrfs](https://elppans.github.io/doc-linux/converter_antigo_home_para_subvolume_btrfs)
 
 
 * Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
