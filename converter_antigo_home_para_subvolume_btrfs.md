@@ -18,7 +18,7 @@ umount /home
 ```
 
 ### 3 - Montar device raiz em /mnt e criar o subvolume @home
-
+https://plus.diolinux.com.br/t/entendendo-subvolumes-no-btrfs/15174
 ```
 mount /dev/sda6 /mnt/
 btrfs su cr /mnt/@home
@@ -120,6 +120,6 @@ echo -e "UUID=$UUID\t/home\tbtrfs\trw,relatime,compress=zstd:3,ssd,discard=async
 
 * Links de matérias sobre BTRFS:
 
-https://wiki.archlinux.org/title/Btrfs_(Portugu%C3%AAs)  
-https://linuxuniverse.com.br/linux/btrfs  
-https://plus.diolinux.com.br/t/entendendo-subvolumes-no-btrfs/15174  
+[https://wiki.archlinux.org/title/Btrfs_(Portugu%C3%AAs)](https://wiki.archlinux.org/title/Btrfs_(Portugu%C3%AAs))  
+[https://linuxuniverse.com.br/linux/btrfs](https://linuxuniverse.com.br/linux/btrfs)  
+[https://plus.diolinux.com.br/t/entendendo-subvolumes-no-btrfs/15174](https://plus.diolinux.com.br/t/entendendo-subvolumes-no-btrfs/15174)  
