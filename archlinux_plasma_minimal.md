@@ -151,7 +151,7 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 [guvcview](https://archlinux.org/packages/community/x86_64/guvcview/) (**OPCIONAL**). Webcam  
 [skanpage](https://archlinux.org/packages/extra/x86_64/skanpage/) (**OPCIONAL**). Digitalização de Imagens  
 [dragon](https://archlinux.org/packages/extra/x86_64/dragon/). Dragon Player é um reprodutor multimídia com foco na simplicidade  
-[clementine](https://archlinux.org/packages/community/x86_64/clementine/). Um reprodutor de música moderno e organizador de biblioteca  
+[juk](https://archlinux.org/packages/extra/x86_64/juk/). Uma jukebox, tagger e gerenciador de coleção de música  
 [gwenview](https://archlinux.org/packages/extra/x86_64/gwenview/). Um visualizador de imagens rápido e fácil de usar  
 [okular](https://archlinux.org/packages/extra/x86_64/okular/). Visualizador de documentos  
 [mystiq (AUR)](https://aur.archlinux.org/packages/mystiq). Converter audio e video  
@@ -207,8 +207,8 @@ sudo pacman -S --needed plasma-systemmonitor yakuake filelight neofetch
 sudo pacman -S --needed p7zip unarchiver
 sudo pacman -S --needed kdegraphics-thumbnailers ffmpegthumbs ruby
 sudo pacman -S --needed kgamma5 qbittorrent kio-gdrive gamemode
-sudo pacman -S --needed simplescreenrecorder guvcview skanpage
-sudo pacman -S --needed dragon clementine gwenview okular kimageformats qt5-imageformats poppler-data
+sudo pacman -S --needed guvcview skanpage
+sudo pacman -S --needed dragon juk gwenview okular kimageformats qt5-imageformats poppler-data
 ```
 
 ### Pacotes AUR
@@ -217,7 +217,8 @@ sudo pacman -S --needed dragon clementine gwenview okular kimageformats qt5-imag
 yay -S btrfs-assistant
 yay -S rar 
 yay -S kde-service-menu-reimage jhead
-yay -S mystiq 
+yay -S mystiq
+yay -S simplescreenrecorder
 yay -S microsoft-edge-stable-bin
 yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
 ```
