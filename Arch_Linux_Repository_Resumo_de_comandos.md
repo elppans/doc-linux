@@ -28,7 +28,7 @@ git show = Ver as mudanças desde o último commit
 
 ## Configurando conta AUR para receber pacotes  
 
-1. Configurar autenticação e acesso de escrita para o AUR  
+#### 1. Configurar autenticação e acesso de escrita para o AUR  
 
 ```
 echo -e 'Host aur.archlinux.org
