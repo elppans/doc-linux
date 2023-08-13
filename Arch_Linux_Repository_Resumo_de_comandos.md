@@ -28,7 +28,7 @@ git show = Ver as mudanças desde o último commit
 
 ## Configurando conta AUR para receber pacotes  
 
-#### 1. Configurar autenticação e acesso de escrita para o AUR  
+##### 1. Configurar autenticação e acesso de escrita para o AUR  
 
 ```
 echo -e 'Host aur.archlinux.org
@@ -36,12 +36,12 @@ echo -e 'Host aur.archlinux.org
   User aur' | tee ~/.ssh/config
 ```
 
-2. Criar um par de chaves para adicionar em sua conta  
+##### 2. Criar um par de chaves para adicionar em sua conta  
 
 ```
 ssh-keygen -f ~/.ssh/aur
 ```
-3. Verifique o arquivo com a chave e copie e depois adicione em sua conta, no campo `Chave pública SSH`  
+##### 3. Verifique o arquivo com a chave e copie e depois adicione em sua conta, no campo `Chave pública SSH`  
 
 ```
 cat ~/.ssh/aur.pub
@@ -49,7 +49,7 @@ cat ~/.ssh/aur.pub
 
 ## Criação e configuração do pacote AUR  
 
-1. Criar diretório de trabalho  
+##### 1. Criar diretório de trabalho  
 
 ```
 mkdir -p $HOME/build/custombuild
@@ -57,21 +57,21 @@ cd $HOME/build/custombuild
 ```
 
 
-2. Criar e acessar diretório do pacote AUR  
+##### 2. Criar e acessar diretório do pacote AUR  
 
 ```
 git clone ssh://aur@aur.archlinux.org/pacoteaur.git
 cd pacoteaur
 ```
 
-3. Faça configuração global para seu usuário  
+##### 3. Faça configuração global para seu usuário  
 
 ```
 git config --global user.name  "auruser"
 git config --global user.email "auruser@aur.org"
 ```
 
-4. Crie e configure os arquivos .gitignore e PKGBUILD  
+##### 4. Crie e configure os arquivos .gitignore e PKGBUILD  
 
 Sempre antes de upar a atualização, recrie um novo .SRCINFO com o comando makepkg  
 Então adicione, faça um commit e depois faça o upload das modificações  
@@ -88,24 +88,24 @@ git push
 >Eu clonei meu pacote novamente, pois meu HD onde estava o build bateu as botas.  
 Então se seu pacote ainda continua no seu HD após a criação, talvez possa pular direto para a edição dos arquivos.  
 
-1. Clonar e entrar no repositório  
+##### 1. Clonar e entrar no repositório  
 
 ```
 git clone https://aur.archlinux.org/pacoteaur.git && cd pacoteaur
 ```
 
-2. Adicionar o repositório remoto como 'pacoteaur'  
+##### 2. Adicionar o repositório remoto como 'pacoteaur'  
 
 ```
 git remote add -f -t master -m master pacoteaur ssh://aur@aur.archlinux.org/pacoteaur.git
 ```
 
-3. Configurar a referência remota padrão para push  
+##### 3. Configurar a referência remota padrão para push  
 
 ```
 git push --set-upstream qemu-android-cm-x86 HEAD
 ```
-4. Edite o necessário e faça como a opção 4 do ítem anterior  
+##### 4. Edite o necessário e faça como a opção 4 do ítem anterior  
 
 Sempre que atualizar o pacote AUR, não pode esquecer de editar o parâmetro `pkgver` e o `pkgrel`  
 
