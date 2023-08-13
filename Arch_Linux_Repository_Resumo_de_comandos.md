@@ -121,3 +121,6 @@ Sempre que atualizar o pacote AUR, não pode esquecer de editar o parâmetro `pk
 [Git remote](https://git-scm.com/docs/git-remote)  
 [Problem with ssh authentication on AUR, Resolvido](https://bbs.archlinux.org/viewtopic.php?id=258198)  
 [The PGP key fingerprint is invalid, Resolvido](https://bbs.archlinux.org/viewtopic.php?id=257585)  
+
+* Grupo Telegram recomendável:  [Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
+* Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
