@@ -45,4 +45,7 @@ systemctl status vmware-usbarbitrator.service
 * *BONUS:*
 
 [Free VMware Workstation Pro 17 full license keys](https://gist.github.com/PurpleVibe32/30a802c3c8ec902e1487024cdea26251)  
-[5000k+ vmware workstation pro 17 (untested)](https://gist.github.com/PurpleVibe32/1e9b30754ff18d69ad48155ed29d83de)
+[5000k+ vmware workstation pro 17 (untested)](https://gist.github.com/PurpleVibe32/1e9b30754ff18d69ad48155ed29d83de)  
+
+* Grupo Telegram recomendável: [Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
+* Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)
