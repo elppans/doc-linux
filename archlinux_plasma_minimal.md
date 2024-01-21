@@ -96,8 +96,6 @@ Alguns pacotes da lista são do repositório [AUR](https://wiki.archlinux.org/ti
 Se não usa o yay, por favor, substitua o comando para o Helper de seu uso.  
 Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.github.io/doc-linux/archlinux_aur_helpers)
 
-## LISTA  
-
 ### Pacotes conjunto (Para um melhor uso)  
 
 > [dolphin-plugins](https://archlinux.org/packages/extra/x86_64/dolphin-plugins/). Plugins extras para o Dolphin  
