@@ -33,13 +33,13 @@ Este é o menor pacote KDE Plasma no repositório Arch. Eu o instalei várias ve
 sudo pacman -S sddm sddm-kcm
 ```
 
-#### Ativar gerenciador de login
+- Ativar gerenciador de login
 
 ```
 sudo systemctl enable sddm
 ```
 
-#### Configurar Temas para o SDDM
+- Configurar Temas para o SDDM
 
 > system settings->startup and shutdown->login screen(SDDM).  
 
@@ -52,11 +52,11 @@ sudo systemctl enable sddm
 [kate](https://archlinux.org/packages/extra/x86_64/kate/). Editor de texto avançado  
 [kdeplasma-addons](https://archlinux.org/packages/extra/x86_64/kdeplasma-addons/)(**OPCIONAL**). Ele fornece alguns widgets extras para a barra de status, como indicador de bloqueio de caps, indicador de microfone, comutador de cores noturno, etc.  
 [kde-gtk-config](https://archlinux.org/packages/extra/x86_64/kde-gtk-config/). Estilo GTK, correção de estilos. P/ configurar, após instalação, vá em Configurações> Aparência> Estilo de aplicativo> Estilo de aplicativo GNOME/GTK.  
-[powerdevil](https://archlinux.org/packages/extra/x86_64/powerdevil/) (**OPCIONAL**). Se estiver instalando o kde em um dispositivo como um laptop ou notebook. **Já contém no pacote plasma-desktop**.  
+[powerdevil](https://archlinux.org/packages/extra/x86_64/powerdevil/) (**OPCIONAL**). Se estiver instalando o kde em um dispositivo como um laptop ou notebook (**Já contém no pacote plasma-desktop**).  
  [plasma-wayland-session](https://archlinux.org/packages/?name=plasma-wayland-session) (**OPCIONAL**). Para habilitar o suporte a Wayland no Plasma  
-[xdg-user-dirs](https://archlinux.org/packages/extra/x86_64/xdg-user-dirs/) (**OPCIONAL**). Ferramenta para ajudar a gerenciar diretórios de usuário”.  
+[xdg-user-dirs](https://archlinux.org/packages/extra/x86_64/xdg-user-dirs/) (**OPCIONAL**). Ferramenta para ajudar a gerenciar diretórios de usuário” (**Já contém no pacote plasma-desktop**).  
 Após a instalação, é recomendável fazer o comando: xdg-user-dirs-update  
-Assim como powerdevil, este pacote **Já contém no pacote plasma-desktop**.    
+[Baloo](https://archlinux.org/packages/?sort=&q=baloo). Pesquisa de ambiente, uma solução de indexação e busca de arquivos (**Já contém no pacote plasma-desktop**).  
 
 ## Instalando Plasma
 
@@ -85,14 +85,7 @@ sudo systemctl start NetworkManager
 sudo pacman -S gst-libav gst-plugins-good gst-plugins-ugly gst-plugins-bad
 ```
 
-### Pesquisa do ambiente
-
-O KDE implementa a pesquisa na área de trabalho com um software chamado [Baloo](https://archlinux.org/packages/extra/x86_64/baloo/), uma solução de indexação e busca de arquivos.  
-Eu não uso Baloo, mas é uma boa dica.  
-
-> [KWin-lowlatency](https://aur.archlinux.org/packages/kwin-lowlatency). É uma tentativa de reduzir a latência e falhas no popular compositor KWin quando estiver usando Wayland.  
-Este pacote está **Sinalizado como desatualizado**, mas se quiser pode instalar.  
-
+  
 # Lista de pacotes para o Plasma
 
 Fiz uma pesquisa de pacotes a dedo e testei e depois montei uma lista com pacotes que julguei serem úteis para usar no Plasma e que também são leves o suficiente, sem perder funcionalidades. E claro, além disso são pacotes que gostei de usar.  
