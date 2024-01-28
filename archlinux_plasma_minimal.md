@@ -1,18 +1,7 @@
 # Archlinux Plasma Minimal
 
-Uma maneira simples de se instalar o [Plasma](https://wiki.archlinux.org/title/KDE_(Portugu%C3%AAs)) no [ArchLinux](https://wiki.archlinux.org/title/Main_page_(Portugu%C3%AAs)) é usando o [grupo de pacotes](https://wiki.archlinux.org/title/Meta_package_and_package_group_(Portugu%C3%AAs)), porém, se na confirmação de pacotes apenas apertar ENTER, vai instalar todos os pacotes referentes ao Plasma e então vai ser um KDE Plasma completo.
-
-### Para obter apenas o mínimo do plasma, deve fazer a seguinte instalação
-
-```
-sudo pacman -S plasma-desktop
-```
-
-### Para obter apenas o básico do plasma, deve fazer a seguinte instalação
-
-```
-sudo pacman -S plasma-meta
-```
+Uma maneira simples de se instalar o [Plasma](https://wiki.archlinux.org/title/KDE_(Portugu%C3%AAs)) no [ArchLinux](https://wiki.archlinux.org/title/Main_page_(Portugu%C3%AAs)) é usando o [grupo de pacotes](https://wiki.archlinux.org/title/Meta_package_and_package_group_(Portugu%C3%AAs)) [plasma](https://archlinux.org/groups/x86_64/plasma/), mas se na confirmação de pacotes apenas apertar ENTER, vai instalar todos os pacotes referentes ao Plasma e então vai ser um KDE Plasma completo.  
+Porém, a idéia desta nota é usar uma instalação limpa e mínima, para isso deve fazer uma instalação apenas do pacote minimal ([plasma-desktop](https://archlinux.org/packages/?sort=&q=plasma-desktop)) ou básica ([plasma-meta](https://archlinux.org/packages/?sort=&q=plasma-meta)).  
 
 ### Comparando plasma-desktop e plasma-meta:
 
@@ -22,8 +11,38 @@ Este é o menor pacote KDE Plasma no repositório Arch. Eu o instalei várias ve
 
 * [plasma-meta](https://www.archlinux.org/packages/extra/any/plasma-meta/)
 
-É o 2º menor pacote. Contém bluetooth (bluedevil) e gerenciador de som (plasma-pa), gerenciador de tela (kscreen) e assim por diante. São todos pacotes separados.
+É o 2º menor pacote. Um pouco mais completo, contém bluetooth (bluedevil), gerenciador de som (plasma-pa), gerenciador de tela (kscreen) e assim por diante.  
+Esta é a melhor recomendação para quem quer "menos trabalho". Para usar este método veja: [Instalando Plasma Minimal (Meta)](https://elppans.github.io/doc-linux/archlinux_plasma_meta)  
 
+
+### Pacotes conjunto para o Plasma (Mínimo):
+
+Antes de instalar o Plasma Mínimo, é bom conhecer alguns aplicativos 
+
+>[plasma-nm](https://archlinux.org/packages/extra/x86_64/plasma-nm/). Gerente de rede que podemos instalar e usar para conectar-se a uma rede (Wifi / Ethernet).  
+[plasma-pa](https://archlinux.org/packages/extra/x86_64/plasma-pa/). Gerenciador de áudio que se integra ao Plasma desktop.  
+[Dolphin](https://archlinux.org/packages/extra/x86_64/dolphin/). Gerenciador de arquivos do KDE Plasma.  
+[Konsole](https://archlinux.org/packages/extra/x86_64/konsole/). Aplicativo de terminal padrão para o KDE Plasma  
+[kate](https://archlinux.org/packages/extra/x86_64/kate/). Editor de texto avançado  
+[kdeplasma-addons](https://archlinux.org/packages/extra/x86_64/kdeplasma-addons/)(**OPCIONAL**). Ele fornece alguns widgets extras para a barra de status, como indicador de bloqueio de caps, indicador de microfone, comutador de cores noturno, etc.  
+[kde-gtk-config](https://archlinux.org/packages/extra/x86_64/kde-gtk-config/). Estilo GTK, correção de estilos. P/ configurar, após instalação, vá em Configurações> Aparência> Estilo de aplicativo> Estilo de aplicativo GNOME/GTK.  
+[powerdevil](https://archlinux.org/packages/extra/x86_64/powerdevil/) (**OPCIONAL**). Se estiver instalando o kde em um dispositivo como um laptop ou notebook (**Já contém no pacote plasma-desktop**).  
+ [plasma-wayland-session](https://archlinux.org/packages/?name=plasma-wayland-session) (**OPCIONAL**). Para habilitar o suporte a Wayland no Plasma  
+[xdg-user-dirs](https://archlinux.org/packages/extra/x86_64/xdg-user-dirs/) (**OPCIONAL**). Ferramenta para ajudar a gerenciar diretórios de usuário” (**Já contém no pacote plasma-desktop**).  
+Após a instalação, é recomendável fazer o comando: xdg-user-dirs-update  
+[Baloo](https://archlinux.org/packages/?sort=&q=baloo). Pesquisa de ambiente, uma solução de indexação e busca de arquivos (**Já contém no pacote plasma-desktop**).  
+[kdenetwork-filesharing](https://archlinux.org/packages/extra/x86_64/kdenetwork-filesharing/) (**OPCIONAL**). Configuração do compartilhamento de arquivos utilizando [samba](https://archlinux.org/packages/extra/x86_64/samba/).
+
+## Instalando Plasma
+
+Para instalar o mínimo, o comando deve ser feito desta maneira:  
+
+> Se for usar Wayland adicione o pacote `plasma-wayland-session` no comando de instalação.  
+
+```
+sudo pacman -S plasma-desktop plasma-nm plasma-pa dolphin konsole kate kde-gtk-config
+sudo systemctl enable --now NetworkManager
+```
 ### Gerenciador de login padrão do KDE Plasma
 
 > [sddm](https://archlinux.org/packages/extra/x86_64/sddm/) = X11 baseado em QML e gerenciador de exibição Wayland  
@@ -42,37 +61,6 @@ sudo systemctl enable sddm
 - Configurar Temas para o SDDM
 
 > system settings->startup and shutdown->login screen(SDDM).  
-
-### Pacotes conjunto para o Plasma (Mínimo):
-
->[plasma-nm](https://archlinux.org/packages/extra/x86_64/plasma-nm/). Gerente de rede que podemos instalar e usar para conectar-se a uma rede (Wifi / Ethernet).  
-[plasma-pa](https://archlinux.org/packages/extra/x86_64/plasma-pa/). Gerenciador de áudio que se integra ao Plasma desktop.  
-[Dolphin](https://archlinux.org/packages/extra/x86_64/dolphin/). Gerenciador de arquivos do KDE Plasma.  
-[Konsole](https://archlinux.org/packages/extra/x86_64/konsole/). Aplicativo de terminal padrão para o KDE Plasma  
-[kate](https://archlinux.org/packages/extra/x86_64/kate/). Editor de texto avançado  
-[kdeplasma-addons](https://archlinux.org/packages/extra/x86_64/kdeplasma-addons/)(**OPCIONAL**). Ele fornece alguns widgets extras para a barra de status, como indicador de bloqueio de caps, indicador de microfone, comutador de cores noturno, etc.  
-[kde-gtk-config](https://archlinux.org/packages/extra/x86_64/kde-gtk-config/). Estilo GTK, correção de estilos. P/ configurar, após instalação, vá em Configurações> Aparência> Estilo de aplicativo> Estilo de aplicativo GNOME/GTK.  
-[powerdevil](https://archlinux.org/packages/extra/x86_64/powerdevil/) (**OPCIONAL**). Se estiver instalando o kde em um dispositivo como um laptop ou notebook (**Já contém no pacote plasma-desktop**).  
- [plasma-wayland-session](https://archlinux.org/packages/?name=plasma-wayland-session) (**OPCIONAL**). Para habilitar o suporte a Wayland no Plasma  
-[xdg-user-dirs](https://archlinux.org/packages/extra/x86_64/xdg-user-dirs/) (**OPCIONAL**). Ferramenta para ajudar a gerenciar diretórios de usuário” (**Já contém no pacote plasma-desktop**).  
-Após a instalação, é recomendável fazer o comando: xdg-user-dirs-update  
-[Baloo](https://archlinux.org/packages/?sort=&q=baloo). Pesquisa de ambiente, uma solução de indexação e busca de arquivos (**Já contém no pacote plasma-desktop**).  
-
-## Instalando Plasma
-
-Eu escolhí instalar o mínimo, então o comando para instalar deve ser feito desta maneira:  
-
-> Como quero usar Wayland, também adicionei o pacote opcional no comando, remova o pacote da instalação se não quiser.  
-
-> Não consegui fazer funcionar direito o compartilhamento de arquivos, nem usando o [kdenetwork-filesharing](https://archlinux.org/packages/extra/x86_64/kdenetwork-filesharing/) e nem configurando o [samba](https://archlinux.org/packages/extra/x86_64/samba/) manualmente.  
-Então não vou listar o mesmo aqui.  
-Se alguém, consegue fazer funcionar, por favor, comente sobre como fazer.  
-
-```
-sudo pacman -S plasma-desktop plasma-wayland-session plasma-nm plasma-pa dolphin konsole kate kde-gtk-config
-sudo systemctl enable NetworkManager
-sudo systemctl start NetworkManager
-```
 
 ### Pacotes de media
 
@@ -113,7 +101,7 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 [filelight](https://archlinux.org/packages/extra/x86_64/filelight/) (**Opcional**). Estatisticas de uso de discos  
 [neofetch](https://archlinux.org/packages/community/any/neofetch/). Ferramenta de informações do sistema de linha de comando.  
 [btrfs-assistant (AUR)](https://aur.archlinux.org/packages/btrfs-assistant) (**OPCIONAL**). Aplicativo para gerenciar subvolumes BTRFS e instantâneos do Snapper  
-[plasma-browser-integration](https://archlinux.org/packages/extra/x86_64/plasma-browser-integration/) (**OPCIONAL**). Componentes necessários para integrar navegadores no Plasma Desktop. saiba mais clicando [aqui](https://community.kde.org/Plasma/Browser_Integration).  
+[plasma-browser-integration](https://archlinux.org/packages/extra/x86_64/plasma-browser-integration/) (**OPCIONAL**). Componentes necessários para [integrar navegadores](https://community.kde.org/Plasma/Browser_Integration) no Plasma Desktop.  
 
 ### Dependências opcionais para ark  
 
@@ -123,7 +111,7 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 
 ### Dependências opcionais para dolphin  
 
-> [kde-service-menu-reimage (AUR)](https://aur.archlinux.org/packages/kde-service-menu-reimage). Manipulador de imagens e seus metadados. Deve instalar jhead junto  
+> [kde-service-menu-reimage-mod (AUR)](https://aur.archlinux.org/packages/kde-service-menu-reimage-mod). Manipulador de imagens e seus metadados.   
 [jhead](https://archlinux.org/packages/community/x86_64/jhead/). Analisador de informações EXIF ​​JPEG e removedor de miniaturas  
 [kdegraphics-thumbnailers](https://archlinux.org/packages/extra/x86_64/kdegraphics-thumbnailers/). Miniaturas para vários formatos de arquivos gráficos  
 [ffmpegthumbs](https://archlinux.org/packages/extra/x86_64/ffmpegthumbs/). Criador de miniaturas baseado em FFmpeg para arquivos de vídeo  
@@ -187,8 +175,13 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
   Ps.2: Foi feito testes com a variavel QT_QPA_PLATFORMTHEME para usar qt5ct e qt6ct. O 1º fica muito ruim, o 2º é MUITO bom.  
   Porém, com minha configuração de temas, foi melhor manter a linha comentada.  
   
+Para usar um FrontEnd QT em aplicativos GTK no Plasma vá em `Configurações do sistema, Aparência, Tema Global, Estilo do aplicativo`.  
+Em `Tema GTK`, escolha o que melhor se adapta ao tema de sua preferência, pra testar clique em `Visualização`.  
+Após a configuração clique em `Aplicar`.  
 
 ## Instalando os pacotes listados:
+
+>Não terá exemplos de instalação de navegadores.  
 
 ### Pacotes de repositorios oficiais
 
@@ -207,10 +200,9 @@ sudo pacman -S --needed dragon juk gwenview okular kimageformats qt5-imageformat
 ```
 yay -S btrfs-assistant
 yay -S rar 
-yay -S kde-service-menu-reimage jhead
+yay -S kde-service-menu-reimage-mod jhead
 yay -S mystiq
 yay -S simplescreenrecorder
-yay -S microsoft-edge-stable-bin
 yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
 ```
 
@@ -362,6 +354,7 @@ https://magazine.regataos.com.br/2022/08/kde-plasma-como-personalizar-papel-de-p
 https://gist.github.com/winkey728/2508fa5aded52ab128163421d53428e0  
 https://forum.endeavouros.com/t/change-sddm-background-picture/29812  
 https://wiki.archlinux.org/title/SDDM  
+https://github.com/tkashkin/GameHub/issues/681
 
 ver também:  
 
