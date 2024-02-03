@@ -1,4 +1,4 @@
-# Script archinstall
+# Archinstall Script, sobre
 
 Atenção, use o Wiki para saber como usar o [Archinstall](https://wiki.archlinux.org/title/Archinstall_(Portugu%C3%AAs)).  
 
