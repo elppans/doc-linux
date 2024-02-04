@@ -18,7 +18,7 @@ Indice:
 14) [ArchLinux, Formatar "**SEM**" formatar](https://elppans.github.io/doc-linux/archlinux_formatar_sem_formatar)  
 15) [ArchLinux Repository, Resumo de comandos](https://elppans.github.io/doc-linux/archlinux_repository_resumo_de_comandos)  
 16) [Archinstall, Sobre o Script](https://elppans.github.io/doc-linux/archinstall_script)  
-17) [Archinstall, Algumas dicas pós instalação](https://elppans.github.io/doc-linux/archinstall_tips_pos_inst)
+17) [Archinstall, Algumas dicas pós instalação](https://elppans.github.io/doc-linux/archinstall_tips_pos_inst)  
 18) [Archinstall, Imagens da instalação do Archlinux ISO 01.02.2024](https://elppans.github.io/doc-linux/archinstall_img_archlinux-2024.02.01-x86_64)  
 19) [Converter antigo $HOME para subvolume btrfs](https://elppans.github.io/doc-linux/converter_antigo_home_para_subvolume_btrfs)  
 20) [Criar subvolume btrfs para troca de arquivos](https://elppans.github.io/doc-linux/criar_subvolume_btrfs_para_troca)  
