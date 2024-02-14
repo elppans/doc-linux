@@ -12,7 +12,7 @@ Indice:
 08) [ArchLinux, NVidia Legacy + Wayland no Gnome](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome)  
 09) [ArchLinux, Virt-Manager + Cockpit](https://elppans.github.io/doc-linux/archlinux_virt-manager_cockpit)   
 10) [ArchLinux, VMWare Workstation](https://elppans.github.io/doc-linux/archlinux_vmware-workstation)
-11) [ArchLinux, Instalação Waydroid](https://elppans.github.io/doc-linux/archlinux_instalacao_waydroid.md)  
+11) [ArchLinux, Instalação Waydroid](https://elppans.github.io/doc-linux/archlinux_instalacao_waydroid.md)    
 12) [ArchLinux, Instalando Steam](https://elppans.github.io/doc-linux/archlinux_steam)  
 13) [ArchLinux, Lutris, Need For Speed World](https://elppans.github.io/doc-linux/arch_lutris_nfs)  
 14) [ArchLinux, Lutris, Spiral Knights](https://elppans.github.io/doc-linux/arch_lutris_spiralknights)  
