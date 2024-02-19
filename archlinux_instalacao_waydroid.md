@@ -108,7 +108,7 @@ waydroid first-launch
 #### Instalação manual do Android [images_system](https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/) e [images_vendor](https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_x86_64/)  
 
 Além da opção de instalar o pacote [waydroid-image-gapps (AUR).](https://aur.archlinux.org/packages/waydroid-image-gapps), também temos um modo de instalação manual.  
-A instalação manual é bem fácil:  
+Se for fazer a instalação manual, NÃO precisa instalar o pacote `waydroid-image-gapps`. A instalação manual é bem fácil:  
 
 1) acesse os 2 links, o [images_system](https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/) e [images_vendor](https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_x86_64/).  
 2) Nestes 2 links baixe a versão mais atual do pacote zip, sendo:  
@@ -116,27 +116,28 @@ A instalação manual é bem fácil:
  >images_system. `VANILLA` que é PURO ou `GAPPS` que é o Sistema com Google Play adicionado  
  images_vendor. `MAINLINE`, o padrão ou `HALIUM`, projetada para usar mais [hardware nativo do dispositivo host](https://www.xda-developers.com/waydroid-android-apps-on-linux/)  
 
-3) Baixe o arquivo escolhido de cada link, **exemplo**:
+3) Baixe o arquivo escolhido de cada link, **exemplo**:  
 
 ```
 curl -JOLk https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20240217-GAPPS-waydroid_x86_64-system.zip
 curl -JOLk https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_x86_64/lineage-18.1-20240217-MAINLINE-waydroid_x86_64-vendor.zip
 ```
 
-4) Extraia os arquivos necessários de cada arquivo:
+4) Extraia os arquivos necessários de cada arquivo:  
 
 ```
 bsdtar -xvf lineage-18.1-20240217-GAPPS-waydroid_x86_64-system.zip
 bsdtar -xvf lineage-18.1-20240217-MAINLINE-waydroid_x86_64-vendor.zip
 ```
 
-5) Crie o diretório de imagem do Waydroid e copie os 2 arquivos extraidos:
+5) Crie o diretório de imagem do Waydroid e copie os 2 arquivos extraidos:  
 
 ```
 sudo mkdir -p /usr/share/waydroid-extra/images
 sudo rsync -ahv system.img vendor.img /usr/share/waydroid-extra/images
 ```
 
+6) Faça o procedimento mencionado acima, de [Iniciar instância do Waydroid](archlinux_instalacao_waydroid.md#iniciar-inst%C3%A2ncia-do-waydroid) em diante.  
 
 * Fontes:  
 
