@@ -9,7 +9,7 @@ Nesta instalação, vai ser configurado para que o Waydroid funcione com suporte
 Em uma sessão Wayland, NÃO é necessário usar o Weston para iniciar a sessão do Waydroid e fazer as configurações necessárias  
 Em uma sessão X11, DEVE usar o Weston a partir do momento que for iniciar uma sessão Waydroid  
 
-* Pacotes utilizados:  
+#### - Pacotes utilizados:  
 
 [waydroid (AUR)](https://aur.archlinux.org/packages/waydroid). Contêiner para inicializar um sistema Android completo em um sistema Linux.  
 [waydroid-image-gapps (AUR)](https://aur.archlinux.org/packages/waydroid-image-gapps). Imagem Android + GAPPS pra usar no Waydroid.  
@@ -19,19 +19,19 @@ Em uma sessão X11, DEVE usar o Weston a partir do momento que for iniciar uma s
 [python-pyclip (AUR)](https://aur.archlinux.org/packages/python-pyclip). Utilitários de área de transferência multiplataforma que suportam dados binários e de texto.  
 
 
-Verificar e instalar o Kernel "headers" e pré requisitos para o Waydroid:  
+#### Verificar e instalar o Kernel "headers" e pré requisitos para o Waydroid:  
 
 ```
 sudo pacman --needed -S "$(pacman -Qqs | grep ^linux | head -n1)"-headers curl lxc ca-certificates
 ```
 
-Instalar Waydroid:  
+#### Instalar Waydroid:  
 
 ```
 yay --needed --noconfirm -S waydroid waydroid-image-gapps waydroid-script-git weston binder_linux-dkms python-pyclip
 ```
 
-Corrigindo ícone do Weston:  
+#### Corrigindo ícone do Weston:  
 
 ```
 mkdir -p $HOME/.local/share/applications
@@ -39,7 +39,7 @@ cp -a /usr/share/wayland-sessions/weston.desktop $HOME/.local/share/applications
 echo -e 'Categories=Utility;\nIcon=wayland\n' | tee -a $HOME/.local/share/applications/weston.desktop
 ```
 
-Iniciar instância do Waydroid  
+#### Iniciar instância do Waydroid  
 
 >Se estiver **ATUALIZANDO** a imagem do Android, DEVE adicionar o parâmetro `-f` na frente:  
 
@@ -47,7 +47,7 @@ Iniciar instância do Waydroid
 sudo waydroid init -s GAPPS
 ```
 
-Iniciar o container Waydroid (via SystemD)  
+#### Iniciar o container Waydroid (via SystemD)  
 
 >Se estiver **ATUALIZANDO** a imagem do Android, DEVE utilizar o parâmetro `restart`:  
 >Sempre que for usar o Waydroid, o container **DEVE** estar ativado.  
@@ -56,13 +56,13 @@ Iniciar o container Waydroid (via SystemD)
 sudo systemctl start waydroid-container
 ```
 
-Instalar tradutor libhoudini arm  
+#### Instalar tradutor libhoudini ARM  
 
 ```
 sudo waydroid-extras install libhoudini
 ```
 
-Configurar [emulação de entradas de toque](https://docs.waydro.id/usage/waydroid-prop-options#modify-app-behaviour):  
+#### Configurar [emulação de entradas de toque](https://docs.waydro.id/usage/waydroid-prop-options#modify-app-behaviour):  
 
 ```
 waydroid session start &
@@ -72,7 +72,7 @@ waydroid session stop
 sudo systemctl restart waydroid-container
 ```
 
-Permissão total para apps data (HACK)  
+#### Permissão total para apps data (HACK)  
 
 Com a sessão ativada, ative o Shell do Waydroid.  
 Denstro do Shell faça toda a sequência de comandos a seguir  
@@ -81,7 +81,7 @@ Denstro do Shell faça toda a sequência de comandos a seguir
 sudo waydroid shell
 ```
 
-Sequência de comandos:  
+##### - Sequência de comandos:  
 
 ```
 chmod 777 -R /sdcard/Android
@@ -93,15 +93,15 @@ chmod 777 -R /mnt/*/*/*/*/Android/obb
 exit
 ```
 
-Agora dá pra usar o Waydroid configurado, use o seguinte comando pra iniciar:  
+Agora para usar o Waydroid configurado, use o seguinte comando pra iniciar:  
 
 ```
 waydroid first-launch
 ```
 
-* Registro do Dispositivo:  
+### -  Registro do Dispositivo:  
 
-Seguir o link [Docs Waydroid, Google Play Certification](https://docs.waydro.id/faq/google-play-certification)  
+**Seguir o link** [Docs Waydroid, Google Play Certification](https://docs.waydro.id/faq/google-play-certification)  
 
 * Fontes:  
 
