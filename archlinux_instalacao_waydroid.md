@@ -103,6 +103,10 @@ waydroid first-launch
 
 **Seguir o link** [Docs Waydroid, Google Play Certification](https://docs.waydro.id/faq/google-play-certification)  
 
+## **EXTRA:**
+
+[TESTE](archlinux_instalacao_waydroid.md#iniciar-o-container-waydroid-via-systemd)
+
 * Fontes:  
 
 https://wiki.archlinux.org/title/Waydroid#Installation  
