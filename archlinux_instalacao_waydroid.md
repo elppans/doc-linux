@@ -67,10 +67,12 @@ sudo waydroid-extras install libhoudini
 ```
 waydroid session start &
 waydroid status
-waydroid prop set key persist.waydroid.fake_touch
+waydroid prop set persist.waydroid.fake_touch '*.*'
 waydroid session stop
 sudo systemctl restart waydroid-container
 ```
+
+>Se instalar algum jogo e o toque não estiver funcionando, faça este procedimento novamente
 
 #### Permissão total para apps data (HACK)  
 
