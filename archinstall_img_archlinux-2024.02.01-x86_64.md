@@ -26,7 +26,7 @@ Recomendável testar a conexão com a internet antes de iniciar a instalação:
 ping -c 4 archlinux.org
 ```
 
-Estando tudo certo, iniciar a instalação. É muito importante LER COM ATENÇÃO cada item para não cometer erros.  
+Estando tudo certo, iniciar a instalação. É muito importante **LER COM ATENÇÃO** cada item para não cometer erros.  
 >Como já tenho o Arch em meu computador, esta instalação foi feita em Máquina Virtual pra mostrar como foi feito pra instalar o ArchLinux com Plasma.  
 **Todas as opções devem ser escolhidas prestando atenção e cuidado**  
 
