@@ -1,9 +1,9 @@
 # Archinstall, Imagens da instalação do Archlinux ISO 01.02.2024
 
 - **ATENÇÃO**:  
-**NÃO** é um tutorial, é uma **demonstração** em IMAGENS.  
-Para instalar **use o Wiki para saber como usar o [Archinstall](https://wiki.archlinux.org/title/Archinstall_(Portugu%C3%AAs))**.  
-Partindo do ponto de que [foi feito o boot do instalador no computador "1.1 a 1.4"](https://wiki.archlinux.org/title/Installation_guide_(Portugu%C3%AAs)).  
+**NÃO** é um tutorial, é uma **DEMONSTRAÇÃO** em IMAGENS.  
+### Para instalar **USE O WIKI PRA SABER COMO USAR O [ARCHINSTALL](https://wiki.archlinux.org/title/Archinstall_(Portugu%C3%AAs))**.  
+Partindo do ponto em que [foi feito o boot do instalador no computador "1.1 a 1.4"](https://wiki.archlinux.org/title/Installation_guide_(Portugu%C3%AAs)).  
 Dá pra seguir o [Arch Wiki, USB flash installation medium (Português)](https://wiki.archlinux.org/title/USB_flash_installation_medium_(Portugu%C3%AAs)).  
 
 - **Internet**:  
