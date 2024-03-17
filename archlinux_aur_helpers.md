@@ -25,13 +25,30 @@ cd pamac-aur
 makepkg -Cris -L --needed --noconfirm
 ```
 
-#### Se quiser o suporte a Flatpak e Snap:
+#### Pamac com suporte a Flatpak e Snap:
 
 ```bash
-cd ~/Downloads
+mkdir -p ~/build
+cd ~/build
+git clone https://aur.archlinux.org/snapd.git
+cd snapd
+makepkg -Cris
+cd -
+git clone https://aur.archlinux.org/snapd-glib.git
+cd snapd-glib
+makepkg -Cris
+cd -
 git clone https://aur.archlinux.org/libpamac-full.git
 cd libpamac-full
-makepkg -siL --needed --noconfirm
+makepkg -Cris
+cd -
+git clone https://aur.archlinux.org/pamac-cli.git
+cd pamac-cli
+makepkg -Cris
+cd -
+git clone https://aur.archlinux.org/pamac-all.git
+cd pamac-all
+makepkg -Cris --needed --noconfirm
 ```
 
 Pra quem usa Plasma KDE, se não estiver aparecendo o pamac no Systray, pode dar uma olhada no pacote [pamac-tray-icon-plasma](https://aur.archlinux.org/packages/pamac-tray-icon-plasma)
