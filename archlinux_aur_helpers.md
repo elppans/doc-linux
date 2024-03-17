@@ -36,8 +36,6 @@ Ou pode usar também o pacote [update-notifier](https://aur.archlinux.org/packag
 
 Dos Wrappers do pacman, o que me chamou mais atenção foi o [Yay](https://aur.archlinux.org/packages/yay). 
 Com ele, dá pra instalar também os pacotes [pacman-contrib](https://archlinux.org/packages/community/x86_64/pacman-contrib/) e também o [arch-update](https://aur.archlinux.org/packages/arch-update).  
-Pra quem usa Gnome, em vez do arch-update, pode experimentar usar o pacote [gnome-shell-extension-arch-update](https://aur.archlinux.org/packages/gnome-shell-extension-arch-update).  
-Pra quem usa Plasma, pode experimentar o pacote [plasma5-applets-kde-arch-update-notifier](https://aur.archlinux.org/packages/plasma5-applets-kde-arch-update-notifier).  
 
 ### Instalar o yay:  
 
@@ -49,43 +47,19 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -siL --needed --noconfirm
 ```
-
-#### Arch Update para quem usa Gnome:  
-
-```bash
-cd ~/Downloads
-git clone https://aur.archlinux.org/gnome-shell-extension-arch-update.git
-cd gnome-shell-extension-arch-update
-makepkg -siL --needed --noconfirm
-```
-
-Após instalar o pacote gnome-shell-extension-arch-update, basta ir no aplicativo de extensões e ativar. Em propriedades, aba avançada, pode configurar substituindo no comando o `pamac` por `yay`.  
-
-#### Arch Update para quem usa Plasma KDE:  
-
-```bash
-cd ~/Downloads
-git clone https://aur.archlinux.org/plasma5-applets-kde-arch-update-notifier.git
-cd plasma5-applets-kde-arch-update-notifier
-makepkg -siL --needed --noconfirm
-```
-Após instalar o pacote plasma5-applets-kde-arch-update-notifier, clique com o botão direito no Painel e depois selecione "Adicionar widget".
-Escolha o Widget "`Arch updater`". Após adicionar o Widget, posicione ele em alguma parte do Painel de sua preferência e então, já pode usar.
-Se quiser, configurar o Arch Updater, clique com o botão direito no ícone do mesmo e depois em "Configurar Arch Updater".  
-
 ### Instalação de pacotes com yay
 
 Se você instalou o yay, já pode usar ele mesmo para instalar os pacotes do AUR, em vez de compilar.  
 Fica até mais fácil. Por exemplo:
 
 ```
-yay -S gnome-shell-extension-arch-update
+yay -S pacote
 ```
 
 Além da opção -S, também pode usar as opções -y -u e é até bom ter este costume. Exemplo:  
 
 ```
-yay -Syu plasma5-applets-kde-arch-update-notifier
+yay -Syu pacote
 ```
 
 Também existem outros Helpers, que as pessoas também gostam de usar:  
@@ -96,8 +70,26 @@ Também existem outros Helpers, que as pessoas também gostam de usar:
 Para mais informações, consulte [AUR_helpers (Português)](https://wiki.archlinux.org/title/AUR_helpers_(Portugu%C3%AAs)).  
 Recomendavel ler também [Arch User Repository (Português)](https://wiki.archlinux.org/title/Arch_User_Repository_(Portugu%C3%AAs))
 
-Grupo Telegram recomendável:  
+#### Arch Update
 
-[Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
+Instalar o pacote [arch-update](https://aur.archlinux.org/packages/arch-update):   
 
-Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
+```
+yay -S arch-update
+systemctl --user enable --now arch-update.timer
+```
+
+Verificar o Status:  
+
+```
+systemctl --user status arch-update.timer
+```
+
+Após instalar o pacote, se estiver no Plasma, vá ao menu e ache o ícone do arch-update, clique e segure e arraste para sua barra de tarefas, deixando onde quiser.
+
+Para mais informações, veja o [README](https://github.com/Antiz96/arch-update/blob/main/README.md) e também assista o [video com o desenvolvedor explicando como usar](https://www.youtube.com/watch?v=QkOkX70SEmo).  
+
+__
+
+- Grupo Telegram recomendável: [Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
+- Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)  
