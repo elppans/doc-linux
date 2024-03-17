@@ -12,12 +12,17 @@ Porém, o pacote pamac-all, está sinalizado como "Desatualizado". Então, pra q
 Existe um pacote que seria interessante, o [pamac-zsh-completions](https://aur.archlinux.org/packages/pamac-zsh-completions), porém, o pamac a partir da versão 10.2.2 já inclui esta funcionalidade neste pacote, então NÃO instale este pacote, pois entrará em conflito com o já incluso.
 
 ### Instalar o pamac:  
+>Usando o pacote [pamac-aur](https://aur.archlinux.org/packages/pamac-aur)  
 
 ```bash
 cd ~/Downloads
+git clone https://aur.archlinux.org/libpamac-aur.git
+cd libpamac-aur
+makepkg -Cris
+cd -
 git clone https://aur.archlinux.org/pamac-aur.git
 cd pamac-aur
-makepkg -siL --needed --noconfirm
+makepkg -Cris -L --needed --noconfirm
 ```
 
 #### Se quiser o suporte a Flatpak e Snap:
