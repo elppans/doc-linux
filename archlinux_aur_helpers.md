@@ -7,12 +7,8 @@ Pra quem já tá acostumado com o pamac, existem 2 pacotes no AUR que dá pra us
 [pamac-aur](https://aur.archlinux.org/packages/pamac-aur) – Inclui apenas acessibilidade para o AUR.  
 [pamac-all](https://aur.archlinux.org/packages/pamac-all) – Permite acessar não apenas o AUR, mas também os repositórios flatpak e snap.  
 
-Porém, o pacote pamac-all, está sinalizado como "Desatualizado". Então, pra quem quer usar o pamac com suporte a Flatpak e Snap, melhor instalar o pacote pamac-aur e logo em seguida, instalar o pacote [libpamac-full](https://aur.archlinux.org/packages/libpamac-full)
-
-Existe um pacote que seria interessante, o [pamac-zsh-completions](https://aur.archlinux.org/packages/pamac-zsh-completions), porém, o pamac a partir da versão 10.2.2 já inclui esta funcionalidade neste pacote, então NÃO instale este pacote, pois entrará em conflito com o já incluso.
-
-### Instalar o pamac:  
->Usando o pacote [pamac-aur](https://aur.archlinux.org/packages/pamac-aur)  
+### Instalar o pamac apenas com o suporte a AUR:  
+>Usando o pacote [pamac-aur](https://aur.archlinux.org/packages/pamac-aur).  
 
 ```bash
 cd ~/Downloads
@@ -25,7 +21,8 @@ cd pamac-aur
 makepkg -Cris -L --needed --noconfirm
 ```
 
-#### Pamac com suporte a Flatpak e Snap:
+#### Instalar pamac com suporte a AUR, Flatpak e Snap:
+>Usando o pacote [pamac-all](https://aur.archlinux.org/packages/pamac-all).
 
 ```bash
 mkdir -p ~/build
@@ -51,13 +48,13 @@ cd pamac-all
 makepkg -Cris --needed --noconfirm
 ```
 
-Pra quem usa Plasma KDE, se não estiver aparecendo o pamac no Systray, pode dar uma olhada no pacote [pamac-tray-icon-plasma](https://aur.archlinux.org/packages/pamac-tray-icon-plasma)
-Ou pode usar também o pacote [update-notifier](https://aur.archlinux.org/packages/update-notifier), que inclusive, tem suporte a mais outros Helpers
+Pra quem usa Plasma KDE, se não estiver aparecendo o pamac no Systray, pode dar uma olhada no pacote [pamac-tray-icon-plasma](https://aur.archlinux.org/packages/pamac-tray-icon-plasma)  
+Ou pode usar também o pacote [update-notifier](https://aur.archlinux.org/packages/update-notifier), que inclusive, tem suporte a mais outros Helpers  
 
-### Wrapper:
+### Wrapper:  
 
-Dos Wrappers do pacman, o que me chamou mais atenção foi o [Yay](https://aur.archlinux.org/packages/yay). 
-Com ele, dá pra instalar também os pacotes [pacman-contrib](https://archlinux.org/packages/community/x86_64/pacman-contrib/) e também o [arch-update](https://aur.archlinux.org/packages/arch-update).  
+Dos Wrappers do pacman, o que me chamou mais atenção foi o [Yay](https://aur.archlinux.org/packages/yay).  
+Com ele, dá pra usar os pacotes [pacman-contrib](https://archlinux.org/packages/community/x86_64/pacman-contrib/) e também o [arch-update](https://aur.archlinux.org/packages/arch-update).  
 
 ### Instalar o yay:  
 
