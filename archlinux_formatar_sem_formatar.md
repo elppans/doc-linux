@@ -50,7 +50,8 @@ Faça o mesmo com seus pacotes utilizados na instalação.
 sudo pacman -D --asexplicit base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs git fakeroot reflector nano ntp man-db man-pages texinfo grub-efi-x86_64 efibootmgr dosfstools os-prober mtools networkmanager wpa_supplicant wireless_tools dialog sudo
 ```
 
-Mais especificamente, como **não queria recompilar o yay**, meu comando completo ficou assim (**`lembrando que você pode adicionar OU remover os pacotes que quiser`**, assim como fiz):
+Mais especificamente, como **não queria recompilar o yay**, meu comando completo ficou assim:  
+>Lembrando que você pode **`adicionar OU remover os pacotes que quiser`**, assim como fiz
 
 ```
 sudo pacman -D --asexplicit base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs git fakeroot reflector nano ntp man-db man-pages texinfo grub-efi-x86_64 efibootmgr dosfstools os-prober mtools networkmanager wpa_supplicant wireless_tools dialog sudo yay pkgconf wget
