@@ -74,7 +74,8 @@ sudo systemctl enable --now cockpit.socket
 sudo systemctl status cockpit.socket
 ```
 
-Para acessar seu Painel Web, vá em seu navegador e acesse **127.0.0.1:9090**  
+Para acessar seu Painel Web, vá em seu navegador e acesse [127.0.0.1:9090](127.0.0.1:9090)  
+Se seu login não funcionar neste endereço, utilize o endereço [https://127.0.0.1:9090](https://127.0.0.1:9090)  
 Se aparecer um popup pedindo direitos administrativos, clique lá e logue também.  
 Já no Painel Web, seção Rede, estará a sua rede e também o do Virt-Manager. Minha rede usa a porta enp2s0.  
 Para configurar, deve clicar em “Adicionar Ponte”.
