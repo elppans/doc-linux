@@ -23,7 +23,8 @@ Indice:
 19) [Archinstall, Algumas dicas pós instalação](https://elppans.github.io/doc-linux/archinstall_tips_pos_inst)  
 20) [Archinstall, Imagens da instalação do Archlinux ISO 01.02.2024](https://elppans.github.io/doc-linux/archinstall_img_archlinux-2024.02.01-x86_64)  
 21) [Converter antigo $HOME para subvolume btrfs](https://elppans.github.io/doc-linux/converter_antigo_home_para_subvolume_btrfs)  
-22) [Criar subvolume btrfs para troca de arquivos](https://elppans.github.io/doc-linux/criar_subvolume_btrfs_para_troca)  
+22) [Criar subvolume btrfs para troca de arquivos](https://elppans.github.io/doc-linux/criar_subvolume_btrfs_para_troca)
+23) [Converter pacotes Archlinux para pacotes Debian](https://elppans.github.io/doc-linux/aur_para_deb)
 
 
 
