@@ -36,14 +36,14 @@ Para instalar o **makedeb**, **mpm** e **makedeb-db** no Debian, Ubuntu ou qualq
    sudo apt install mpm makedeb makedeb-db
    ```
 
-Lembre-se de que a versão estável suporta apenas o **AUR**. Para suporte aos repositórios do Arch Linux, você precisará instalar a versão alfa do **mpm** e **makedeb** (mpm-alpha e makedeb-alpha)¹[1]. Espero que isso ajude você a converter pacotes entre essas duas distribuições! 🚀
+>A versão estável suporta apenas o **AUR**. Para suporte aos repositórios do Arch Linux, você precisará instalar a versão alfa do **mpm** e **makedeb** (mpm-alpha e makedeb-alpha)¹[1].  
 
-Origem: conversa com o Bing, 27/04/2024  
-(1) New Project To Convert Arch Linux PKGBUILDs (Repositories and AUR) To .... https://www.linuxuprising.com/2021/05/new-project-to-convert-arch-linux.html.  
-(2) Converter um pacote Debian .deb em um pacote Arch Linux. https://blog.desdelinux.net/pt/deb-em-um-pacote-do-arch-linux/.  
-(3) Novo projeto para converter PKGBUILDs do Arch Linux ... - Linux Avante. https://linuxavante.com/novo-projeto-para-converter-pkgbuilds-repositorios-aur-para-pacotes-deb.  
-(4) Converter pacotes DEB em pacotes para Arch Linux | Linux Adictos. https://www.linuxadictos.com/pt/converter-pacotes-deb-arch-pacotes-linux.html.  
-(5) Instalar pacotes .deb no Arch Linux (Manjaro, Reborn OS...). https://dev.to/tuliocalil/instalar-pacotes-deb-no-arch-linux-ou-manjaro-5a8l.  
-(6) undefined. https://hunterwittenborn.com/keys/apt.asc.  
-(7) undefined. https://repo.hunterwittenborn.com/debian/makedeb.  
-(8) github.com. https://github.com/hwittenborn/makedeb-db/tree/06b498a2dc1948c9f2c8a78cfcf66b418a5c287f/README.md.  
+- Fontes:  
+(1) [New Project To Convert Arch Linux PKGBUILDs (Repositories and AUR) To ....](https://www.linuxuprising.com/2021/05/new-project-to-convert-arch-linux.html).  
+(2) [Converter um pacote Debian .deb em um pacote Arch Linux.](https://blog.desdelinux.net/pt/deb-em-um-pacote-do-arch-linux/).  
+(3) [Novo projeto para converter PKGBUILDs do Arch Linux ... - Linux Avante.](https://linuxavante.com/novo-projeto-para-converter-pkgbuilds-repositorios-aur-para-pacotes-deb).  
+(4) [Converter pacotes DEB em pacotes para Arch Linux | Linux Adictos.](https://www.linuxadictos.com/pt/converter-pacotes-deb-arch-pacotes-linux.html).  
+(5) [Instalar pacotes .deb no Arch Linux (Manjaro, Reborn OS...).](https://dev.to/tuliocalil/instalar-pacotes-deb-no-arch-linux-ou-manjaro-5a8l).  
+(6) [hunterwittenborn, apt.asc.](https://hunterwittenborn.com/keys/apt.asc).  
+(7) [hunterwittenborn, makedeb.](https://repo.hunterwittenborn.com/debian/makedeb).  
+(8) [github.com, makedeb README.](https://github.com/hwittenborn/makedeb-db/tree/06b498a2dc1948c9f2c8a78cfcf66b418a5c287f/README.md).  
