@@ -7,12 +7,18 @@ Aqui estão duas opções para converter pacotes do Arch Linux para pacotes DEB:
 
 1. [**makedeb**](https://www.makedeb.org/):
    - **makedeb** cria pacotes Debian que podem ser instalados usando o **APT** a partir dos arquivos **PKBUILD** do Arch Linux.
-   - O desenvolvedor criou um [**Repositório de Usuários do Debian**](https://mpr.makedeb.org/) semelhante ao AUR do Arch Linux, onde você pode encontrar mais pacotes¹[1](https://www.linuxuprising.com/2021/05/new-project-to-convert-arch-linux.html).
+   - O desenvolvedor criou um [**Repositório de Usuários do Debian (MPR)**](https://mpr.makedeb.org/) semelhante ao AUR do Arch Linux, onde você pode encontrar mais pacotes¹[1](https://www.linuxuprising.com/2021/05/new-project-to-convert-arch-linux.html).
+   - Opcionalmente, pode usar o aplicativo [Mist](https://docs.makedeb.org/using-the-mpr/mist-the-mpr-cli/), que é a interface de linha de comando oficial para o MPR.
+   - Para usar o Mist deve primeiro configurar o [prebuilt-mpr](https://docs.makedeb.org/prebuilt-mpr/getting-started/), que serve binários pré-compilados para pacotes no MPR.  
 
 2. [**Archalien**](https://aur.archlinux.org/packages/archalien-git):
    - O **Archalien** é uma ferramenta que permite converter pacotes **DEB** em pacotes **Arch Linux**. Você pode usá-lo para transformar pacotes **.deb** em pacotes **.pkg.tar.gz** do Arch Linux²[2](https://blog.desdelinux.net/pt/deb-em-um-pacote-do-arch-linux/).
 
+## Instalando o pacote makedeb
+
 Para instalar o **makedeb**, no Debian, Ubuntu ou qualquer distribuição baseada neles, siga estas etapas:
+
+- Se o repositório não estiver funcionando, siga o tutorial [Instalação do makedeb via código-fonte](https://elppans.github.io/doc-linux/instalar_makedeb_source_ubuntu).  
 
 1. Adicione o repositório e atualize as fontes de software:
 >Como o sistema irá trabalhar com compilação, é bom instalar alguns pacotes essenciais pra isso também:
