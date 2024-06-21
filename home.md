@@ -26,7 +26,7 @@ Indice:
 22) [Archinstall, Imagens da instalação do Archlinux ISO 01.02.2024](https://elppans.github.io/doc-linux/archinstall_img_archlinux-2024.02.01-x86_64)  
 23) [Ubuntu, Converter pacotes Archlinux para pacotes Debian](https://elppans.github.io/doc-linux/aur_para_deb)  
 24) [Ubuntu, Instalação do makedeb via código-fonte](https://elppans.github.io/doc-linux/instalar_makedeb_source_ubuntu)  
-25) [Ubuntu, teclado ABNT2](ubuntu_keyboard_abnt2)  
+25) [Ubuntu, teclado ABNT2](https://elppans.github.io/doc-linux/ubuntu_keyboard_abnt2)  
 
 
 
