@@ -1,6 +1,6 @@
 # Configurar teclado ABNT2 no Ubuntu (CLI)
 
-- Método setxkbmap
+**- Método setxkbmap**
 
 Para configurar o teclado no padrão ABNT2 no Ubuntu, você pode usar o seguinte comando no terminal:
 
@@ -11,7 +11,7 @@ setxkbmap -model abnt2 -layout br
 Isso deve resolver o problema caso você não esteja conseguindo digitar cedilha (ç), palavras acentuadas com acento circunflexo (^), crase (`) e acento agudo (á, é, í, ó, ú). 
 Se estiver usando um notebook com teclado padrão inglês americano, configure-o como "Inglês (Mali, EUA, Internacional)". 
 
-- Método dpkg-reconfigure
+**- Método dpkg-reconfigure**
 
 Além do comando que mencionei anteriormente, você também pode configurar o teclado ABNT2 no Ubuntu editando o arquivo de configuração diretamente. 
 Siga estas etapas:
@@ -33,7 +33,7 @@ sudo dpkg-reconfigure keyboard-configuration
 
 Isso deve definir o layout do teclado como ABNT2. Se você preferir usar uma interface gráfica, pode ir até as configurações do sistema e procurar a opção de layout de teclado para fazer a alteração.
 
-- Recarregar a configuração sem reiniciar
+**- Recarregar a configuração sem reiniciar**
 
 Você pode recarregar a configuração do teclado sem reiniciar o computador. Após editar o arquivo "/etc/default/keyboard", execute o seguinte comando para aplicar as alterações:
 
@@ -43,7 +43,7 @@ sudo service keyboard-setup restart
 
 Isso deve recarregar a configuração do teclado e aplicar o layout ABNT2 sem a necessidade de reiniciar.
 
-- Automatizar dpkg-reconfigure
+**- Automatizar dpkg-reconfigure**
 
 É possível automatizar o processo de `dpkg-reconfigure keyboard-configuration` para que ele não solicite confirmação manual. Você pode usar o seguinte comando:
 
@@ -58,7 +58,7 @@ Um 2º modo para a execução do comando, é usando a opão `-f noninteractive`,
 sudo dpkg-reconfigure -f noninteractive keyboard-configuration
 ```
 
-- Validação da configuração
+**- Validação da configuração**
 
 Para verificar se o layout do teclado foi configurado corretamente no Ubuntu, você pode usar um dos seguintes métodos:
 
