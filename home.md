@@ -7,7 +7,7 @@ Indice:
 03) [ArchLinux, Instalando Arch com Plasma Minimal + Aplicativos](https://elppans.github.io/doc-linux/archlinux_plasma_minimal)  
 04) [Archlinux, Instalando Arch com Plasma Minimal (Meta)](https://elppans.github.io/doc-linux/archlinux_plasma_meta)  
 05) [ArchLinux, Escolhendo e instalando uma Suite Office](https://elppans.github.io/doc-linux/archlinux_suite_office)  
-06) [ArchLinux com zsh, oh my zsh e powerlevel10k](https://elppans.github.io/doc-linux/archlinux_zsh_ohmyzsh_powerlevel10k)  
+06) [ArchLinux, zsh, oh my zsh e powerlevel10k](https://elppans.github.io/doc-linux/archlinux_zsh_ohmyzsh_powerlevel10k)  
 07) [ArchLinux, AUR Helpers](https://elppans.github.io/doc-linux/archlinux_aur_helpers)  
 08) [ArchLinux, NVidia Legacy + Wayland no Gnome](https://elppans.github.io/doc-linux/archlinux_nvidia_legacy_wayland_gnome)  
 09) [ArchLinux, Virt-Manager + Cockpit](https://elppans.github.io/doc-linux/archlinux_virt-manager_cockpit)   
