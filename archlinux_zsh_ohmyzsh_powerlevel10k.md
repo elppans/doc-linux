@@ -9,38 +9,52 @@ Em todos os tutoriais que lí, deve baixar o tema e plugins princiais via git, m
 Para instalar os principais pacotes, além do zsh, basta fazer o comando:
 
 ```bash
-sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions zsh-theme-powerlevel10k
+yay -S zsh zsh-syntax-highlighting zsh-autosuggestions
 
+```
+* Temas:
+
+Um bom pacote para configurar o tema é o [powerlevel10k](https://github.com/romkatv/powerlevel10k).  
+No AUR tem o pacote [zsh-theme-powerlevel10k](https://aur.archlinux.org/packages/zsh-theme-powerlevel10k), mas está dando erro ao compilar. Então baixei este pacote e criei meu próprio PKGBUILD.  
+O pacote depende de um outro pacote também do AUR, [gitstatus-bin](https://aur.archlinux.org/packages/gitstatus-bin). Para instalar, faça:  
+
+```
+yay -S gitstatus-bin
+git clone https://github.com/elppans/zsh-theme-powerlevel10k.git
+zsh-theme-powerlevel10k
+makepkg -Cris
 ```
 
 * [Fontes](https://github.com/romkatv/powerlevel10k#fonts):
 
-No repositório AUR, também há 2 pacotes de fontes que devem ser instalados, o [nerd-fonts-noto-sans-mono](https://aur.archlinux.org/packages/nerd-fonts-noto-sans-mono) e [ttf-meslo-nerd-font-powerlevel10k](https://aur.archlinux.org/packages/ttf-meslo-nerd-font-powerlevel10k):
+No repositório AUR há 2 pacotes de fontes, o [nerd-fonts-noto-sans-mono](https://aur.archlinux.org/packages/nerd-fonts-noto-sans-mono) e [ttf-meslo-nerd-font-powerlevel10k](https://aur.archlinux.org/packages/ttf-meslo-nerd-font-powerlevel10k). Para instalar, basta usar o yay.  
+Porém, existem 2 pacotes no repositório oficial que é equivalente ou instala a mesma coisa. Então recomendo usar estes 2 pacotes:
+
+1. [ttf-noto-nerd](https://archlinux.org/packages/extra/any/ttf-noto-nerd/) - Equivalente ao **nerd-fonts-noto-sans-mono**
+2. [ttf-meslo-nerd](https://archlinux.org/packages/extra/any/ttf-meslo-nerd/) - Equivalente ao **ttf-meslo-nerd-font-powerlevel10k**
+
+Instalando as fontes:
 
 ```bash
-cd Downloads
-git clone https://aur.archlinux.org/nerd-fonts-noto-sans-mono.git
-git clone https://aur.archlinux.org/ttf-meslo-nerd-font-powerlevel10k.git
-cd nerd-fonts-noto-sans-mono
-makepkg -siL --needed --noconfirm
-cd ../ttf-meslo-nerd-font-powerlevel10k
-makepkg -siL --needed --noconfirm
+sudo pacman -S ttf-noto-nerd ttf-meslo-nerd
 ```
 
-Após a instalação, configure nas preferências do seu Terminal a fonte `MesloLGS NF`.
+Após a instalação, configure nas preferências do seu Terminal a fonte **`MesloLGS NF`**.
 
 * Configuração:
 
-Após a instalação dos pacotes, basta instalar o OMZ. Na página github dele ensina vários modos de instalação, aqui vou mostrar o que acho melhor.
-Basta fazer este comando e ao aparecer um menú de confirmação, digite "Y" pra confirmar a instalação:
+Após a instalação dos pacotes, instale o [OMZ (Oh My Zsh)](https://github.com/ohmyzsh/ohmyzsh).  
+Na página github dele ensina vários modos de instalação, aqui vou mostrar o que acho melhor e mais fácil.  
+Basta fazer este comando:  
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-
+ Ao aparecer um menú de confirmação, digite "Y" pra confirmar a instalação.  
+ 
 * [Tema](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes):
 
-Como o tema PowerLevel10K foi instalado via pacote, faça o link dele para a pasta de temas do OMZ:
+Como o tema **PowerLevel10K** foi instalado via pacote, faça o link dele para o **diretório de temas do OMZ**:  
 
 ```bash
 ln -sf /usr/share/zsh-theme-powerlevel10k ~/.oh-my-zsh/custom/themes
@@ -53,24 +67,24 @@ sed -i '/ZSH_THEME/s/robbyrussell/zsh-theme-powerlevel10k\/powerlevel10k/' ~/.zs
 ```
 
 Ou, fazer da forma tradicional, editar o arquivo ~/.zshrc, procurar pela linha ZSH_THEME e trocar o plugin padrão pelo plugin do pacote.  
-Vai ficar desta maneira:
+Vai ficar desta maneira:  
 
 ```bash
 ZSH_THEME="zsh-theme-powerlevel10k/powerlevel10k"
 ```
 
-Feche e abra o Terminal, na 1ª vez que abrir usando o tema, responda a todas as perguntas, para customizar o tema ao seu gosto.
+Feche e abra o Terminal.  
+Na 1ª vez que abrir usando o tema, responda a todas as perguntas, para customizar o tema ao seu gosto.  
 
-* [Plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins):
+* [Plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins):  
 
-Primeiramente, faça um link dos plugins instalados via pacman para a pasta plugins do OMZ:
+Primeiramente, faça um link dos plugins instalados via pacman para o **diretório plugins do OMZ**:  
 
 ```bash
 ln -sf /usr/share/zsh/plugins/* ~/.oh-my-zsh/custom/plugins
 ```
 
-Depois edite o arquivo ~/.zshrc e vá até a linha "plugins" e junto com o que estiver na linha, adicione os plugins instalados via pacman.
-Já dá pra aproveitar e adicionar mais plugins que interessar da lista de [plugins do Wiki do OMZ](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins):
+Depois edite o arquivo ~/.zshrc e vá até a linha "plugins" e junto com o que estiver na linha, adicione os plugins que foram instalados via pacman:  
 
 ```
 plugins=(
@@ -80,6 +94,7 @@ plugins=(
         colored-man-pages
 )
 ```
+>Opcionalmente, já dá pra aproveitar e adicionar mais plugins que interessar da lista de [plugins do Wiki do OMZ](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins).
 
 * Customização ***(OPCIONAL)***  
 
@@ -90,7 +105,7 @@ adicionei outro parâmetro de progresso:
 mkdir -p ~/.oh-my-zsh/plugins/rsync2
 touch ~/.oh-my-zsh/plugins/rsync2/rsync2.plugin.zsh
 ```
-Com o editor de texto, foi adicionado o conteúdo:
+Com o editor de texto, adicione o conteúdo:
 
 ```
 alias rsync-copy="rsync -ahz --info=progress2"  
@@ -98,9 +113,32 @@ alias rsync-move="rsync -ahz --info=progress2 --remove-source-files"
 alias rsync-update="rsync -ahzu --info=progress2"  
 alias rsync-synchronize="rsync -ahzu --delete --info=progress2"
 ```
+Com esta configuração, é feito a cópia/sincronização informando apenas uma barra de progresso.  
+Para configurar como está na página, em modo verbose, deve adicionar o conteúdo desta forma:  
 
-Opcionalmente, pode usar a opção --stats no comando, desta forma ao copiar os arquivos mostra como resultado um resumo do que acabou de fazer.
-Depois da customização, basta adicionar na lista de plugins junto com os outros. Pra mim ficou assim:
+```
+alias rsync-copy="rsync -avz --progress -h"
+alias rsync-move="rsync -avz --progress -h --remove-source-files"
+alias rsync-update="rsync -avzu --progress -h"
+alias rsync-synchronize="rsync -avzu --delete --progress -h"
+```
+
+Há um outro modo de configurar, que fica mais fácil decorar os comandos. Só seguir este exemplo:  
+
+```
+alias cpr="rsync -ahz --info=progress2"
+alias mvr="rsync -ahz --info=progress2 --remove-source-files"
+alias cprup="rsync -ahzu --info=progress2"
+alias cprsync="rsync -ahzu --delete --info=progress2"
+alias cpr-v="rsync -avz --progress -h"
+alias mvr-v="rsync -avz --progress -h --remove-source-files"
+alias cprup-v="rsync -avzu --progress -h"
+alias cprsync-v="rsync -avzu --delete --progress -h"
+```
+
+>Opcionalmente, pode usar a opção --stats no comando, desta forma ao copiar os arquivos mostra como resultado um resumo do que acabou de fazer.  
+
+Depois da customização, basta adicionar na lista de plugins, no arquivo ~/.zshrc junto com os outros. Vai ficar assim:  
 
 ```
 plugins=(
@@ -124,9 +162,5 @@ Com isso, já dá pra saber que além de usar os plugins do OMZ, dá pra criar e
 [https://linuxhint.com/setup-configure-autocomplete-zsh/](https://linuxhint.com/setup-configure-autocomplete-zsh/)  
 [https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync)  
 
-Grupo Telegram recomendável:  
-
-[Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
-
-
-Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)
+- Grupo Telegram recomendável: [Telegram Arch Linux Brasil](https://t.me/archlinuxbr)  
+- Para comentários e sugestões, [clique aqui](https://github.com/elppans/doc-linux/issues)
