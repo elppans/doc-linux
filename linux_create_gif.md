@@ -1,4 +1,4 @@
-# No Linux via terminal, usar 3 imagens jpg para criar um gif de 10 segundos
+# No Linux via terminal, usar imagens jpg para criar um gif
 
 Você pode criar um GIF animado a partir de três imagens JPG no Linux usando o utilitário **ImageMagick**. 
 Aqui estão as etapas:
@@ -11,9 +11,9 @@ Aqui estão as etapas:
    ```
 
 2. **Redimensione as imagens** (opcional, mas recomendado para manter o tamanho consistente):
-   Se você deseja redimensionar as imagens para o mesmo tamanho (por exemplo, 640x480), use o seguinte comando:
+   Se você deseja redimensionar as imagens para o mesmo tamanho (por exemplo, 800x600), use o seguinte comando:
    ```
-   mogrify -resize 640x480 *.jpg
+   mogrify -resize 8000x600 *.jpg
    ```
 
 3. **Crie o GIF**:
