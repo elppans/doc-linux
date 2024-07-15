@@ -30,7 +30,7 @@ systemctl enable --user pipewire-pulse.service
 Se for testar o Discover e ver que está com [problemas](https://bbs.archlinux.org/viewtopic.php?id=289814), instale o pacote [packagekit-qt5](https://archlinux.org/packages/?sort=&q=packagekit-qt5).  
 
 ```
-sudo pacman -Syu packagekit-qt5
+sudo pacman -Syu packagekit-qt6
 ```
 >Para mais soluções de problemas veja: [KDE, Soluções de problemas](https://wiki.archlinux.org/title/KDE_(Portugu%C3%AAs)#Solu%C3%A7%C3%A3o_de_problemas).  
 
