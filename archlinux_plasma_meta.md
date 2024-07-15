@@ -27,7 +27,7 @@ systemctl enable --user pipewire-pulse.service
 
 ## Solução de problemas
 
-Se for testar o Discover e ver que está com [problemas](https://bbs.archlinux.org/viewtopic.php?id=289814), instale o pacote [packagekit-qt5](https://archlinux.org/packages/?sort=&q=packagekit-qt5).  
+Se for testar o Discover e ver que está com [problemas](https://bbs.archlinux.org/viewtopic.php?id=289814), instale o pacote [packagekit-qt6](https://archlinux.org/packages/?sort=&q=packagekit-qt6).  
 
 ```
 sudo pacman -Syu packagekit-qt6
