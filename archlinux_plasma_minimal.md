@@ -27,7 +27,6 @@ Antes de instalar o Plasma Mínimo, é bom conhecer alguns aplicativos
 [kdeplasma-addons](https://archlinux.org/packages/extra/x86_64/kdeplasma-addons/)(**OPCIONAL**). Ele fornece alguns widgets extras para a barra de status, como indicador de bloqueio de caps, indicador de microfone, comutador de cores noturno, etc.  
 [kde-gtk-config](https://archlinux.org/packages/extra/x86_64/kde-gtk-config/). Estilo GTK, correção de estilos. P/ configurar, após instalação, vá em Configurações> Aparência> Estilo de aplicativo> Estilo de aplicativo GNOME/GTK.  
 [powerdevil](https://archlinux.org/packages/extra/x86_64/powerdevil/) (**OPCIONAL**). Se estiver instalando o kde em um dispositivo como um laptop ou notebook (**Já contém no pacote plasma-desktop**).  
- [plasma-wayland-session](https://archlinux.org/packages/?name=plasma-wayland-session) (**OPCIONAL**). Para habilitar o suporte a Wayland no Plasma  
 [xdg-user-dirs](https://archlinux.org/packages/extra/x86_64/xdg-user-dirs/) (**OPCIONAL**). Ferramenta para ajudar a gerenciar diretórios de usuário” (**Já contém no pacote plasma-desktop**).  
 Após a instalação, é recomendável fazer o comando: xdg-user-dirs-update  
 [Baloo](https://archlinux.org/packages/?sort=&q=baloo). Pesquisa de ambiente, uma solução de indexação e busca de arquivos (**Já contém no pacote plasma-desktop**).  
@@ -37,7 +36,8 @@ Após a instalação, é recomendável fazer o comando: xdg-user-dirs-update
 
 Para instalar o mínimo, o comando deve ser feito desta maneira:  
 
-> Se for usar Wayland adicione o pacote `plasma-wayland-session` no comando de instalação.  
+> plasma-workspace. Sessão Plasma Wayland,  
+plasma-desktop e outros aplicativos plasma requerem e instalam este pacote
 
 ```
 sudo pacman -S plasma-desktop plasma-nm plasma-pa dolphin konsole kate kde-gtk-config
