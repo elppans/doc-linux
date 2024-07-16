@@ -125,7 +125,7 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 
 ### Outros bons aplicativos  
 
-> [simplescreenrecorder](https://archlinux.org/packages/community/x86_64/simplescreenrecorder/) (**OPCIONAL**). Gravador de tela  
+> [simplescreenrecorder (AUR)](https://aur.archlinux.org/packages/simplescreenrecorder) (**OPCIONAL**). Gravador de tela  
 [guvcview](https://archlinux.org/packages/community/x86_64/guvcview/) (**OPCIONAL**). Webcam  
 [skanpage](https://archlinux.org/packages/extra/x86_64/skanpage/) (**OPCIONAL**). Digitalização de Imagens  
 [dragon](https://archlinux.org/packages/extra/x86_64/dragon/). Dragon Player é um reprodutor multimídia com foco na simplicidade  
@@ -173,17 +173,17 @@ sudo pacman -S --needed dolphin-plugins kscreen kinfocenter kfind kcalc spectacl
 sudo pacman -S --needed plasma-systemmonitor yakuake filelight fastfetch
 sudo pacman -S --needed p7zip unarchiver unrar
 sudo pacman -S --needed kdegraphics-thumbnailers ffmpegthumbs 
-sudo pacman -S --needed kgamma5 qbittorrent kio-gdrive gamemode
+sudo pacman -S --needed kgamma qbittorrent kio-gdrive gamemode
 sudo pacman -S --needed guvcview skanpage
-sudo pacman -S --needed dragon juk gwenview okular kimageformats qt5-imageformats poppler-data
+sudo pacman -S --needed dragon juk gwenview okular 
+sudo pacman -S --needed kimageformats qt6-imageformats poppler-data
 ```
 
 ### Pacotes AUR
 
 ```
 yay -S btrfs-assistant
-yay -S rar 
-yay -S kde-service-menu-reimage-mod jhead
+yay -S kde-service-menu-reimage-mod
 yay -S mystiq
 yay -S simplescreenrecorder
 yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
@@ -280,7 +280,7 @@ Se por acaso ocorrer um deles, vai uma dica pra ajudar.
 1) Fontes:  
 
 Fontes em uma sessão do Plasma têm visual ruim:  
-Tente instalar os pacotes [ttf-dejavu](https://archlinux.org/packages/community/any/ttf-dejavu/) e [ttf-liberation](https://archlinux.org/packages/community/any/ttf-liberation/).  
+Tente instalar os pacotes [ttf-dejavu](https://archlinux.org/packages/?sort=&q=ttf-dejavu) e [ttf-liberation](https://archlinux.org/packages/?sort=&q=ttf-liberation).  
 
 ```
 sudo pacman -S ttf-dejavu ttf-liberation
