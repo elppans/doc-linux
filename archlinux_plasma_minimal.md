@@ -36,7 +36,7 @@ Após a instalação, é recomendável fazer o comando: xdg-user-dirs-update
 
 Para instalar o mínimo, o comando deve ser feito desta maneira:  
 
-> plasma-workspace. Sessão Plasma Wayland,  
+> [plasma-workspace](https://archlinux.org/packages/?sort=&q=plasma-workspace). Sessão Plasma Wayland,  
 plasma-desktop e outros aplicativos plasma requerem e instalam este pacote
 
 ```
