@@ -132,7 +132,6 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 [okular](https://archlinux.org/packages/extra/x86_64/okular/). Visualizador de documentos  
 [mystiq (AUR)](https://aur.archlinux.org/packages/mystiq). Converter audio e video  
 [fastfetch](https://archlinux.org/packages/?sort=&q=fastfetch). Ferramenta de informações do sistema de linha de comando.  
-[btrfs-assistant (AUR)](https://aur.archlinux.org/packages/btrfs-assistant) (**OPCIONAL**). Aplicativo para gerenciar subvolumes BTRFS e instantâneos do Snapper  
 
 ### Dependências opcionais para gwenview  
 
