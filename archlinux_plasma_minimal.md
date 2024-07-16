@@ -139,13 +139,13 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 Lista dos principais navegadores usados pela maioria, pode escolher um ou mais para instalar.  
 
 > [brave-bin (AUR)](https://aur.archlinux.org/packages/brave-bin). Navegador da Web que bloqueia anúncios e rastreadores por padrão (versão binária)  
-[firefox](https://archlinux.org/packages/extra/any/firefox-i18n-pt-br/). Navegador da Web do mozilla.org  
+[firefox](https://archlinux.org/packages/?sort=&q=firefox-i18n-pt-br/). Navegador da Web do mozilla.org  
 [google-chrome (AUR)](https://aur.archlinux.org/packages/google-chrome). O navegador popular e confiável do Google (Stable Channel)  
 [microsoft-edge-stable-bin (AUR)](https://aur.archlinux.org/packages/microsoft-edge-stable-bin). Navegador com base no Chromium  
-[midori](https://archlinux.org/packages/community/x86_64/midori/). Navegador da Web leve  
-[opera](https://archlinux.org/packages/community/x86_64/opera/). Um navegador da Web rápido e seguro  
+[midori](https://archlinux.org/packages/?sort=&q=midori/). Navegador da Web leve  
+[opera](https://archlinux.org/packages/?sort=&q=opera/). Um navegador da Web rápido e seguro  
 [yandex-browser (AUR)](https://aur.archlinux.org/packages/yandex-browser). Navegador Web Yandex. Design minimalista com tecnologia sofisticada para tornar a web mais rápida, segura e fácil  
-[vivaldi](https://archlinux.org/packages/community/x86_64/vivaldi/). Um navegador avançado feito com o usuário avançado em mente.  
+[vivaldi](https://archlinux.org/packages/?sort=&q=vivaldi). Um navegador avançado feito com o usuário avançado em mente.  
 
 ### Dependências opcionais para gwenview  
 
