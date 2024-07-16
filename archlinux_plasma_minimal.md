@@ -134,6 +134,15 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 [fastfetch](https://archlinux.org/packages/?sort=&q=fastfetch). Ferramenta de informações do sistema de linha de comando.  
 [btrfs-assistant (AUR)](https://aur.archlinux.org/packages/btrfs-assistant) (**OPCIONAL**). Aplicativo para gerenciar subvolumes BTRFS e instantâneos do Snapper  
 
+### Dependências opcionais para gwenview  
+
+> [kimageformats](https://archlinux.org/packages/extra/x86_64/kimageformats/). Support for dds, xcf, exr, psd, and more image formats  
+[qt6-imageformats](https://archlinux.org/packages/extra/x86_64/qt5-imageformats/). Support for tiff, webp, and more image formats  
+
+### Dependência opcional para okular  
+
+> [poppler-data](https://archlinux.org/packages/extra/any/poppler-data/). Dados de codificação para a biblioteca de renderização de PDF popler  
+
 ### Navegadores
 
 Lista dos principais navegadores usados pela maioria, pode escolher um ou mais para instalar.  
@@ -146,16 +155,6 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
 [opera](https://archlinux.org/packages/?sort=&q=opera/). Um navegador da Web rápido e seguro  
 [yandex-browser (AUR)](https://aur.archlinux.org/packages/yandex-browser). Navegador Web Yandex. Design minimalista com tecnologia sofisticada para tornar a web mais rápida, segura e fácil  
 [vivaldi](https://archlinux.org/packages/?sort=&q=vivaldi). Um navegador avançado feito com o usuário avançado em mente.  
-
-### Dependências opcionais para gwenview  
-
-> [kimageformats](https://archlinux.org/packages/extra/x86_64/kimageformats/). Support for dds, xcf, exr, psd, and more image formats  
-[qt6-imageformats](https://archlinux.org/packages/extra/x86_64/qt5-imageformats/). Support for tiff, webp, and more image formats  
-
-### Dependência opcional para okular  
-
-> [poppler-data](https://archlinux.org/packages/extra/any/poppler-data/). Dados de codificação para a biblioteca de renderização de PDF popler  
-  
 
 ### Temas para o KDE (**OPCIONAL**)  
 
