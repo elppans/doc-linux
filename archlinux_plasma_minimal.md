@@ -99,7 +99,7 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 > [plasma-systemmonitor](https://archlinux.org/packages/extra/x86_64/plasma-systemmonitor/). Interface para monitorar sensores do sistema, informações de processo e outros recursos do sistema  
 [yakuake](https://archlinux.org/packages/extra/x86_64/yakuake/) (**OPCIONAL**). Emulador de terminal suspenso do KDE  
 [filelight](https://archlinux.org/packages/extra/x86_64/filelight/) (**Opcional**). Estatisticas de uso de discos  
-[neofetch](https://archlinux.org/packages/community/any/neofetch/). Ferramenta de informações do sistema de linha de comando.  
+[fastfetch](https://archlinux.org/packages/?sort=&q=fastfetch). Ferramenta de informações do sistema de linha de comando.  
 [btrfs-assistant (AUR)](https://aur.archlinux.org/packages/btrfs-assistant) (**OPCIONAL**). Aplicativo para gerenciar subvolumes BTRFS e instantâneos do Snapper  
 [plasma-browser-integration](https://archlinux.org/packages/extra/x86_64/plasma-browser-integration/) (**OPCIONAL**). Componentes necessários para [integrar navegadores](https://community.kde.org/Plasma/Browser_Integration) no Plasma Desktop.  
 
@@ -107,20 +107,19 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 
 > [p7zip](https://archlinux.org/packages/extra/x86_64/p7zip/). 7Z format support  
 [unarchiver](https://archlinux.org/packages/community/x86_64/unarchiver/). unar e lsar: ferramentas Objective-C para descompactar arquivos compactados  
-[rar (AUR)](https://aur.archlinux.org/packages/rar).  Utilitário CLI para compressão rar  
+[unrar](https://archlinux.org/packages/extra/x86_64/unrar/).  Utilitário CLI para **des**compressão rar  
 
 ### Dependências opcionais para dolphin  
 
 > [kde-service-menu-reimage-mod (AUR)](https://aur.archlinux.org/packages/kde-service-menu-reimage-mod). Manipulador de imagens e seus metadados.   
-[jhead](https://archlinux.org/packages/community/x86_64/jhead/). Analisador de informações EXIF ​​JPEG e removedor de miniaturas  
 [kdegraphics-thumbnailers](https://archlinux.org/packages/extra/x86_64/kdegraphics-thumbnailers/). Miniaturas para vários formatos de arquivos gráficos  
 [ffmpegthumbs](https://archlinux.org/packages/extra/x86_64/ffmpegthumbs/). Criador de miniaturas baseado em FFmpeg para arquivos de vídeo  
-[ruby](https://archlinux.org/packages/community/x86_64/ruby/). Uma linguagem orientada a objetos para programação rápida e fácil  
+
 
 ### Aplicativos para o KDE  
 
-> [kgamma5](https://archlinux.org/packages/extra/x86_64/kgamma5/) (**OPCIONAL**). Ajuste as configurações de gama do monitor  
-[qbittorrent](https://archlinux.org/packages/community/x86_64/qbittorrent/). Gerenciador de Torrent do KDE  
+> [kgamma](https://archlinux.org/packages/extra/x86_64/kgamma/) (**OPCIONAL**). Ajuste as configurações de gama do monitor  
+[qbittorrent](https://archlinux.org/packages/?sort=&q=qbittorrent). Gerenciador de Torrent do KDE  
 [kio-gdrive](https://archlinux.org/packages/extra/x86_64/kio-gdrive/). KIO Slave para acessar o Google Drive  
 [gamemode](https://archlinux.org/packages/community/x86_64/gamemode/). Uma combinação de daemon/lib que permite que os jogos solicitem um conjunto de otimizações temporariamente aplicadas ao sistema operacional host  
 
@@ -151,7 +150,7 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
 ### Dependências opcionais para gwenview  
 
 > [kimageformats](https://archlinux.org/packages/extra/x86_64/kimageformats/). Support for dds, xcf, exr, psd, and more image formats  
-[qt5-imageformats](https://archlinux.org/packages/extra/x86_64/qt5-imageformats/). Support for tiff, webp, and more image formats  
+[qt6-imageformats](https://archlinux.org/packages/extra/x86_64/qt5-imageformats/). Support for tiff, webp, and more image formats  
 
 ### Dependência opcional para okular  
 
@@ -160,24 +159,8 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
 
 ### Temas para o KDE (**OPCIONAL**)  
 
-> [arch-kde-theme-git (AUR)](https://aur.archlinux.org/packages/arch-kde-theme-git). Tema elegante para o KDE Plasma com modo claro e escuro  
-[archlinux-artwork (AUR)](https://aur.archlinux.org/packages/archlinux-artwork). Logotipos oficiais, ícones, rótulos de CD e outras artes do Arch Linux  
-[arc-icon-theme](https://archlinux.org/packages/community/any/arc-icon-theme/). Tema do ícone do Arc. Somente lançamentos oficiais.  
-[archlinux-wallpaper](https://archlinux.org/packages/community/any/archlinux-wallpaper/) (**OPCIONAL**). Os papeis de parede do pacote ficam localizadas em **/usr/share/backgrounds/archlinux**.  
-
-### Temas QT/GTK (**OPCIONAL**)  
-
->[kvantum](https://archlinux.org/packages/community/x86_64/kvantum/). [KVantum](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#Kvantum) é um mecanismo de tema baseado em SVG para Qt5/6.  
-[qt5ct](https://archlinux.org/packages/community/x86_64/qt5ct/). Utilitário de configuração Qt5.  
-[qt5-styleplugins (AUR)](https://aur.archlinux.org/packages/qt5-styleplugins). [QTGTK](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications#QGtkStyle) Plugins de estilo adicionais para Qt5. Defina uma variável como `QT_QPA_PLATFORMTHEME=qt6ct`.  
-
-> Ps.: Fiz um teste com kvantum mas pra mim o sistema ficou muito feio, então desabilitei. Como vi que não ia usar, desinstalei.  
-  Ps.2: Foi feito testes com a variavel QT_QPA_PLATFORMTHEME para usar qt5ct e qt6ct. O 1º fica muito ruim, o 2º é MUITO bom.  
-  Porém, com minha configuração de temas, foi melhor manter a linha comentada.  
-  
-Para usar um FrontEnd QT em aplicativos GTK no Plasma vá em `Configurações do sistema, Aparência, Tema Global, Estilo do aplicativo`.  
-Em `Tema GTK`, escolha o que melhor se adapta ao tema de sua preferência, pra testar clique em `Visualização`.  
-Após a configuração clique em `Aplicar`.  
+> [arch-kde-theme-git (AUR)-(2021)](https://aur.archlinux.org/packages/arch-kde-theme-git). Tema elegante para o KDE Plasma com modo claro e escuro  
+[archlinux-artwork (AUR)-(2019)](https://aur.archlinux.org/packages/archlinux-artwork). Logotipos oficiais, ícones, rótulos de CD e outras artes do Arch Linux  
 
 ## Instalando os pacotes listados:
 
@@ -187,9 +170,9 @@ Após a configuração clique em `Aplicar`.
 
 ```
 sudo pacman -S --needed dolphin-plugins kscreen kinfocenter kfind kcalc spectacle ark 
-sudo pacman -S --needed plasma-systemmonitor yakuake filelight neofetch
-sudo pacman -S --needed p7zip unarchiver
-sudo pacman -S --needed kdegraphics-thumbnailers ffmpegthumbs ruby
+sudo pacman -S --needed plasma-systemmonitor yakuake filelight fastfetch
+sudo pacman -S --needed p7zip unarchiver unrar
+sudo pacman -S --needed kdegraphics-thumbnailers ffmpegthumbs 
 sudo pacman -S --needed kgamma5 qbittorrent kio-gdrive gamemode
 sudo pacman -S --needed guvcview skanpage
 sudo pacman -S --needed dragon juk gwenview okular kimageformats qt5-imageformats poppler-data
