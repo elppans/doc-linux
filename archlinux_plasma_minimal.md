@@ -15,7 +15,7 @@ Este é o menor pacote KDE Plasma no repositório Arch. Eu o instalei várias ve
 Esta é a melhor recomendação para quem quer "menos trabalho". Para usar este método veja: [Instalando Plasma Minimal (Meta)](https://elppans.github.io/doc-linux/archlinux_plasma_meta)  
 
 
-### Pacotes conjunto para o Plasma (Mínimo):
+### Pacotes Plasma (Mínimo):
 
 Antes de instalar o Plasma Mínimo, é bom conhecer alguns aplicativos 
 
@@ -84,7 +84,7 @@ Alguns pacotes da lista são do repositório [AUR](https://wiki.archlinux.org/ti
 Se não usa o yay, por favor, substitua o comando para o Helper de seu uso.  
 Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.github.io/doc-linux/archlinux_aur_helpers)
 
-### Pacotes conjunto (Para um melhor uso)  
+### Pacotes Plasma  
 
 > [dolphin-plugins](https://archlinux.org/packages/extra/x86_64/dolphin-plugins/). Plugins extras para o Dolphin  
 [kscreen](https://archlinux.org/packages/extra/x86_64/kscreen/). Ajuste de tela  
@@ -94,13 +94,11 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 [spectacle](https://archlinux.org/packages/extra/x86_64/spectacle/). Utilitário de captura de tela do KDE.  
 [ark](https://archlinux.org/packages/extra/x86_64/ark/). Gerenciador de compactação  
 
-### Complementos KDE  
+### Pacotes Plasma (Complementos)  
 
 > [plasma-systemmonitor](https://archlinux.org/packages/extra/x86_64/plasma-systemmonitor/). Interface para monitorar sensores do sistema, informações de processo e outros recursos do sistema  
 [yakuake](https://archlinux.org/packages/extra/x86_64/yakuake/) (**OPCIONAL**). Emulador de terminal suspenso do KDE  
 [filelight](https://archlinux.org/packages/extra/x86_64/filelight/) (**Opcional**). Estatisticas de uso de discos  
-[fastfetch](https://archlinux.org/packages/?sort=&q=fastfetch). Ferramenta de informações do sistema de linha de comando.  
-[btrfs-assistant (AUR)](https://aur.archlinux.org/packages/btrfs-assistant) (**OPCIONAL**). Aplicativo para gerenciar subvolumes BTRFS e instantâneos do Snapper  
 [plasma-browser-integration](https://archlinux.org/packages/extra/x86_64/plasma-browser-integration/) (**OPCIONAL**). Componentes necessários para [integrar navegadores](https://community.kde.org/Plasma/Browser_Integration) no Plasma Desktop.  
 
 ### Dependências opcionais para ark  
@@ -116,14 +114,14 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 [ffmpegthumbs](https://archlinux.org/packages/extra/x86_64/ffmpegthumbs/). Criador de miniaturas baseado em FFmpeg para arquivos de vídeo  
 
 
-### Aplicativos para o KDE  
+### Aplicativos KDE  
 
 > [kgamma](https://archlinux.org/packages/extra/x86_64/kgamma/) (**OPCIONAL**). Ajuste as configurações de gama do monitor  
 [qbittorrent](https://archlinux.org/packages/?sort=&q=qbittorrent). Gerenciador de Torrent do KDE  
 [kio-gdrive](https://archlinux.org/packages/extra/x86_64/kio-gdrive/). KIO Slave para acessar o Google Drive  
 [gamemode](https://archlinux.org/packages/community/x86_64/gamemode/). Uma combinação de daemon/lib que permite que os jogos solicitem um conjunto de otimizações temporariamente aplicadas ao sistema operacional host  
 
-### Outros bons aplicativos  
+### Outros pacotes  
 
 > [simplescreenrecorder (AUR)](https://aur.archlinux.org/packages/simplescreenrecorder) (**OPCIONAL**). Gravador de tela  
 [guvcview](https://archlinux.org/packages/community/x86_64/guvcview/) (**OPCIONAL**). Webcam  
@@ -133,6 +131,8 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 [gwenview](https://archlinux.org/packages/extra/x86_64/gwenview/). Um visualizador de imagens rápido e fácil de usar  
 [okular](https://archlinux.org/packages/extra/x86_64/okular/). Visualizador de documentos  
 [mystiq (AUR)](https://aur.archlinux.org/packages/mystiq). Converter audio e video  
+[fastfetch](https://archlinux.org/packages/?sort=&q=fastfetch). Ferramenta de informações do sistema de linha de comando.  
+[btrfs-assistant (AUR)](https://aur.archlinux.org/packages/btrfs-assistant) (**OPCIONAL**). Aplicativo para gerenciar subvolumes BTRFS e instantâneos do Snapper  
 
 ### Navegadores
 
