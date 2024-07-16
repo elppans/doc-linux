@@ -155,11 +155,6 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
 [yandex-browser (AUR)](https://aur.archlinux.org/packages/yandex-browser). Navegador Web Yandex. Design minimalista com tecnologia sofisticada para tornar a web mais rápida, segura e fácil  
 [vivaldi](https://archlinux.org/packages/?sort=&q=vivaldi). Um navegador avançado feito com o usuário avançado em mente.  
 
-### Temas para o KDE (**OPCIONAL**)  
-
-> [arch-kde-theme-git (AUR)-(2021)](https://aur.archlinux.org/packages/arch-kde-theme-git). Tema elegante para o KDE Plasma com modo claro e escuro  
-[archlinux-artwork (AUR)-(2019)](https://aur.archlinux.org/packages/archlinux-artwork). Logotipos oficiais, ícones, rótulos de CD e outras artes do Arch Linux  
-
 ## Instalando os pacotes listados:
 
 >Não terá exemplos de instalação de navegadores.  
