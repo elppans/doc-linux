@@ -78,11 +78,8 @@ sudo pacman -S gst-libav gst-plugins-good gst-plugins-ugly gst-plugins-bad
 
 Fiz uma pesquisa de pacotes a dedo e testei e depois montei uma lista com pacotes que julguei serem úteis para usar no Plasma e que também são leves o suficiente, sem perder funcionalidades. E claro, além disso são pacotes que gostei de usar.  
 
->Se alguém souber de algum pacote que dá pra substituir um outro desta lista por ser mais leve e funcional, por favor, deixe um comentário.  
+Pacotes do repositório [AUR](https://wiki.archlinux.org/title/Arch_User_Repository_(Portugu%C3%AAs)) devem ser compilados com [makepkg](https://wiki.archlinux.org/title/Makepkg_(Portugu%C3%AAs)) ou ser instalados com um [AUR Helper](https://elppans.github.io/doc-linux/archlinux_aur_helpers).  
 
-Alguns pacotes da lista são do repositório [AUR](https://wiki.archlinux.org/title/Arch_User_Repository_(Portugu%C3%AAs)), então fiz a instalação usando o yay em vez do pacman.  
-Se não usa o yay, por favor, substitua o comando para o Helper de seu uso.  
-Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.github.io/doc-linux/archlinux_aur_helpers)
 
 ### Pacotes Plasma  
 
@@ -109,8 +106,7 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 
 ### Dependências opcionais para dolphin  
 
-> [kde-service-menu-reimage-mod (AUR)](https://aur.archlinux.org/packages/kde-service-menu-reimage-mod). Manipulador de imagens e seus metadados.   
-[kdegraphics-thumbnailers](https://archlinux.org/packages/extra/x86_64/kdegraphics-thumbnailers/). Miniaturas para vários formatos de arquivos gráficos  
+> [kdegraphics-thumbnailers](https://archlinux.org/packages/extra/x86_64/kdegraphics-thumbnailers/). Miniaturas para vários formatos de arquivos gráficos  
 [ffmpegthumbs](https://archlinux.org/packages/extra/x86_64/ffmpegthumbs/). Criador de miniaturas baseado em FFmpeg para arquivos de vídeo  
 
 
@@ -123,14 +119,12 @@ Para saber mais sobre Helper, veja [Arch Linux AUR Helpers](https://elppans.gith
 
 ### Outros pacotes  
 
-> [simplescreenrecorder (AUR)](https://aur.archlinux.org/packages/simplescreenrecorder) (**OPCIONAL**). Gravador de tela  
-[guvcview](https://archlinux.org/packages/community/x86_64/guvcview/) (**OPCIONAL**). Webcam  
+> [guvcview](https://archlinux.org/packages/community/x86_64/guvcview/) (**OPCIONAL**). Webcam  
 [skanpage](https://archlinux.org/packages/extra/x86_64/skanpage/) (**OPCIONAL**). Digitalização de Imagens  
 [dragon](https://archlinux.org/packages/extra/x86_64/dragon/). Dragon Player é um reprodutor multimídia com foco na simplicidade  
 [juk](https://archlinux.org/packages/extra/x86_64/juk/). Uma jukebox, tagger e gerenciador de coleção de música  
 [gwenview](https://archlinux.org/packages/extra/x86_64/gwenview/). Um visualizador de imagens rápido e fácil de usar  
 [okular](https://archlinux.org/packages/extra/x86_64/okular/). Visualizador de documentos  
-[mystiq (AUR)](https://aur.archlinux.org/packages/mystiq). Converter audio e video  
 [fastfetch](https://archlinux.org/packages/?sort=&q=fastfetch). Ferramenta de informações do sistema de linha de comando.  
 
 ### Dependências opcionais para gwenview  
@@ -155,6 +149,12 @@ Lista dos principais navegadores usados pela maioria, pode escolher um ou mais p
 [yandex-browser (AUR)](https://aur.archlinux.org/packages/yandex-browser). Navegador Web Yandex. Design minimalista com tecnologia sofisticada para tornar a web mais rápida, segura e fácil  
 [vivaldi](https://archlinux.org/packages/?sort=&q=vivaldi). Um navegador avançado feito com o usuário avançado em mente.  
 
+### Pacotes AUR
+
+> [kde-service-menu-reimage-mod (AUR)](https://aur.archlinux.org/packages/kde-service-menu-reimage-mod). Manipulador de imagens e seus metadados.   
+[simplescreenrecorder (AUR)](https://aur.archlinux.org/packages/simplescreenrecorder) (**OPCIONAL**). Gravador de tela  
+[mystiq (AUR)](https://aur.archlinux.org/packages/mystiq). Converter audio e video  
+
 ## Instalando os pacotes listados:
 
 >Não terá exemplos de instalação de navegadores.  
@@ -172,7 +172,7 @@ sudo pacman -S --needed dragon juk gwenview okular
 sudo pacman -S --needed kimageformats qt6-imageformats poppler-data
 ```
 
-### Pacotes AUR
+### Pacotes de repositorios AUR
 
 ```
 yay -S btrfs-assistant
