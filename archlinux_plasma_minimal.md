@@ -205,12 +205,11 @@ Opcionalmente, após adicionar o Layout do seu teclado, pode remover o padrão d
   [NVidia, Vertical sync using TwinView](https://wiki.archlinux.org/title/NVIDIA_(Portugu%C3%AAs)#Vertical_sync_using_TwinView)  
   
 - Pacotes usados:
-  
-  [plasma-wayland-session](https://archlinux.org/packages/?sort=&q=plasma-wayland-session). Pacote Plasma para suporte e Wayland, funciona como um meta pacote (Usado no [Archinstall](https://wiki.archlinux.org/title/Archinstall_(Portugu%C3%AAs))).  
+
   [xorg-xwayland](https://archlinux.org/packages/?sort=&q=xorg-xwayland). Usa clientes X dentro do Wayland (Parte do pacote plasma-wayland-session).  
   [plasma-wayland-protocols](https://archlinux.org/packages/?sort=&q=plasma-wayland-protocols). Protocolos específicos de plasma para Wayland (Parte do pacote plasma-wayland-session).  
   [egl-wayland](https://archlinux.org/packages/?sort=&q=egl-wayland). Plataforma externa Wayland baseada em EGLStream (Usado no [Archinstall](https://wiki.archlinux.org/title/Archinstall_(Portugu%C3%AAs))).  
-  
+
 Com o pacote [plasma-wayland-protocols](https://archlinux.org/packages/extra/any/plasma-wayland-protocols/) instalado, adicione no arquivo /etc/environment a variável `QT_QPA_PLATFORM=xcb` OU `QT_QPA_PLATFORM=wayland-egl`.  
 Se você usa o navegador Firefox, adicione a variável `MOZ_ENABLE_WAYLAND=1`.  
 
