@@ -175,11 +175,9 @@ sudo pacman -S --needed kimageformats qt6-imageformats poppler-data
 ### Pacotes de repositorios AUR
 
 ```
-yay -S btrfs-assistant
 yay -S kde-service-menu-reimage-mod
 yay -S mystiq
 yay -S simplescreenrecorder
-yay -S arch-kde-theme-git archlinux-artwork arc-icon-theme
 ```
 
 ### Sugestão
