@@ -1,15 +1,14 @@
-# Archlinux Plasma Minimal (Meta)
+# Archlinux Plasma Minimal ([Meta](https://github.com/archlinux/archinstall/blob/master/archinstall/default_profiles/desktops/plasma.py))
 
 - Partindo do ponto em que a Distro Base já esteja instalada e funcionando.
 
-  
 Plasma Meta é o pacote utilizado para instalar o Plasma Minimal, porém contém um conjunto de pacotes mais completo do que o pacote Plasma Desktop.  
->Para ver a diferença veja: [ArchLinux Plasma Minimal, comparando plasma-desktop e plasma-meta](https://elppans.github.io/doc-linux/archlinux_plasma_minimal#comparando-plasma-desktop-e-plasma-meta).  
+>Para ver a diferença leia: [ArchLinux Plasma Minimal, comparando plasma-desktop e plasma-meta](https://elppans.github.io/doc-linux/archlinux_plasma_minimal#comparando-plasma-desktop-e-plasma-meta).  
 
 Para fazer esta instalação e deixar funcional, instale desta forma:  
 
 ```
-sudo pacman -Syu plasma-meta konsole kate dolphin ark plasma-wayland-session egl-wayland
+sudo pacman --needed -Syu plasma-meta konsole kate dolphin ark plasma-workspace egl-wayland
 ```
 Para instalar o gerenciador de login gráfico padrão do Plasma:  
 
