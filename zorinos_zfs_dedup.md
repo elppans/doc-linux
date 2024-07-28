@@ -85,37 +85,106 @@ Então, se quiser usar esta tecnologia, deve ativar:
 
 - Não é necessário reiniciar o sistema após ativar a deduplicação no ZFS com o comando `sudo zfs set dedup=on rpool`. A mudança entra em vigor imediatamente. No entanto, a deduplicação só será aplicada aos novos dados gravados no pool após a ativação. Dados existentes não serão deduplicados retroativamente.
 
-- Para deduplicar os dados existentes no ZFS que foram gravados antes da ativação da deduplicação, você precisará reescrever esses dados. Isso pode ser feito de várias maneiras, mas uma abordagem comum é usar o comando `zfs send` e `zfs receive` para recriar os dados. Aqui está um passo a passo:
+- Para deduplicar os dados existentes no ZFS que foram gravados antes da ativação da deduplicação, você precisará reescrever esses dados. Isso pode ser feito de várias maneiras, mas uma abordagem comum é usar o comando `zfs send` e `zfs receive` para recriar os dados.  
+
+### Montando o sistema de arquivos ZFS através de um Live
+
+Para deduplicar os arquivos já existentes do sistema instalado, deve fazer através de um Live e nele, deve montar a partição ZFS configurado no sistema.  
+Para montar a partição ZFS específica, por exemplo, em `/dev/sda4` a partir do Live, siga estes passos:  
+>Faça o comando `sudo fdisk -l` para saber qual a partição ao qual irá trabalhar.  
+
+1. **Abra o terminal** no ambiente live do ZorinOS.
+2. **Importe o pool ZFS** associado à partição. Primeiro, identifique o pool com:
+   ```bash
+   sudo zpool import
+   ```
+   Isso listará todos os pools disponíveis. Encontre o pool que corresponde à sua partição `/dev/sda4`.
+3. **Importe o pool**. No ZorinOS o nome do pool é `rpool`, importe-o com:
+   ```bash
+   sudo zpool import -d /dev/sda4 rpool
+   ```
+4. **Monte o sistema de arquivos ZFS**. Normalmente, o ZFS monta automaticamente os sistemas de arquivos quando o pool é importado. Se precisar montar manualmente, use:
+>Faça o comando `df -h`, se o pool estiver montado, irá aparecer na lista.  
+   ```bash
+   sudo zfs mount rpool
+   ```
+
+Se precisar desmontar o pool posteriormente, você pode usar:
+```bash
+sudo zpool export rpool
+```
+
+Esses comandos devem permitir que você acesse os arquivos na partição ZFS a partir do ambiente live.
+
+- O ZorinOS configura vários subdiretórios como volume dentro do rpool
+![image](https://github.com/user-attachments/assets/dcd269ae-7db8-4abb-bca4-a003a0eefb25)
+
 
 ### Passo a Passo para Deduplicar Dados Existentes
 
-1. **Crie um Snapshot do Sistema de Arquivos**:
-   Primeiro, crie um snapshot do sistema de arquivos que você deseja deduplicar. Substitua `rpool/dataset` pelo nome do seu dataset.
+- Para deduplicar a raiz do sistema de arquivos ZFS, você pode usar o comando `zfs` para definir a propriedade de deduplicação no dataset raiz. 
+
+1. **Abra o terminal** no ambiente live do ZorinOS.
+2. **Ative a deduplicação** no dataset raiz. Supondo que o dataset raiz seja `rpool/ROOT/ubuntu_30cdxm`, você pode ativar a deduplicação com o seguinte comando:
    ```bash
-   sudo zfs snapshot rpool/dataset@dedup
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_30cdxm
    ```
 
-2. **Envie o Snapshot para um Novo Dataset**:
-   Use o comando `zfs send` para enviar o snapshot para um novo dataset. Isso reescreverá os dados e aplicará a deduplicação.
+3. **Verifique a configuração** para garantir que a deduplicação foi ativada:
    ```bash
-   sudo zfs send rpool/dataset@dedup | sudo zfs receive rpool/dataset_new
+   sudo zfs get dedup rpool/ROOT/ubuntu_30cdxm
    ```
 
-3. **Verifique o Novo Dataset**:
-   Verifique se o novo dataset foi criado corretamente e se a deduplicação está ativa.
+4. **Deduplicar os dados existentes**: A deduplicação será aplicada a novos dados escritos no dataset. Para deduplicar os dados existentes, você precisará copiar os dados para um novo dataset ou snapshot e, em seguida, copiá-los de volta. Aqui está um exemplo de como fazer isso:  
+>Use o comando `sudo zfs list` para ver o campo "**ALLOC**" e verificar quanto de espaço está ocupando
+
+   - Crie um snapshot do dataset raiz:
+     ```bash
+     sudo zfs snapshot rpool/ROOT/ubuntu_30cdxm@dedup
+     ```
+
+   - Envie o snapshot para um novo dataset temporário:
+     ```bash
+     sudo zfs send rpool/ROOT/ubuntu_30cdxm@dedup | sudo zfs receive rpool/ROOT/ubuntu_30cdxm_temp
+     ```
+
+   - Exclua o dataset original (cuidado para não perder dados):
+     ```bash
+     sudo zfs destroy -r rpool/ROOT/ubuntu_30cdxm
+     ```
+
+   - Renomeie o dataset temporário para o nome original:
+     ```bash
+     sudo zfs rename rpool/ROOT/ubuntu_30cdxm_temp rpool/ROOT/ubuntu_30cdxm
+     ```
+- Para verificar se a deduplicação foi aplicada corretamente após renomear o dataset, você pode seguir estes passos:
+
+1. **Verifique a propriedade de deduplicação** no dataset renomeado:
    ```bash
-   sudo zfs get dedup rpool/dataset_new
+   sudo zfs get dedup rpool/ROOT/ubuntu_30cdxm
+   ```
+   Isso deve mostrar que a deduplicação está ativada (`on`).
+
+2. **Verifique o uso de espaço** para ver se houve uma redução significativa devido à deduplicação. Você pode usar:
+   ```bash
+   sudo zfs list -o space rpool/ROOT/ubuntu_30cdxm
+   ```
+   Isso mostrará informações sobre o uso de espaço, incluindo a quantidade de espaço economizado pela deduplicação.  
+   >Use também apenas `sudo zfs list` para ver o campo "**ALLOC**" e comparar quanto de espaço está ocupando  
+
+3. **Verifique o status do pool** para garantir que tudo está funcionando corretamente:
+   ```bash
+   sudo zpool status
    ```
 
-4. **Substitua o Dataset Antigo pelo Novo**:
-   Depois de verificar que tudo está funcionando corretamente, você pode substituir o dataset antigo pelo novo. Primeiro, remova o dataset antigo:
-   ```bash
-   sudo zfs destroy rpool/dataset
-   ```
-   Em seguida, renomeie o novo dataset para o nome original:
-   ```bash
-   sudo zfs rename rpool/dataset_new rpool/dataset
-   ```
+Esses comandos devem ajudar a confirmar se a deduplicação foi aplicada com sucesso e se está funcionando como esperado.  
+
+### Comparando o antes e depois
+
+- Antes  
+![image](https://github.com/user-attachments/assets/82f72210-29ff-40b2-9246-66f63c75e125)
+- Depois  
+![image](https://github.com/user-attachments/assets/afbd6147-47fd-446d-a4ff-799812b65dea)
 
 ### Considerações
 - **Backup**: Certifique-se de ter backups dos seus dados antes de realizar essas operações, pois elas envolvem a destruição de datasets.
