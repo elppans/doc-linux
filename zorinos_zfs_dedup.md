@@ -75,4 +75,90 @@ Substitua `rpool` pelo nome do seu pool.
 ### Considerações Finais
 - **Uso de Memória**: A deduplicação pode consumir bastante memória RAM. É recomendável ter pelo menos 1 GB de RAM por TB de armazenamento.
 - **Desempenho**: A deduplicação pode impactar o desempenho do sistema, especialmente em sistemas com recursos limitados.
+___
 
+ZorinOs não é instalado com a deduplicação ativa, ao instalar usando ZFS:  
+![Captura de imagem_20240728_171726](https://github.com/user-attachments/assets/366800a2-2728-46e5-b7a8-c817ad46d008)
+
+Então, se quiser usar esta tecnologia, deve ativar:  
+![image](https://github.com/user-attachments/assets/af382f45-c0d0-48dc-8564-dccecd664ac7)
+
+- Não é necessário reiniciar o sistema após ativar a deduplicação no ZFS com o comando `sudo zfs set dedup=on rpool`. A mudança entra em vigor imediatamente. No entanto, a deduplicação só será aplicada aos novos dados gravados no pool após a ativação. Dados existentes não serão deduplicados retroativamente.
+
+- Para deduplicar os dados existentes no ZFS que foram gravados antes da ativação da deduplicação, você precisará reescrever esses dados. Isso pode ser feito de várias maneiras, mas uma abordagem comum é usar o comando `zfs send` e `zfs receive` para recriar os dados. Aqui está um passo a passo:
+
+### Passo a Passo para Deduplicar Dados Existentes
+
+1. **Crie um Snapshot do Sistema de Arquivos**:
+   Primeiro, crie um snapshot do sistema de arquivos que você deseja deduplicar. Substitua `rpool/dataset` pelo nome do seu dataset.
+   ```bash
+   sudo zfs snapshot rpool/dataset@dedup
+   ```
+
+2. **Envie o Snapshot para um Novo Dataset**:
+   Use o comando `zfs send` para enviar o snapshot para um novo dataset. Isso reescreverá os dados e aplicará a deduplicação.
+   ```bash
+   sudo zfs send rpool/dataset@dedup | sudo zfs receive rpool/dataset_new
+   ```
+
+3. **Verifique o Novo Dataset**:
+   Verifique se o novo dataset foi criado corretamente e se a deduplicação está ativa.
+   ```bash
+   sudo zfs get dedup rpool/dataset_new
+   ```
+
+4. **Substitua o Dataset Antigo pelo Novo**:
+   Depois de verificar que tudo está funcionando corretamente, você pode substituir o dataset antigo pelo novo. Primeiro, remova o dataset antigo:
+   ```bash
+   sudo zfs destroy rpool/dataset
+   ```
+   Em seguida, renomeie o novo dataset para o nome original:
+   ```bash
+   sudo zfs rename rpool/dataset_new rpool/dataset
+   ```
+
+### Considerações
+- **Backup**: Certifique-se de ter backups dos seus dados antes de realizar essas operações, pois elas envolvem a destruição de datasets.
+- **Espaço em Disco**: Verifique se você tem espaço em disco suficiente para criar o novo dataset.
+- **Desempenho**: Este processo pode ser intensivo em termos de recursos e pode levar algum tempo, dependendo do tamanho dos dados.
+___
+- Usar o comando `df -h` antes e depois de realizar a deduplicação é uma boa maneira de comparar o uso de espaço em disco.
+
+### Passo a Passo para Comparar o Uso de Espaço em Disco
+
+1. **Verifique o Uso de Espaço Antes da Deduplicação**:
+   Antes de iniciar o processo de deduplicação, execute o comando `df -h` para verificar o uso atual de espaço em disco.
+   ```bash
+   df -h
+   ```
+
+2. **Anote os Resultados**:
+   Anote os resultados, especialmente o uso de espaço no pool onde você está ativando a deduplicação (por exemplo, `rpool`).
+
+3. **Realize o Processo de Deduplicação**:
+   Siga os passos para deduplicar os dados existentes, já mencionados anteriormente.
+
+
+4. **Verifique o Uso de Espaço Depois da Deduplicação**:
+   Após completar o processo de deduplicação, execute o comando `df -h` novamente para verificar o uso de espaço em disco.
+   ```bash
+   df -h
+   ```
+
+5. **Compare os Resultados**:
+   Compare os resultados do `df -h` antes e depois da deduplicação para ver a diferença no uso de espaço em disco.
+
+### Exemplo de Comparação
+Antes da deduplicação:
+```plaintext
+Filesystem      Size  Used Avail Use% Mounted on
+rpool           100G   50G   50G  50% /mnt/files
+```
+
+Depois da deduplicação:
+```plaintext
+Filesystem      Size  Used Avail Use% Mounted on
+rpool           100G   45G   55G  45% /mnt/files
+```
+
+Neste exemplo, você pode ver que o uso de espaço em disco diminuiu de 50G para 45G após a deduplicação.
