@@ -123,51 +123,132 @@ Esses comandos devem permitir que você acesse os arquivos na partição ZFS a p
 ### Passo a Passo para Deduplicar Dados Existentes
 
 - Para deduplicar a raiz do sistema de arquivos ZFS, você pode usar o comando `zfs` para definir a propriedade de deduplicação no dataset raiz. 
+Como dito acima, o ZorinOS configura vários subdiretórios como volume dentro do rpool, então devemos trabalhar com todos os subdatasets referente ao ROOT.
+É possível enviar os snapshots para outro local, como rpool/TEMP/ubuntu_onec52. Isso pode ajudar a organizar melhor os snapshots e evitar problemas. 
 
-1. **Abra o terminal** no ambiente live do ZorinOS.
-2. **Ative a deduplicação** no dataset raiz. Supondo que o dataset raiz seja `rpool/ROOT/ubuntu_30cdxm`, você pode ativar a deduplicação com o seguinte comando:
+### Passo 1: Criar o Dataset de Destino
+
+1. **Abra o terminal**.
+2. **Crie o dataset de destino**:
    ```bash
-   sudo zfs set dedup=on rpool/ROOT/ubuntu_30cdxm
+   sudo zfs create rpool/TEMP
    ```
 
-3. **Verifique a configuração** para garantir que a deduplicação foi ativada:
+### Passo 2: Ativar a Deduplicação
+
+1. **Ative a deduplicação** no dataset raiz e em todos os subdatasets.  
+Supondo que o dataset raiz seja `rpool/ROOT/ubuntu_onec52`, você pode ativar a deduplicação com o seguinte comando:
+> para saber qual o nome do seu dataset raiz faça o comando `sudo zfs list -H -o name`
+
    ```bash
-   sudo zfs get dedup rpool/ROOT/ubuntu_30cdxm
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/srv
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/usr
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/usr/local
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/games
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/lib
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/lib/AccountsService
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/lib/NetworkManager
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/lib/apt
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/lib/dpkg
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/log
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/mail
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/snap
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/spool
+   sudo zfs set dedup=on rpool/ROOT/ubuntu_onec52/var/www
+   ```
+Verifique a configuração para garantir que a deduplicação foi ativada:
+
+   ```bash
+   sudo zfs get dedup rpool/ROOT/ubuntu_onec52
+   sudo zfs get dedup rpool/ROOT/ubuntu_onec52/{srv,usr,usr/local,var,var/games,var/lib,var/lib/AccountsService,var/lib/NetworkManager,var/lib/apt,var/lib/dpkg,var/log,var/mail,var/snap,var/spool,var/www}
    ```
 
-4. **Deduplicar os dados existentes**: A deduplicação será aplicada a novos dados escritos no dataset. Para deduplicar os dados existentes, você precisará copiar os dados para um novo dataset ou snapshot e, em seguida, copiá-los de volta. Aqui está um exemplo de como fazer isso:  
->Use o comando `sudo zfs list` para ver o campo "**ALLOC**" e verificar quanto de espaço está ocupando
+### Passo 3: Criar Snapshots
+A deduplicação será aplicada a novos dados escritos no dataset. Para deduplicar os dados existentes, você precisará copiar os dados para um novo dataset ou snapshot e, em seguida, copiá-los de volta.  
+>Use o comando `sudo zfs list` para ver o campo "**ALLOC**" e verificar quanto de espaço está ocupando  
 
-   - Crie um snapshot do dataset raiz:
-     ```bash
-     sudo zfs snapshot rpool/ROOT/ubuntu_30cdxm@dedup
-     ```
+1. **Crie um snapshot** para cada dataset. Por exemplo:
+   ```bash
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/srv@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/usr@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/usr/local@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/games@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/lib@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/lib/AccountsService@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/lib/NetworkManager@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/lib/apt@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/lib/dpkg@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/log@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/mail@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/snap@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/spool@dedup
+   sudo zfs snapshot rpool/ROOT/ubuntu_onec52/var/www@dedup
+   ```
 
-   - Envie o snapshot para um novo dataset temporário:
-     ```bash
-     sudo zfs send rpool/ROOT/ubuntu_30cdxm@dedup | sudo zfs receive rpool/ROOT/ubuntu_30cdxm_temp
-     ```
+### Passo 4: Enviar Snapshots para o Dataset Temporário
 
-   - Exclua o dataset original (cuidado para não perder dados):
-     ```bash
-     sudo zfs destroy -r rpool/ROOT/ubuntu_30cdxm
-     ```
+1. **Envie os snapshots** para datasets temporários. Por exemplo:
+   ```bash
+   sudo zfs send rpool/ROOT/ubuntu_onec52@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52
+   sudo zfs send rpool/ROOT/ubuntu_onec52/srv@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/srv
+   sudo zfs send rpool/ROOT/ubuntu_onec52/usr@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/usr
+   sudo zfs send rpool/ROOT/ubuntu_onec52/usr/local@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/usr/local
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/games@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/games
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/lib@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/lib
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/lib/AccountsService@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/lib/AccountsService
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/lib/NetworkManager@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/lib/NetworkManager
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/lib/apt@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/lib/apt
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/lib/dpkg@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/lib/dpkg
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/log@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/log
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/mail@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/mail
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/snap@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/snap
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/spool@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/spool
+   sudo zfs send rpool/ROOT/ubuntu_onec52/var/www@dedup | sudo zfs receive rpool/TEMP/ubuntu_onec52/var/www
+   ```
 
-   - Renomeie o dataset temporário para o nome original:
-     ```bash
-     sudo zfs rename rpool/ROOT/ubuntu_30cdxm_temp rpool/ROOT/ubuntu_30cdxm
-     ```
+### Passo 5: Destruir os Datasets Originais
+
+>Destruir o dataset raiz com `-r` remove todos os subdatasets.
+
+1. **Destrua os datasets originais**. Por exemplo:
+   ```bash
+   sudo zfs destroy -r rpool/ROOT/ubuntu_onec52
+   ```
+
+### Passo 6: Renomear os Datasets Temporários
+
+>Renomear o dataset temporário principal também renomeia todos os subdatasets.
+
+1. **Renomeie os datasets temporários** para os nomes originais. Por exemplo:
+   ```bash
+   sudo zfs rename rpool/TEMP/ubuntu_onec52 rpool/ROOT/ubuntu_onec52
+   ```
+
+### Passo 6: Verifique os subdatasets
+
+Deve verificar se os diretórios são listados corretamente
+
+```bash
+sudo zfs list
+```
+Esses passos devem garantir que a deduplicação seja aplicada corretamente e que os datasets sejam restaurados para seus locais originais.
+
 - Para verificar se a deduplicação foi aplicada corretamente após renomear o dataset, você pode seguir estes passos:
 
 1. **Verifique a propriedade de deduplicação** no dataset renomeado:
    ```bash
-   sudo zfs get dedup rpool/ROOT/ubuntu_30cdxm
+   sudo zfs get dedup rpool/ROOT/ubuntu_onec52
    ```
    Isso deve mostrar que a deduplicação está ativada (`on`).
 
 2. **Verifique o uso de espaço** para ver se houve uma redução significativa devido à deduplicação. Você pode usar:
    ```bash
-   sudo zfs list -o space rpool/ROOT/ubuntu_30cdxm
+   sudo zfs list -o space rpool/ROOT/ubuntu_onec52
    ```
    Isso mostrará informações sobre o uso de espaço, incluindo a quantidade de espaço economizado pela deduplicação.  
    >Use também apenas `sudo zfs list` para ver o campo "**ALLOC**" e comparar quanto de espaço está ocupando  
