@@ -105,6 +105,6 @@ ___
 
 - Fontes:
 
-https://wiki.archlinux.org/title/Vulkan
+https://wiki.archlinux.org/title/Vulkan  
 https://wiki.winehq.org/Vkd3d
 ___
