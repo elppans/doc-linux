@@ -24,7 +24,7 @@ Após uma breve pesquisa, ví que tenho que instalar o pacote do AUR, [nvidia-47
 cd ~/Downloads
 git clone https://aur.archlinux.org/nvidia-470xx-utils.git
 cd nvidia-470xx-utils
-makepkg -siL --needed --noconfirm
+makepkg -Cris --needed --noconfirm
 sudo nvidia-xconfig
 ```
 Com esta versão não é necessário configurar mais nada, então basta reiniciar o computador.  
@@ -52,7 +52,7 @@ Para instalar o pacote 32 bits do driver que se encontra no repositório AUR, [n
 cd ~/Downloads
 git clone https://aur.archlinux.org/lib32-nvidia-470xx-utils.git
 cd lib32-nvidia-470xx-utils
-makepkg -siL --needed --noconfirm
+makepkg -Cris --needed --noconfirm
 ```
 
 ### Configurando o GRUB:
