@@ -1,5 +1,7 @@
 # ArchLinux NVidia Legacy + Wayland no Gnome
 
+>**Atualmente, NÃO é mais necessário fazer configruação no Gnome/GDM** para que funcione o Wayland.
+
 Uso uma placa de vídeo NVidia, então procurei no [Wiki ArchLinux, NVidia](https://wiki.archlinux.org/title/NVIDIA_(Portugu%C3%AAs)) como instalar e, descobri que minha placa de vídeo é uma versão legada.  
 Para verificar se a placa de vídeo NVidia é legada, vá até a página [nvidia, legacy-gpu](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/) e verifique se está na lista. Se não estiver, pode instalar os pacotes oficiais do Arch Linux.  
 Se sua placa de vídeo for das mais recentes, apenas instale o pacote [nvidia](https://archlinux.org/packages/extra/x86_64/nvidia) se seu kernel for versão [corrente](https://archlinux.org/packages/core/x86_64/linux/), OU [nvidia-lts](https://archlinux.org/packages/extra/x86_64/nvidia-lts) se seu Kernel for versão [lts](https://archlinux.org/packages/core/x86_64/linux-lts/).  
@@ -97,7 +99,56 @@ sudo /usr/bin/mkinitcpio -P
 
 > Se sua placa de vídeo for do repositório oficial, ***DEVE*** configurar também um arquivo chamado nvidia.hook, então veja [Wiki ArchLinux, NVidia, pacman hook](https://wiki.archlinux.org/title/NVIDIA_(Portugu%C3%AAs)#pacman_hook) para saber como configurar.  
 
-### Configurando regras de inicialização:
+## Resolvendo problema de [Flickering](https://en.wikipedia.org/wiki/Flicker_(screen))  
+
+O problema de Flickering/Tearing independe da versão do driver de vídeo.  
+
+Em meu sistema, com interface Gnome-Shell e gerenciador de login GDM com NVidia + Wayland, estava enfrentando problemas de [Flickering](https://www.tecmundo.com.br/voxel/especiais/183041-defeitos-graficos-flicker.htm).  
+Eram problemas de inconsistências com o vídeo e alguns ícones ficavam com cores estranhas, dava para perceber um certo atraso com o FPS e problema de buffer ou algo assim, na imagem.  
+Seguindo o [Wiki do Arch Linux, referente ao problema de Flickering/Tearing](https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend), foi configurado apenas 2 parâmetros no sistema e deu certo:  
+
+```bash
+echo -e 'options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/tmp' | sudo tee /etc/modprobe.d/nvidia-power-management.conf
+sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service
+sudo reboot
+```
+
+Após bastante uso, percebi que o problema foi resolvido, pois os ícones pararam de ficar com cores estranhas e outros aplicativos pararam com o delay na imagem.
+___
+
+### Opções no xorg.onf  
+>**Atualmente não é necessário configurar o xorg.conf e, dependendo de como configura o sistema pode não subir.**
+
+Eu adicionei algumas opções em meu xorg.conf, na seção "**Screen**":  
+
+>    #Option        ""ForceCompositionPipeline" "On"  
+    Option         "ForceFullCompositionPipeline" "on"  
+    Option         "UseNvKmsCompositionPipeline" "Off"  
+    Option         "AllowIndirectGLXProtocol" "off"  
+    Option         "TripleBuffer" "on"  
+
+A seção ficou configurada assim:  
+
+```
+Section "Screen"
+    Identifier     "Screen0"
+    Device         "Device0"
+    Monitor        "Monitor0"
+    #Option        ""ForceCompositionPipeline" "On"
+    Option         "ForceFullCompositionPipeline" "on"
+    Option         "UseNvKmsCompositionPipeline" "Off"
+    Option         "AllowIndirectGLXProtocol" "off"
+    Option         "TripleBuffer" "on"
+    DefaultDepth    24
+    SubSection     "Display"
+        Depth       24
+    EndSubSection
+EndSection
+```
+___
+### Configurando regras de inicialização para o Gnome/GDM:
+
+>**Atualmente, NÃO é mais necessário fazer esta configruação no Gnome/GDM**
 
 Finalmente, após ler algumas páginas e fóruns ví algo que talvez desse certo.  
 
@@ -137,52 +188,7 @@ Se retornar como resposta:
 
 Significa que a configuração deu certo e finalmente está usando NVidia + Wayland no Gnome.  
 
-## Resolvendo problema de [Flickering](https://en.wikipedia.org/wiki/Flicker_(screen))  
-
-O problema de Flickering/Tearing independe da versão do driver de vídeo.  
-
-Em meu sistema, com interface Gnome-Shell e gerenciador de login GDM com NVidia + Wayland, estava enfrentando problemas de [Flickering](https://www.tecmundo.com.br/voxel/especiais/183041-defeitos-graficos-flicker.htm).  
-Eram problemas de inconsistências com o vídeo e alguns ícones ficavam com cores estranhas, dava para perceber um certo atraso com o FPS e problema de buffer ou algo assim, na imagem.  
-Seguindo o [Wiki do Arch Linux, referente ao problema de Flickering/Tearing](https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend), foi configurado apenas 2 parâmetros no sistema e deu certo:  
-
-```bash
-echo -e 'options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/tmp' | sudo tee /etc/modprobe.d/nvidia-power-management.conf
-sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service
-sudo reboot
-```
-
-Após bastante uso, percebi que o problema foi resolvido, pois os ícones pararam de ficar com cores estranhas e outros aplicativos pararam com o delay na imagem.
-
-### Opções no xorg.onf  
-
-Eu adicionei algumas opções em meu xorg.conf, na seção "**Screen**":  
-
->    #Option        ""ForceCompositionPipeline" "On"  
-    Option         "ForceFullCompositionPipeline" "on"  
-    Option         "UseNvKmsCompositionPipeline" "Off"  
-    Option         "AllowIndirectGLXProtocol" "off"  
-    Option         "TripleBuffer" "on"  
-
-A seção ficou configurada assim:  
-
-```
-Section "Screen"
-    Identifier     "Screen0"
-    Device         "Device0"
-    Monitor        "Monitor0"
-    #Option        ""ForceCompositionPipeline" "On"
-    Option         "ForceFullCompositionPipeline" "on"
-    Option         "UseNvKmsCompositionPipeline" "Off"
-    Option         "AllowIndirectGLXProtocol" "off"
-    Option         "TripleBuffer" "on"
-    DefaultDepth    24
-    SubSection     "Display"
-        Depth       24
-    EndSubSection
-EndSection
-```
-
-Até o momento, o vídeo está funcionando normalmente.  
+___
 
 * Fontes e recomendações:
 
