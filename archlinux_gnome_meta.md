@@ -62,8 +62,8 @@ O tema Yaru é uma ótima escolha para o Gnome. Siga as instruções abaixo:
 Instale as seguintes extensões para melhorar a experiência no Gnome:
 
 - [**AppIndicator and KStatusNotifierItem Support**](https://extensions.gnome.org/extension/615/appindicator-support/):  
-  Adiciona suporte a ícones herdados da bandeja ao Shell.
-  Instale via reposiótio "Extra":  
+  Adiciona suporte a ícones herdados da bandeja ao Shell.  
+  Instale via [reposiótio "Extra"](https://archlinux.org/packages/?sort=&q=gnome-shell-extension-appindicator&maintainer=&flagged=):  
   
   ```bash
   sudo pacman -S gnome-shell-extension-appindicator
