@@ -19,4 +19,8 @@ Para descobrir os nomes das teclas, pode usar os seguintes métodos:
 3. **Pesquisa online:**
    - Você também pode pesquisar online para encontrar os nomes das teclas específicas. Por exemplo, pesquise "Linux key names" ou "Windows key names" para obter informações detalhadas.
 ___
+## Pacotes
+
+Para usar estes comandos, é nencessário instalar os pacotes `xorg-xev` e `xorg-xmodmap` no ArchLinux e seus derivados (Veja em sua Distro).  
+___
 Os nomes das teclas podem variar dependendo do sistema operacional e do layout do teclado.
