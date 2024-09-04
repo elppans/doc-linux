@@ -67,21 +67,18 @@ Finalmente, conecte-se ao servidor VNC usando um túnel SSH:
 ```bash
 ssh -L 5901:0.0.0.0:5901 -N -f -l pdvtec 192.168.15.100
 ```
-Após este comando para ativar o túnel, abre um aplicativo VNC Cliente e acesse o servidor VNC utilizando um endereço local: `127.0.0.1:1`  
+Após este comando para ativar o túnel, abra um aplicativo VNC Cliente e acesse o servidor VNC utilizando um endereço local.  
+Exemplo: `127.0.0.1:1`  
 
 ### Passo 7: Conectando-se ao Servidor VNC via Túnel SSH
 
 Se optou configurar o valor `0` para o parâmetro `localhost` (Passo 3), não é necessário seguir o **Passo 6**.  
-Basta pegar 
+Abra um aplicativo VNC Cliente e acesse o servidor VNC utilizando o endereço do servidor.  
+Exemplo: `192.168.15.100:1`  
 
 ---
 
 - Fontes:  
-[(1) DICAS PARA APRENDER SCRIPT! (script é mais fácil do que você pensa!).](https://www.youtube.com/watch?v=o1cS5f8SfxA)   
-[(2) AULA COMPLETA de SCRIPT! COMO FAZER SCRIPT e SISTEMAS no ROBLOX STUDIO do ZERO!.](https://www.youtube.com/watch?v=NrYKaGjLGjw)   
-[(3) COMO CONVERTER SCRIPT ESX PARA VRP/VRPEX 2022/2023.](https://www.youtube.com/watch?v=g6EfDh9BGDQ)   
-[(4) Dois métodos simples para converter um arquivo Python em um ... - DataCamp.](https://www.datacamp.com/pt/tutorial/two-simple-methods-to-convert-a-python-file-to-an-exe-file)   
-[(5) Conversor on-line gratuito de TXT to SCRIPT | Conholdate Apps.](https://products.conholdate.app/pt/conversion/txt-to-script)   
-[(6) Como transformar seu script em vídeo com IA? (Guia) - AI Mojo.](https://aimojo.io/pt/script-video-ai/)   
-[(7) Criador de Video com IA - Ferramenta de Texto para Vídeo Online - FlexClip.](https://www.flexclip.com/pt/tools/ai-text-to-video/)   
-[(8) Tutorial Powershell - Converter um script PS1 para EXE - TechExpert.Tips.](https://techexpert.tips/pt-br/powershell-pt-br/powershell-converta-um-script-ps1-para-o-aplicativo-exe/)   
+[(1) Como instalar o servidor VNC no Debian 12.](https://pt.linux-console.net/?p=30634#:~:text=No%20Debian,%20voc%C3%AA%20pode%20usar%20TigerVNC%20para%20criar)  
+[(2) Como instalar e configurar a VNC no Debian 9.](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-debian-9-pt)
+
