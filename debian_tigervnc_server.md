@@ -76,7 +76,9 @@ Se optou configurar o valor `0` para o parâmetro `localhost` (Passo 3), não é
 Abra um aplicativo VNC Cliente e acesse o servidor VNC utilizando o endereço do servidor.  
 Exemplo: `192.168.15.100:1`  
 
----
+___
+![debian_tigervnc_server](img/debian_tigervnc_server.png)
+___
 
 - Fontes:  
 [(1) Como instalar o servidor VNC no Debian 12.](https://pt.linux-console.net/?p=30634#:~:text=No%20Debian,%20voc%C3%AA%20pode%20usar%20TigerVNC%20para%20criar)  
