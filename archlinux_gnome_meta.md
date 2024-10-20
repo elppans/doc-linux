@@ -1,5 +1,3 @@
----
-
 # Configuração do Ambiente Gnome (Meta) no Arch Linux
 
 Esta nota descreve os passos para configurar o ambiente Gnome no Arch Linux.  
@@ -131,4 +129,3 @@ Lembre-se de consultar a documentação de cada aplicativo para obter mais detal
 [https://apps.gnome.org/pt-BR/](https://apps.gnome.org/pt-BR/)  
 [https://apps.gnome.org/pt/](https://apps.gnome.org/pt/)  
 [https://apps.gnome.org/pt-BR/Software/](https://apps.gnome.org/pt-BR/Software/)  
-___
