@@ -53,6 +53,8 @@ Enter ‘help’ for a list of built-in commands.
 (initramfs): reboot
 ```
 ___
+# Nesse tutorial utilizamos o Ubuntu, porém as dicas dadas aqui devem ser [compatíveis com outras distribuições do Linux](https://techstart.xyz/topicos/linux/)
+___
 
 - Fonte:
 
