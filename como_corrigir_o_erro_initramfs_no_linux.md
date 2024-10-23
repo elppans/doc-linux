@@ -52,3 +52,9 @@ Enter ‘help’ for a list of built-in commands.
 
 (initramfs): reboot
 ```
+___
+
+- Fonte:
+
+[https://techstart.xyz/linux/linux-nao-inicia-como-corrigir-o-erro-initramfs/](https://techstart.xyz/linux/linux-nao-inicia-como-corrigir-o-erro-initramfs/)  
+
