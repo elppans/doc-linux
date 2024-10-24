@@ -22,13 +22,14 @@ Indice:
 18) [ArchLinux e outros S.O.](https://elppans.github.io/doc-linux/archlinux_e_outros_sistemas_operacionais)  
 19) [Archlinux, Converter antigo $HOME para subvolume btrfs](https://elppans.github.io/doc-linux/converter_antigo_home_para_subvolume_btrfs)  
 20) [Archlinux, Criar subvolume btrfs para troca de arquivos](https://elppans.github.io/doc-linux/criar_subvolume_btrfs_para_troca)  
-21) [Archinstall, Sobre o Script](https://elppans.github.io/doc-linux/archinstall_script)  
-22) [Archinstall, Algumas dicas pós instalação](https://elppans.github.io/doc-linux/archinstall_tips_pos_inst)  
-23) [Archinstall, Imagens da instalação do Archlinux ISO 01.02.2024](https://elppans.github.io/doc-linux/archinstall_img_archlinux-2024.02.01-x86_64)  
-24) [Ubuntu, Converter pacotes Archlinux para pacotes Debian](https://elppans.github.io/doc-linux/aur_para_deb)  
-25) [Ubuntu, Instalação do makedeb via código-fonte](https://elppans.github.io/doc-linux/instalar_makedeb_source_ubuntu)  
-26) [Ubuntu, teclado ABNT2](https://elppans.github.io/doc-linux/ubuntu_keyboard_abnt2)
-27) [Ubuntu, initramfs](https://elppans.github.io/doc-linux/como_corrigir_o_erro_initramfs_no_linux)  
+21) [Archlinux, Solução dnsmasq não inicia](https://elppans.github.io/doc-linux/archlinux_solucao_dnsmasq_nao_inicia)  
+22) [Archinstall, Sobre o Script](https://elppans.github.io/doc-linux/archinstall_script)  
+23) [Archinstall, Algumas dicas pós instalação](https://elppans.github.io/doc-linux/archinstall_tips_pos_inst)  
+24) [Archinstall, Imagens da instalação do Archlinux ISO 01.02.2024](https://elppans.github.io/doc-linux/archinstall_img_archlinux-2024.02.01-x86_64)  
+25) [Ubuntu, Converter pacotes Archlinux para pacotes Debian](https://elppans.github.io/doc-linux/aur_para_deb)  
+26) [Ubuntu, Instalação do makedeb via código-fonte](https://elppans.github.io/doc-linux/instalar_makedeb_source_ubuntu)  
+27) [Ubuntu, teclado ABNT2](https://elppans.github.io/doc-linux/ubuntu_keyboard_abnt2)
+28) [Ubuntu, initramfs](https://elppans.github.io/doc-linux/como_corrigir_o_erro_initramfs_no_linux)  
 
 
 
