@@ -28,8 +28,9 @@ Indice:
 24) [Archinstall, Imagens da instalação do Archlinux ISO 01.02.2024](https://elppans.github.io/doc-linux/archinstall_img_archlinux-2024.02.01-x86_64)  
 25) [Ubuntu, Converter pacotes Archlinux para pacotes Debian](https://elppans.github.io/doc-linux/aur_para_deb)  
 26) [Ubuntu, Instalação do makedeb via código-fonte](https://elppans.github.io/doc-linux/instalar_makedeb_source_ubuntu)  
-27) [Ubuntu, teclado ABNT2](https://elppans.github.io/doc-linux/ubuntu_keyboard_abnt2)
+27) [Ubuntu, teclado ABNT2](https://elppans.github.io/doc-linux/ubuntu_keyboard_abnt2)  
 28) [Ubuntu, initramfs](https://elppans.github.io/doc-linux/como_corrigir_o_erro_initramfs_no_linux)  
+29) [PDV Ubuntu 22.04, configurar Dual Boot](https://elppans.github.io/doc-linux/pdv_ubuntu_22_dual_boot)  
 
 
 
