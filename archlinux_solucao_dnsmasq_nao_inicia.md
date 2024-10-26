@@ -156,9 +156,6 @@ ps aux | grep dnsmasq
 sudo systemctl start dnsmasq
 sudo systemctl status dnsmasq
 ```
---- 
-Para documentar a desativação da rede `default` do **libvirt** no README, você pode seguir uma explicação como a seguinte:
-
 ---
 
 ### Desativando a Rede `default` do Libvirt e o Serviço dnsmasq
