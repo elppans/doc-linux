@@ -161,7 +161,9 @@ Para documentar a desativação da rede `default` do **libvirt** no README, voc�
 
 ---
 
-### Desativando a Rede `default` do Libvirt e o Serviço dnsmasq (Recomendável)
+### Desativando a Rede `default` do Libvirt e o Serviço dnsmasq
+
+>**Esta configuração é o mais fácil e recomendável**
 
 O **libvirt** utiliza a rede `default` para fornecer funcionalidades de rede virtual, como DNS e DHCP, por meio do serviço **dnsmasq**. No entanto, se o `dnsmasq` não for necessário, ele pode ser desativado ao desativar a rede `default`. Abaixo estão os passos para desativar a rede e evitar que o **dnsmasq** seja iniciado automaticamente:
 
