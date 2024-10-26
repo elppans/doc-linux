@@ -35,8 +35,8 @@ sudo systemctl restart NetworkManager
 ```
 
 Em seguida, tente reiniciar o `dnsmasq`.
-
-### 3. Conflito com o `dnsmasq` do libvirt
+___
+# Conflito com o `dnsmasq` do libvirt
 
 Se você utiliza máquinas virtuais com **libvirt** (como no Virt Manager ou QEMU), o serviço `dnsmasq` gerenciado pelo **libvirt** pode estar ocupando as mesmas portas. Para verificar se o `dnsmasq` do **libvirt** está em execução, utilize:
 
@@ -157,3 +157,49 @@ sudo systemctl start dnsmasq
 sudo systemctl status dnsmasq
 ```
 --- 
+Para documentar a desativação da rede `default` do **libvirt** no README, você pode seguir uma explicação como a seguinte:
+
+---
+
+### Desativando a Rede `default` do Libvirt e o Serviço dnsmasq (Recomendável)
+
+O **libvirt** utiliza a rede `default` para fornecer funcionalidades de rede virtual, como DNS e DHCP, por meio do serviço **dnsmasq**. No entanto, se o `dnsmasq` não for necessário, ele pode ser desativado ao desativar a rede `default`. Abaixo estão os passos para desativar a rede e evitar que o **dnsmasq** seja iniciado automaticamente:
+
+#### Passos para Desativar a Rede `default`
+
+1. **Desativar a Rede Imediatamente**  
+   Para interromper a rede `default` imediatamente, utilize o seguinte comando:
+   ```bash
+   sudo virsh net-destroy default
+   ```
+   Isso interrompe a rede `default` e, como consequência, o **dnsmasq** para de rodar.
+
+2. **Desabilitar o Auto-início da Rede `default`**  
+   Para garantir que a rede `default` não seja reiniciada automaticamente após uma reinicialização do sistema, desative o **auto-início**:
+   ```bash
+   sudo virsh net-autostart default --disable
+   ```
+
+3. **Verificar o Status da Rede**  
+   Para confirmar que a rede `default` está desativada e que o **auto-início** foi desabilitado, execute:
+   ```bash
+   sudo virsh net-list --all
+   ```
+   A saída deve mostrar que a rede `default` está **inativa** e o campo **Auto-iniciar** deve estar marcado como `não`.
+
+4. **Confirmar que o dnsmasq Está Desativado**  
+   Com a rede `default` desativada, o **dnsmasq** não deve mais estar em execução. Verifique com:
+   ```bash
+   ps aux | grep dnsmasq
+   ```
+   Se **dnsmasq** não aparecer na lista, ele foi desativado com sucesso.
+
+#### Nota
+Para reativar a rede `default` e o **dnsmasq** no futuro, basta executar:
+
+```bash
+sudo virsh net-start default
+sudo virsh net-autostart default --enable
+```
+
+---
