@@ -24,7 +24,9 @@ Para desativar o modo de suspensão no seu servidor Ubuntu, você pode seguir os
    ```
 
 Isso deve desativar o modo de suspensão no seu servidor Ubuntu.  
-
+___
+Foi criado um Script para facilitar a configuração, se optar no uso, acesse: [linux-standby-off](https://github.com/elppans/linux-standby-off)  
+___
 - Fontes:
 
 [How to Completely Disable Suspend/Hibernate in Ubuntu 24.04 | 22.04](https://ubuntuhandbook.org/index.php/2024/10/completely-disable-suspend-hibernate/)  
