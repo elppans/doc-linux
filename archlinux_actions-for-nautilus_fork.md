@@ -1,12 +1,13 @@
 # Actions For Nautilus
 
-O "Actions For Nautilus" é uma extensão para o gerenciador de arquivos Gnome Files, também conhecido como Nautilus. Esta extensão permite adicionar ações personalizadas ao menu de contexto da seleção de arquivos. 
+O "Actions For Nautilus" é uma extensão para o gerenciador de arquivos Gnome Files, também conhecido como Nautilus. Esta extensão permite adicionar ações personalizadas ao menu de contexto da seleção de arquivos.
 
 Com o "Actions For Nautilus", você pode estruturar itens de menu de contexto, incluindo submenus aninhados, e filtrar os itens exibidos com base em várias condições, como o número de arquivos na seleção, permissões de acesso do usuário, tipos de arquivos e padrões de caminho. Além disso, você pode executar comandos ou scripts arbitrários quando um item de menu é ativado.
 
+Para instalar a extensão no Arch Linux, você pode usar um AUR helper como `yay` para facilitar a instalação do pacote `actions-for-nautilus`. Depois de instalado, utilize o aplicativo "Actions For Nautilus Configurator" para configurar as ações com base em suas necessidades.
+
 Para instalar a extensão em sistemas baseados em Debian, você pode baixar o pacote mais recente e instalá-lo com seu instalador de pacotes. Depois, basta iniciar o aplicativo "Actions For Nautilus Configurator" para começar a configurar as ações com base no exemplo fornecido.
 
-Se você estiver usando o Ubuntu, pode seguir um tutorial específico para instalar a extensão, adicionando o repositório apropriado e usando comandos de terminal.
 ___
 # Instalação da extenção Actions For Nautilus via SOURCE
 
