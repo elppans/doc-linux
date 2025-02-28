@@ -81,7 +81,9 @@ ___
 
 ### Links recomendados
 
-- [Flatpak, Ubuntu Quick Setup](https://flatpak.org/setup/Ubuntu)
-- [Pacotes Flatpak: como instalar no Ubuntu Linux, SempreUpdate](https://sempreupdate.com.br/linux/tutoriais/pacotes-flatpak-como-instalar-no-ubuntu-linux/)
-- [Youtube. INSTALE APPS FACIL NO UBUNTU COM FLATPAK, Canal Tecnollar Tecnologia](https://www.youtube.com/watch?v=dn4L39KUAqc)
-- 
+- [Flatpak, Ubuntu Quick Setup](https://flatpak.org/setup/Ubuntu)  
+- [Pacotes Flatpak: como instalar no Ubuntu Linux, SempreUpdate](https://sempreupdate.com.br/linux/tutoriais/pacotes-flatpak-como-instalar-no-ubuntu-linux/)  
+- [Youtube. INSTALE APPS FACIL NO UBUNTU COM FLATPAK, Canal Tecnollar Tecnologia](https://www.youtube.com/watch?v=dn4L39KUAqc)  
+- [Como ativar o suporte a FLATPAK no UBUNTU](https://www.youtube.com/watch?v=1wHwciUikHs)
+___
+
