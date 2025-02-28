@@ -22,7 +22,7 @@ cd ~/build
 wget -c https://raw.githubusercontent.com/elppans/actions-for-nautilus/refs/heads/main/pkgbuild/PKGBUILD
 ```
 ```bash
-yay --noconfirm -S jquery gtkhash
+yay --noconfirm -S jquery gtkhash xclip
 ```
 ```bash
 makepkg -Cris
