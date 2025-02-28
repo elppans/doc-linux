@@ -10,7 +10,7 @@ Se você estiver usando o Ubuntu, pode seguir um tutorial específico para insta
 ___
 # Instalação da extenção Actions For Nautilus via SOURCE
 
-## Actions for Nautilus no ArchLinux e derivados, via Git
+## Actions for Nautilus no ArchLinux e derivados, via Git, PKGBUILD
 
 ```bash
 mkdir -p ~/build
