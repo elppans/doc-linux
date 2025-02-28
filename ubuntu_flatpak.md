@@ -76,14 +76,15 @@ Aqui está um guia passo a passo para instalar o GNOME Software Flatpak Plugin n
    sudo reboot
    ```
 
-Agora você pode usar o GNOME Software para instalar e gerenciar aplicativos Flatpak de maneira fácil e intuitiva.
+Agora você pode usar o GNOME Software para instalar e gerenciar aplicativos Flatpak de maneira fácil e intuitiva.  
+- Também é possível gerenciar os aplicativos através do site [Flathub](https://flathub.org/)
 ___
 
 ### Links recomendados
 
 - [Flatpak, Ubuntu Quick Setup](https://flatpak.org/setup/Ubuntu)  
 - [Pacotes Flatpak: como instalar no Ubuntu Linux, SempreUpdate](https://sempreupdate.com.br/linux/tutoriais/pacotes-flatpak-como-instalar-no-ubuntu-linux/)  
-- [Youtube. INSTALE APPS FACIL NO UBUNTU COM FLATPAK, Canal Tecnollar Tecnologia](https://www.youtube.com/watch?v=dn4L39KUAqc)  
-- [Como ativar o suporte a FLATPAK no UBUNTU](https://www.youtube.com/watch?v=1wHwciUikHs)
+- [Youtube. INSTALE APPS FACIL NO UBUNTU COM FLATPAK. Canal Tecnollar Tecnologia](https://www.youtube.com/watch?v=dn4L39KUAqc)  
+- [Youtube. Como ativar o suporte a FLATPAK no UBUNTU. Canal ROVEEb](https://www.youtube.com/watch?v=1wHwciUikHs)
 ___
 
