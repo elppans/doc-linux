@@ -28,6 +28,9 @@ yay --noconfirm -S jquery gtkhash xclip
 ```bash
 makepkg -Cris
 ```
+```bash
+nautilus -q
+```
 ___
 ## Actions for Nautilus no Ubuntu, via Git
 
@@ -54,5 +57,8 @@ mkdir -p $HOME/.local/share/actions-for-nautilus
 ```
 ```bash
 cp /usr/share/actions-for-nautilus-configurator/sample-config.json $HOME/.local/share/actions-for-nautilus/config.json
+```
+```bash
+nautilus -q
 ```
 ___
