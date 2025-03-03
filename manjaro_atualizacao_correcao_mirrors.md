@@ -52,4 +52,10 @@ sudo sed -i '/Server/ s/^/#/' /etc/pacman.d/mirrorcdn
 sudo pacman -Syyu
 ```
 
-Se nenhuma das dicas funciona.... Lascou!
+Se nenhuma das dicas funciona.... Sempre é bom ver as notícias!
+No Archlinux News explica que o repositório `community` fechou e foi migrado os pacotes para o extra: [Cleaning up old repositories](https://archlinux.org/news/cleaning-up-old-repositories/)  
+
+Teste via VM, no sistema BigLinux, foi comentado as linhas do repositório `community` e o teste deu resultado positivo.
+
+![photo_2025-03-03_18-56-30](https://github.com/user-attachments/assets/8af35615-4cda-4951-8e4d-447bc443efc1)
+
