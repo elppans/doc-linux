@@ -10,10 +10,16 @@ Antes de iniciar o procedimento, para que tenha uma configuração limpa com o n
 
 MAS, se assim como eu, **não quer criar um novo usuário** mas quer a pasta de usuário limpa, faça o seguinte, em um tty:  
 
-```
+```bash
 sudo mv /home/usuário /home/usuário_BKP
+```
+```bash
 sudo mkdir -p /home/usuário
+```
+```bash
 cp -av /etc/skel/.bash* /home/usuário
+```
+```bash
 sudo chown -R $USER:$USER /home/usuário
 ```
 
@@ -29,7 +35,7 @@ Aconteceu que, eu estava usando zsh e como removí ao fazer o processo de "reset
 Para corrigir, deve [alterar o Shell padrão](https://wiki.archlinux.org/title/Command-line_shell_(Portugu%C3%AAs)#Alterando_seu_shell_padr%C3%A3o) para o "ORIGINAL".  
 Então, deve fazer o comando para configurar o Shell padrão:
 
-```
+```bash
 sudo chsh -s /bin/bash $USER
 ```
 
@@ -37,7 +43,7 @@ sudo chsh -s /bin/bash $USER
 
 * 1º - Altere o motivo de instalação de **TODOS** os pacotes instalados "`como Explicitamente`" para "`como dependência`"  
 
-```
+```bash
 sudo pacman -D --asdeps $(pacman -Qqe)
 ```
 >Mesmo após todo o processo, um monte de pacote lixo continua instalado porque são classificados e sendo listado como "nativos" (pacman -Qn).  
@@ -49,14 +55,14 @@ sudo pacman -D --asdeps $(pacman -Qqe)
 > Eu escolhi exatamente os pacotes que usei ao [Instalar o Arch Linux (BASE)](https://elppans.github.io/doc-linux/archLinux_instalacao_base_btrfs), para ficar como se eu tivesse acabado de instalar.  
 Faça o mesmo com seus pacotes utilizados na instalação.  
 
-```
+```bash
 sudo pacman -D --asexplicit base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs git fakeroot reflector nano ntp man-db man-pages texinfo grub-efi-x86_64 efibootmgr dosfstools os-prober mtools networkmanager wpa_supplicant wireless_tools dialog sudo
 ```
 
 Mais especificamente, como **não queria recompilar o yay**, meu comando completo ficou assim:  
 >Lembrando que você pode **`adicionar OU remover os pacotes que quiser`**, assim como fiz
 
-```
+```bash
 sudo pacman -D --asexplicit base base-devel linux linux-headers linux-firmware intel-ucode btrfs-progs git fakeroot reflector nano ntp man-db man-pages texinfo grub-efi-x86_64 efibootmgr dosfstools os-prober mtools networkmanager wpa_supplicant wireless_tools dialog sudo yay pkgconf wget
 ```
 
@@ -70,7 +76,7 @@ No Wiki informa o uso da remoção com o pacman, usando apenas as opções `-Rns
 -n, --nosave. Remove os arquivos de configuração  
 -c, --cascade. Remove pacotes e todos os que dependem deles  
 
-```
+```bash
 sudo pacman -Rsunc $(pacman -Qtdq)
 ```
 
