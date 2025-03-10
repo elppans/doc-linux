@@ -40,6 +40,9 @@ sudo chsh -s /bin/bash $USER
 ```
 sudo pacman -D --asdeps $(pacman -Qqe)
 ```
+>Mesmo após todo o processo, um monte de pacote lixo continua instalado porque são classificados e sendo listado como "nativos" (pacman -Qn).  
+>A documentação não recomenda, mas se quiser o sistema realmente limpo, faça o comando desta forma:  
+>>`sudo pacman -D --asdeps $(pacman -Qqn)`
 
 * 2º - Altere o motivo da instalação para "`como explicitamente`" apenas os **PACOTES ESSENCIAIS**. Aqueles que você **NÃO** deseja remover:  
 
