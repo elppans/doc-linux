@@ -79,6 +79,11 @@ No Wiki informa o uso da remoção com o pacman, usando apenas as opções `-Rns
 ```bash
 sudo pacman -Rsunc $(pacman -Qtdq)
 ```
+>Em um teste, teve um resultado de que, ainda assim, ficou alguns pacotes indesejáveis instalados.  
+>Se quiser, uma forma de contornar é usar as opções "`-Qttdq`":  
+>>`-t, --unrequired lista de pacotes não exigidos (opcionalmente) por qualquer pacote (-tt para ignorar optdepends) [filtro]`  
+>O comando vai ficar assim:  
+>>`sudo pacman -Rsunc $(pacman -Qttdq)`  
 
 Depois disto, pode reiniciar a Distro e verá que cairá somente no prompt tty, como se estivesse acabado de instalar o Arch Linux.  
 Agora é só configurar o que quiser com a nova Interface Gráfica (GUI) que quiser e se quiser.  
