@@ -126,5 +126,35 @@ Se está rodando **QEMU/KVM com VNC**, os pacotes essenciais são:
 Se quiser um VNC mais funcional dentro da VM, pode instalar `x11vnc`.  
 Se precisar de uma experiência mais integrada, o **SPICE** é uma opção melhor que o VNC.
 ___
+## QEMU/KVM com SPICE + Placa de vídeo virtual QXL
+
+O pacote **`xf86-video-qxl`** é um **driver de vídeo** para o servidor Xorg, projetado para melhorar o desempenho gráfico em máquinas virtuais rodando sob **QEMU/KVM com SPICE**.  
+
+### **Para que ele serve?**  
+- Fornece **aceleração de vídeo** para VMs usando o dispositivo gráfico **QXL**, que é otimizado para o protocolo **SPICE**.  
+- Permite **redimensionamento dinâmico da tela** dentro da VM sem precisar configurar manualmente a resolução.  
+- Melhora o desempenho gráfico em sistemas com interface gráfica X11.  
+- Suporta múltiplos monitores quando usado com SPICE.
+
+---
+
+### **Quando instalar `xf86-video-qxl`?**  
+✅ Se a VM estiver rodando no **QEMU/KVM com SPICE** e estiver usando a placa de vídeo virtual **QXL**.  
+✅ Se precisar de **melhor desempenho gráfico** e suporte a redimensionamento dinâmico.  
+
+🔴 **Não é necessário** se a VM estiver rodando com **VNC**, pois o QXL só faz diferença quando usado com SPICE.  
+
+---
+
+### **Como instalar?**  
+Se estiver usando QEMU/KVM com SPICE e QXL como adaptador de vídeo:  
+```sh
+sudo pacman -S xf86-video-qxl
+```
+
+Após instalar, reinicie a VM para aplicar as mudanças.  
+
+Se a VM estiver lenta ou com gráficos ruins, verifique se o SPICE está ativado no hipervisor e se `spice-vdagent` está instalado na VM.
+___
 - **Fonte:**
 [BIGLinux ISO Profiles, Root ADD](https://github.com/biglinux/iso-profiles/blob/main/biglinux-make-iso-profiles/base/Root-add)
