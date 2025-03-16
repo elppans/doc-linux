@@ -155,3 +155,104 @@ Se preferir configurar o ZRAM manualmente, siga estes passos:
 - No Ubuntu/Debian, use o `zram-tools`.
 - Para configuração manual, crie e configure o dispositivo ZRAM diretamente via `/sys/class/zram-control`.
 ___
+
+## Para um computador com 16 GB de RAM, a configuração ideal do ZRAM
+
+Para um computador com **16 GB de RAM**, a configuração ideal do ZRAM depende do seu uso e das necessidades do sistema. Vou te guiar com algumas recomendações gerais e fatores a considerar para decidir o tamanho do ZRAM.
+
+---
+
+### Recomendação geral:
+Para um sistema com 16 GB de RAM, uma boa prática é configurar o ZRAM com um tamanho entre **2 GB e 4 GB**. Isso é suficiente para a maioria dos casos de uso, como desktops ou laptops com multitarefa moderada.
+
+- **2 GB**: Adequado para uso geral, como navegação na web, edição de documentos e multitarefa leve.
+- **4 GB**: Recomendado para uso mais intensivo, como edição de vídeo, virtualização ou jogos.
+
+---
+
+### Fatores a considerar:
+1. **Uso de memória RAM**:
+   - Se você raramente usa toda a RAM disponível (por exemplo, seu uso máximo fica em torno de 10 GB), um ZRAM de 2 GB é suficiente.
+   - Se você frequentemente usa quase toda a RAM (por exemplo, 14 GB ou mais), considere um ZRAM de 4 GB.
+
+2. **Swap em disco**:
+   - Se você já tem um swap em disco configurado, o ZRAM será usado primeiro devido à sua alta prioridade. Nesse caso, um ZRAM menor (2 GB) pode ser suficiente.
+
+3. **Algoritmo de compressão**:
+   - O ZRAM comprime os dados na memória. Dependendo do algoritmo usado (`lz4`, `zstd`, etc.), a taxa de compressão pode variar. Por exemplo:
+     - Com `lz4`, você pode esperar uma taxa de compressão de 2:1 (ou seja, 2 GB de ZRAM podem armazenar até 4 GB de dados não comprimidos).
+     - Com `zstd`, a taxa de compressão pode ser ainda melhor, mas com um custo maior de CPU.
+
+4. **Desempenho do sistema**:
+   - O ZRAM é muito mais rápido que o swap em disco, mas ainda assim usa CPU para compressão/descompressão. Se você tiver uma CPU poderosa, pode configurar um ZRAM maior sem impactar o desempenho.
+
+---
+
+### Como configurar o ZRAM:
+No Arch Linux (usando `zram-generator`), edite o arquivo `/etc/systemd/zram-generator.conf`:
+
+```ini
+[zram0]
+zram-size = 2G  # ou 4G, dependendo da sua necessidade
+compression-algorithm = lz4
+swap-priority = 100
+```
+
+No Ubuntu/Debian (usando `zram-tools`), edite o arquivo `/etc/default/zramswap`:
+
+```bash
+PERCENT=25  # 25% de 16 GB = 4 GB
+ALGO=lz4
+PRIORITY=100
+```
+
+Ou, para 2 GB:
+
+```bash
+PERCENT=12.5  # 12.5% de 16 GB = 2 GB
+ALGO=lz4
+PRIORITY=100
+```
+
+---
+
+### Verificação e ajustes:
+1. Verifique o uso do ZRAM após configurá-lo:
+   ```bash
+   swapon --show
+   ```
+
+2. Monitore o uso do ZRAM e da RAM com ferramentas como `htop` ou `free -h`:
+   ```bash
+   free -h
+   ```
+
+3. Ajuste o tamanho do ZRAM conforme necessário. Se você perceber que o ZRAM está sendo totalmente utilizado e o sistema ainda está usando swap em disco, aumente o tamanho do ZRAM.
+
+---
+
+### Exemplo de configuração para 16 GB de RAM:
+- **Uso geral (multitarefa leve)**:
+  ```ini
+  [zram0]
+  zram-size = 2G
+  compression-algorithm = lz4
+  swap-priority = 100
+  ```
+
+- **Uso intensivo (edição de vídeo, jogos, virtualização)**:
+  ```ini
+  [zram0]
+  zram-size = 4G
+  compression-algorithm = zstd
+  swap-priority = 100
+  ```
+
+---
+
+### Resumo:
+- Para 16 GB de RAM, configure o ZRAM com **2 GB a 4 GB**.
+- Use `lz4` para um bom equilíbrio entre desempenho e taxa de compressão.
+- Ajuste o tamanho com base no uso da RAM e no desempenho do sistema.
+- Monitore o uso do ZRAM e faça ajustes conforme necessário.
+___
