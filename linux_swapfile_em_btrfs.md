@@ -310,7 +310,7 @@ A escolha entre usar uma **partição swap** ou um **arquivo de swap (swapfile)*
 | **Desempenho**          | Geralmente mais rápido, pois é dedicado e não depende do sistema de arquivos. | Pode ser ligeiramente mais lento, pois depende do sistema de arquivos. |
 | **Flexibilidade**       | Tamanho fixo. Para alterar, é necessário redimensionar a partição. | Tamanho ajustável. Pode ser criado, redimensionado ou removido facilmente. |
 | **Gerenciamento**       | Requer planejamento antecipado durante a instalação ou particionamento do disco. | Mais fácil de gerenciar. Pode ser criado ou removido sem reparticionar o disco. |
-| **Uso em SSDs**         | Pode causar mais desgaste no SSD devido a gravações contínuas em uma área específica. | Pode ser otimizado para reduzir o desgaste (por exemplo, usando [TRIM](linux_fstrim)). |
+| **Uso em SSDs**         | Pode causar mais desgaste no SSD devido a gravações contínuas em uma área específica. | Pode ser otimizado para reduzir o desgaste (por exemplo, usando [TRIM](linux_fstrim.md)). |
 | **Compatibilidade**     | Compatível com todos os sistemas e cenários. | Nem todos os sistemas suportam swapfile (por exemplo, hibernação pode não funcionar). |
 | **Fragmentação**        | Não há fragmentação, pois é uma partição dedicada. | Pode sofrer fragmentação, mas isso é minimizado em sistemas de arquivos modernos. |
 
@@ -321,7 +321,7 @@ Em SSDs, o **swapfile** é geralmente a opção recomendada pelas seguintes raz�
 
 1. **Redução do desgaste**:
    - O swapfile pode ser movido para diferentes áreas do SSD, distribuindo as gravações e reduzindo o desgaste em uma área específica.
-   - Além disso, o uso de TRIM (habilitado por padrão na maioria dos sistemas de arquivos modernos) ajuda a manter o desempenho e a vida útil do SSD.
+   - Além disso, o uso de [TRIM](linux_fstrim.md) (habilitado por padrão na maioria dos sistemas de arquivos modernos) ajuda a manter o desempenho e a vida útil do SSD.
 
 2. **Flexibilidade**:
    - É mais fácil ajustar o tamanho do swapfile conforme necessário, sem a necessidade de reparticionar o disco.
