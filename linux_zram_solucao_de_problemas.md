@@ -117,7 +117,7 @@ sudo mount -t sysfs sysfs /sys
 
 Se seguir esses passos, você deverá conseguir identificar e resolver o problema com o ZRAM.
 ___
-## Módulo ZRAM
+## [Módulo ZRAM](linux_zram_solucao_de_problemas.md#sobre-os-m%C3%B3dulos-listados-anteriormente)
 ```bash
 [arch@archlinux ~]$ lsmod | grep zram
 [arch@archlinux ~]$ sudo modprobe zram
