@@ -414,4 +414,75 @@ Isso significa que você pode usar qualquer um desses algoritmos.
 - Os módulos carregados (`842`, `lz4`, `lz4hc`) correspondem aos algoritmos de compressão disponíveis.
 - Escolha o algoritmo com base na sua necessidade (velocidade, taxa de compressão ou equilíbrio).
 - Defina o algoritmo no arquivo de configuração ou manualmente via `/sys/block/zram0/comp_algorithm`.
+___
 
+## Diferenças entre LZO e LZ4
+
+A diferença entre `lzo` e `lz4` está principalmente no desempenho e na eficiência de compressão. Ambos são algoritmos de compressão rápidos e leves, mas têm características distintas que os tornam mais adequados para diferentes cenários. Vamos compará-los:
+
+---
+
+### 1. **LZO (Lempel-Ziv-Oberhumer)**
+- **Velocidade**: Extremamente rápido, tanto para compressão quanto para descompressão.
+- **Taxa de compressão**: Oferece uma taxa de compressão moderada. Não é tão eficiente em termos de tamanho final dos dados comprimidos, mas é muito rápido.
+- **Uso de CPU**: Consome pouca CPU, o que o torna ideal para sistemas com recursos limitados ou onde a velocidade é crítica.
+- **Cenários de uso**:
+  - Sistemas embarcados ou dispositivos com poucos recursos.
+  - Aplicações em tempo real onde a velocidade é mais importante que a taxa de compressão.
+  - Swap em memória (ZRAM) em sistemas que priorizam baixa latência.
+
+---
+
+### 2. **LZ4**
+- **Velocidade**: Ainda mais rápido que o LZO, especialmente na descompressão. É considerado um dos algoritmos de compressão mais rápidos disponíveis.
+- **Taxa de compressão**: Oferece uma taxa de compressão ligeiramente melhor que o LZO, mas ainda não é tão eficiente quanto algoritmos mais pesados, como `zstd` ou `deflate`.
+- **Uso de CPU**: Consome muito pouca CPU, semelhante ao LZO, mas com desempenho ainda melhor em muitos casos.
+- **Cenários de uso**:
+  - Sistemas que exigem máxima velocidade de compressão/descompressão.
+  - Bancos de dados em memória, caches e aplicações que lidam com grandes volumes de dados.
+  - Swap em memória (ZRAM) onde a velocidade é crítica.
+
+---
+
+### Comparação direta: LZO vs LZ4
+| Característica       | LZO                              | LZ4                              |
+|----------------------|----------------------------------|----------------------------------|
+| **Velocidade**       | Muito rápido                    | Ainda mais rápido que LZO        |
+| **Taxa de compressão** | Moderada                        | Ligeiramente melhor que LZO      |
+| **Uso de CPU**       | Muito baixo                     | Muito baixo (melhor que LZO)     |
+| **Cenários de uso**  | Sistemas embarcados, tempo real | Sistemas de alto desempenho, ZRAM|
+
+---
+
+### Qual escolher?
+- **Escolha LZO**:
+  - Se você estiver em um sistema muito antigo ou com recursos extremamente limitados.
+  - Se a compatibilidade com hardware ou software mais antigo for necessária (LZO é um algoritmo mais antigo e amplamente suportado).
+
+- **Escolha LZ4**:
+  - Se você prioriza a velocidade máxima, especialmente em sistemas modernos.
+  - Se você deseja um equilíbrio ligeiramente melhor entre velocidade e taxa de compressão.
+  - Para uso em ZRAM, o LZ4 é geralmente a melhor escolha devido à sua velocidade de descompressão.
+
+---
+
+### Exemplo de uso no ZRAM
+Se você estiver configurando o ZRAM, pode definir o algoritmo no arquivo de configuração (`/etc/systemd/zram-generator.conf`):
+
+```ini
+[zram0]
+zram-size = 2G
+compression-algorithm = lz4  # ou lzo, se preferir
+swap-priority = 100
+```
+
+Ou, manualmente:
+
+```bash
+echo lz4 | sudo tee /sys/block/zram0/comp_algorithm
+```
+
+---
+
+### Conclusão
+Tanto o LZO quanto o LZ4 são excelentes escolhas para cenários onde a velocidade é crítica. No entanto, o LZ4 é geralmente preferido em sistemas modernos devido à sua superioridade em velocidade e eficiência. Se você não tem restrições específicas, o LZ4 é a recomendação padrão para ZRAM e outras aplicações de alto desempenho. 
