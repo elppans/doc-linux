@@ -1,4 +1,4 @@
-# Erro no ZRAM: solução de problemas
+# Erro no [ZRAM](linux_instalando_zram.md): solução de problemas
 
 - O seguinte erro ocorre:
 ```bash
