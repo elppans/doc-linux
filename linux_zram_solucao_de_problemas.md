@@ -352,7 +352,7 @@ Se o `zram-generator` continuar apresentando problemas, você pode usar a ferram
 Se seguir esses passos, você deve conseguir resolver o problema com o ZRAM. 
 ___
 
-## Sobre os módulos listados anteriormente
+## Sobre os [módulos listados anteriormente](linux_zram_solucao_de_problemas.md#m%C3%B3dulo-zram)
 
 Os módulos listados (`842_decompress`, `842_compress`, `lz4hc_compress`, `lz4_compress`) são os algoritmos de compressão que estão atualmente carregados e disponíveis para uso com o ZRAM no seu sistema. Esses módulos correspondem aos algoritmos de compressão que você pode usar no ZRAM.
 
