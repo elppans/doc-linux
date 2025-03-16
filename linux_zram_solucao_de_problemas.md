@@ -369,7 +369,7 @@ Além desses, o ZRAM também suporta outros algoritmos, como `lzo`, `lzo-rle`, `
 ### Como escolher o algoritmo de compressão?
 A escolha do algoritmo de compressão depende do seu uso:
 
-- **Velocidade**: Se você prioriza velocidade de compressão/descompressão, use `lz4` ou `lzo`.
+- **Velocidade**: Se você prioriza velocidade de compressão/descompressão, use [`lz4`](linux_zram_solucao_de_problemas.md#diferen%C3%A7as-entre-lzo-e-lz4) ou [`lzo`](linux_zram_solucao_de_problemas.md#diferen%C3%A7as-entre-lzo-e-lz4).
 - **Taxa de compressão**: Se você deseja uma melhor taxa de compressão (ou seja, usar menos memória para armazenar os dados comprimidos), use `zstd` ou `lz4hc`.
 - **Equilíbrio**: O `zstd` é uma boa escolha para um equilíbrio entre velocidade e taxa de compressão.
 
