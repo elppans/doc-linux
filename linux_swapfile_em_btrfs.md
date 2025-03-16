@@ -310,7 +310,7 @@ A escolha entre usar uma **partição swap** ou um **arquivo de swap (swapfile)*
 | **Desempenho**          | Geralmente mais rápido, pois é dedicado e não depende do sistema de arquivos. | Pode ser ligeiramente mais lento, pois depende do sistema de arquivos. |
 | **Flexibilidade**       | Tamanho fixo. Para alterar, é necessário redimensionar a partição. | Tamanho ajustável. Pode ser criado, redimensionado ou removido facilmente. |
 | **Gerenciamento**       | Requer planejamento antecipado durante a instalação ou particionamento do disco. | Mais fácil de gerenciar. Pode ser criado ou removido sem reparticionar o disco. |
-| **Uso em SSDs**         | Pode causar mais desgaste no SSD devido a gravações contínuas em uma área específica. | Pode ser otimizado para reduzir o desgaste (por exemplo, usando TRIM). |
+| **Uso em SSDs**         | Pode causar mais desgaste no SSD devido a gravações contínuas em uma área específica. | Pode ser otimizado para reduzir o desgaste (por exemplo, usando [TRIM](linux_fstrim)). |
 | **Compatibilidade**     | Compatível com todos os sistemas e cenários. | Nem todos os sistemas suportam swapfile (por exemplo, hibernação pode não funcionar). |
 | **Fragmentação**        | Não há fragmentação, pois é uma partição dedicada. | Pode sofrer fragmentação, mas isso é minimizado em sistemas de arquivos modernos. |
 
