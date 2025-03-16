@@ -486,3 +486,152 @@ echo lz4 | sudo tee /sys/block/zram0/comp_algorithm
 
 ### Conclusão
 Tanto o LZO quanto o LZ4 são excelentes escolhas para cenários onde a velocidade é crítica. No entanto, o LZ4 é geralmente preferido em sistemas modernos devido à sua superioridade em velocidade e eficiência. Se você não tem restrições específicas, o LZ4 é a recomendação padrão para ZRAM e outras aplicações de alto desempenho. 
+___
+
+## zram-size, Cannot allocate memory
+
+```bash
+[arch@archlinux ~]$ journalctl -xeu systemd-zram-setup@zram0.service
+15 22:52:10 archlinux systemd[1]: Starting Create swap on /dev/zram0...
+Subject: Unidade systemd-zram-setup@zram0.service sendo iniciado
+Defined-By: systemd
+Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+
+A unidade systemd-zram-setup@zram0.service está sendo iniciada.
+mar 15 22:52:10 archlinux zram-generator[1962]: Error: Failed to configure disk size into /sys/block/zram0/disksize
+mar 15 22:52:10 archlinux zram-generator[1962]: Caused by:
+mar 15 22:52:10 archlinux zram-generator[1962]:     Cannot allocate memory (os error 12)
+mar 15 22:52:10 archlinux systemd[1]: systemd-zram-setup@zram0.service: Main process exited, code=exited, status=1/FAILURE
+Subject: Unit process exited
+Defined-By: systemd
+Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+
+An ExecStart= process belonging to unit systemd-zram-setup@zram0.service has exited.
+
+The process' exit code is 'exited' and its exit status is 1.
+mar 15 22:52:10 archlinux systemd[1]: systemd-zram-setup@zram0.service: Failed with result 'exit-code'.
+Subject: Unit failed
+Defined-By: systemd
+Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+
+The unit systemd-zram-setup@zram0.service has entered the 'failed' state with result 'exit-code'.
+mar 15 22:52:10 archlinux systemd[1]: Failed to start Create swap on /dev/zram0.
+Subject: A unidade systemd-zram-setup@zram0.service falhou
+Defined-By: systemd
+Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
+
+A unidade systemd-zram-setup@zram0.service falhou.
+
+O resultado é failed.
+```
+
+O erro que você está enfrentando ao configurar `zram-size = 2G` está relacionado à mensagem **"Cannot allocate memory (os error 12)"**. Isso indica que o sistema não consegue alocar memória suficiente para criar o dispositivo ZRAM com o tamanho especificado. Vamos analisar as possíveis causas e soluções:
+
+---
+
+### Possíveis causas:
+1. **Memória insuficiente no sistema**:
+   - O ZRAM usa memória RAM para criar um dispositivo de swap comprimido. Se o sistema não tiver memória RAM suficiente disponível para alocar 2 GB (ou parte dele), o erro ocorrerá.
+   - Verifique a memória livre no sistema com:
+     ```bash
+     free -h
+     ```
+   - Se a memória disponível for menor que 2 GB, o sistema não conseguirá alocar o espaço necessário.
+
+2. **Limites do kernel**:
+   - O kernel pode ter limites configurados para o tamanho máximo de dispositivos ZRAM. Isso pode ser verificado em:
+     ```bash
+     cat /sys/class/zram-control/hot_add
+     ```
+   - Se o valor for menor que 2 GB, você pode tentar ajustá-lo (dependendo da versão do kernel e das configurações do sistema).
+
+3. **Problema no `zram-generator`**:
+   - O `zram-generator` pode estar tentando alocar memória de forma incorreta ou enfrentando um bug ao configurar o tamanho do ZRAM.
+
+---
+
+### Soluções:
+
+#### 1. Reduza o tamanho do ZRAM
+Tente reduzir o tamanho do ZRAM para um valor menor, como 1 GB ou 512 MB, para verificar se o problema persiste. Edite o arquivo de configuração:
+
+```ini
+[zram0]
+zram-size = 1G  # ou 512M
+swap-priority = 100
+```
+
+Reinicie o serviço:
+
+```bash
+sudo systemctl restart systemd-zram-setup@zram0.service
+```
+
+#### 2. Verifique a memória disponível
+Execute o comando `free -h` para verificar a memória livre no sistema. Se a memória disponível for muito baixa, considere fechar aplicativos ou processos que estejam consumindo muita memória.
+
+#### 3. Configure o ZRAM manualmente
+Se o `zram-generator` continuar falhando, configure o ZRAM manualmente para verificar se o problema persiste:
+
+1. Defina o tamanho do ZRAM manualmente:
+   ```bash
+   echo 1G | sudo tee /sys/block/zram0/disksize
+   ```
+
+2. Configure o algoritmo de compressão (opcional):
+   ```bash
+   echo lz4 | sudo tee /sys/block/zram0/comp_algorithm
+   ```
+
+3. Crie e ative o swap:
+   ```bash
+   sudo mkswap /dev/zram0
+   sudo swapon /dev/zram0
+   ```
+
+4. Verifique se o swap está ativo:
+   ```bash
+   swapon --show
+   ```
+
+Se isso funcionar, o problema está relacionado ao `zram-generator`.
+
+#### 4. Verifique os limites do kernel
+Verifique se há limites no tamanho do ZRAM imposto pelo kernel:
+
+```bash
+cat /sys/class/zram-control/hot_add
+```
+
+Se o valor for menor que 2 GB, você pode tentar ajustá-lo (se possível) ou reduzir o tamanho do ZRAM.
+
+#### 5. Atualize o kernel e o `zram-generator`
+Se você estiver usando uma versão antiga do kernel ou do `zram-generator`, considere atualizá-los. Problemas conhecidos podem ter sido corrigidos em versões mais recentes.
+
+---
+
+### Exemplo de configuração funcional:
+Se o sistema tiver pouca memória, use um tamanho menor para o ZRAM:
+
+```ini
+[zram0]
+zram-size = 512M
+swap-priority = 100
+```
+
+Ou, se o problema persistir, deixe apenas a prioridade (o `zram-generator` usará valores padrão):
+
+```ini
+[zram0]
+swap-priority = 100
+```
+
+---
+
+### Resumo:
+- O erro **"Cannot allocate memory"** ocorre porque o sistema não consegue alocar memória suficiente para o ZRAM.
+- Reduza o tamanho do ZRAM para um valor menor (por exemplo, 1 GB ou 512 MB).
+- Verifique a memória disponível no sistema com `free -h`.
+- Configure o ZRAM manualmente para testar se o problema está no `zram-generator`.
+- Atualize o kernel e o `zram-generator` se necessário.
+___
