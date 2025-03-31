@@ -1,6 +1,7 @@
 # Ubuntu 16.04, bloquear a tecla Caps Lock
 
 Para desativar a tecla Caps Lock no Ubuntu 16.04, você pode usar o comando `xmodmap` ou o `setxkbmap`. Aqui estão os passos para ambos os métodos:
+>Siga também: [Linux, teclas especiais via comando](linux_teclas_especiais_via_comando.md).
 
 ### Usando `xmodmap`:
 1. Abra um terminal.
