@@ -1,0 +1,87 @@
+# Funcionamento do LED ARGB no Linux
+
+Este tutorial apresenta métodos para ativar e configurar o LED do teclado no Linux. Exploramos tanto soluções via terminal quanto opções nativas de interface gráfica.
+
+---
+
+## 1. Modificar valores das teclas no arquivo de configuração do teclado
+
+### Passo a passo:
+1. Edite o arquivo `/usr/share/X11/xkb/symbols/pc`.
+2. Encontre (ou adicione) a linha `modifier_map Mod3`. A linha deve ficar assim:
+   ```
+   modifier_map Mod3   { Scroll_Lock };
+   ```
+3. Adicione esta linha dentro da seção `xkb_symbols "pc105" { ... }`.
+
+---
+
+## 2. Ligando o LED do teclado com o Brightnessctl
+
+O **Brightnessctl** é uma ferramenta de linha de comando que permite ajustar o brilho no Linux.
+
+### Instalação:
+- **Ubuntu/Debian**:  
+  ```bash
+  sudo apt update && sudo apt install brightnessctl
+  ```
+- **Fedora**:  
+  ```bash
+  sudo dnf install brightnessctl
+  ```
+- **Arch Linux**:  
+  ```bash
+  sudo pacman -S brightnessctl
+  ```
+
+### Métodos de uso:
+
+**Método 1:**
+1. Liste os dispositivos de brilho disponíveis:  
+   ```bash
+   brightnessctl -l
+   ```
+2. Identifique o número do input do `Scroll Lock`.
+3. Ajuste o brilho com o comando:  
+   ```bash
+   brightnessctl --device='inputX::scrolllock' set 1
+   ```
+   Substitua `X` pelo número do input identificado.
+
+**Método 2:**  
+Ative o LED diretamente:  
+```bash
+xset led named "Scroll Lock"
+```
+
+**Método 3:**  
+1. Liste os dispositivos de brilho:  
+   ```bash
+   brightnessctl -l
+   ```
+2. Ajuste o LED com o comando (substitua `X` pelo número do input):  
+   ```bash
+   echo 1 | sudo tee /sys/class/leds/inputX::scrolllock/brightness
+   ```
+
+---
+
+## 3. Configuração via GUI no Plasma (KDE)
+
+1. Acesse as **Configurações do Plasma**.
+2. Vá até **Teclado**.
+3. Clique em **Combinação de teclas**.
+4. Ative a opção **Configurar as opções de teclado**.
+5. Acesse **Opções de compatibilidade** e habilite:  
+   **Mapear Scroll Lock para Mod3**.
+
+---
+
+## Fontes
+
+- [Discussão no fórum Diolinux](https://plus.diolinux.com.br/t/problema-com-iluminacao-do-teclado-tgt-m16l-rainbow-no-fedora-scroll-lock-controla-led/71719/5)  
+- [Pergunta no Ask Ubuntu](https://askubuntu.com/questions/127167/how-do-i-enable-scroll-lock/1413248#1413248)  
+- [Artigo no Medium](https://wendellast2a.medium.com/como-ligar-o-led-do-teclado-no-linux-0d3acd66d053)  
+
+---
+
