@@ -1,6 +1,6 @@
 # Funcionamento do LED ARGB no Linux
 
-Este tutorial apresenta métodos para ativar e configurar o LED do teclado no Linux. Exploramos tanto soluções via terminal quanto opções nativas de interface gráfica, além de como automatizar a ativação do LED ao iniciar o sistema.
+Este tutorial apresenta métodos para ativar e configurar o LED do teclado no Linux. Exploramos soluções via terminal, opções nativas de interface gráfica e como automatizar a ativação do LED ao iniciar o sistema.
 
 ---
 
@@ -59,7 +59,7 @@ xset led named "Scroll Lock"
    ```bash
    brightnessctl -l
    ```
-2. Ajuste o LED com o comando (substitua `X` pelo número do input):  
+2. Ajuste o LED com o comando:  
    ```bash
    echo 1 | sudo tee /sys/class/leds/inputX::scrolllock/brightness
    ```
@@ -82,13 +82,12 @@ xset led named "Scroll Lock"
 
    [Service]
    Type=oneshot
-   ExecStart=/bin/bash -c "echo 1 | sudo tee /sys/class/leds/inputX::scrolllock/brightness"
+   ExecStart=/bin/bash -c "echo 1 | sudo tee /sys/class/leds/$(ls /sys/class/leds | grep scrolllock)/brightness"
    RemainAfterExit=true
 
    [Install]
    WantedBy=multi-user.target
    ```
-   Substitua `X` pelo número correspondente ao *Scroll Lock*.
 
 3. **Salve o arquivo e ative o serviço**:
    ```bash
@@ -97,7 +96,7 @@ xset led named "Scroll Lock"
    sudo systemctl start scrolllock-led.service
    ```
 
-Agora, o LED será ativado automaticamente toda vez que o sistema for inicializado.
+Com isso, o LED será ativado automaticamente toda vez que o sistema for inicializado, sem depender de apertar a tecla *Scroll Lock*.
 
 ---
 
@@ -119,4 +118,5 @@ Agora, o LED será ativado automaticamente toda vez que o sistema for inicializa
 - [Artigo no Medium](https://wendellast2a.medium.com/como-ligar-o-led-do-teclado-no-linux-0d3acd66d053)  
 
 ---
+
 
