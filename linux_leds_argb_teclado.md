@@ -92,7 +92,11 @@ xset led named "Scroll Lock"
 3. **Salve o arquivo e ative o serviço**:
    ```bash
    sudo systemctl daemon-reload
+   ```
+   ```bash
    sudo systemctl enable scrolllock-led.service
+   ```
+   ```bash
    sudo systemctl start scrolllock-led.service
    ```
 
