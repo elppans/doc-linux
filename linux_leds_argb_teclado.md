@@ -103,8 +103,25 @@ xset led named "Scroll Lock"
 Com isso, o LED será ativado automaticamente toda vez que o sistema for inicializado, sem depender de apertar a tecla *Scroll Lock*.
 
 ---
+## 3. Automatizando a ativação do LED após o login
 
-## 4. Configuração via GUI no Plasma (KDE)
+1. **Crie um Script com o nome `scrolllock-led.sh`**:
+```bash
+#!/bin/bash
+
+for i in $(ls /sys/class/leds | grep scrolllock); do
+   brightnessctl --device=$i set 1
+done
+```
+2. **Dê permissão de execução e copie para `/etc/profile.d`**:
+```bash
+chmod +x scrolllock-led.sh
+```
+```bash
+sudo cp -av scrolllock-led.sh /etc/profile.d/
+```
+---
+## 5. Configuração via GUI no Plasma (KDE)
 
 1. Acesse as **Configurações do Plasma**.
 2. Vá até **Teclado**.
