@@ -6,6 +6,11 @@ Para instalar o pacote do AUR, utilize:
 ```bash
 paru -S input-remapper-git
 ```
+## Ative o serviço
+
+```bash
+sudo systemctl enable --now input-remapper.service
+```
 
 ## Abrindo o aplicativo
 Execute o seguinte comando para abrir o Input Remapper:
