@@ -30,7 +30,7 @@ input-remapper-gtk
 ### Criando um atalho
 
 - Em **"Entrada"**, configure o atalho desejado.  
-  Exemplo: `Alt_L + Z`
+  Exemplo: `Alt_L + w`
 - Em **"Saída"**, selecione **"Chave ou Macro"** e defina **"Keyboard"** como o alvo.
 - Na área de edição, digite a tecla ou configuração desejada como resposta.
 
@@ -39,8 +39,9 @@ input-remapper-gtk
 [ \ ] = backslash
 [ | ] = modify(Shift_L, key(backslash))
 ```
-![image](https://github.com/user-attachments/assets/c35c55d9-e73f-47e9-953c-a5dbcd1a298a)
-![image](https://github.com/user-attachments/assets/0e64c3ab-4c6e-4b91-b198-3f67533b977f)
+![image](https://github.com/user-attachments/assets/e7d516d7-fa73-4836-ad34-755ec1940159)
+![image](https://github.com/user-attachments/assets/5a154ebd-dfc2-4364-960e-4cfca180fc3b)
+
 
 Para mais informações, acesse o link:  
 🔗 [Documentação oficial](https://github.com/sezanzeb/input-remapper/blob/main/readme/examples.md)
