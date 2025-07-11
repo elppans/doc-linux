@@ -1,4 +1,5 @@
 # Configurar horário MANUAL no Ubuntu.  
+- PDV: 2.U1604.415.1.4-64+
 
 > ### **Todos os comandos devem ser feito como Admin/root**
 1) Desativar UTC e NTP conf  
