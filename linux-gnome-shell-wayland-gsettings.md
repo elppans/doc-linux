@@ -117,6 +117,11 @@ gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"
 - A opção aparece em **Configurações → Tela → Taxa de atualização**, como “Variável (até xxx Hz)”.
 - Alguns monitores só ativam VRR em resoluções ou taxas específicas (ex: até 144Hz).
 
+### Leia também
+
+[Como identificar se seu monitor suporta VRR (Variable Refresh Rate)](archlinux_compatibilidade-com-variable-refresh-raterr.md)
+
+
 ---
 
 ## 🎨 Personalização visual
