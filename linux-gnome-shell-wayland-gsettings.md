@@ -61,6 +61,62 @@ gsettings set org.gnome.mutter experimental-features "['feature1', 'feature2']"
 | `attach-modal-dialogs` | Modais “presas” à janela principal |
 | `use-dynamic-workspaces` | Áreas de trabalho dinâmicas |
 
+### Recursos que me chamaram a atenção
+
+####  **Escala fracionada no Wayland**
+
+🖥️ A escala fracionada no Wayland serve para **ajustar o tamanho da interface gráfica** de forma mais precisa — especialmente útil em monitores **HiDPI** (alta densidade de pixels), como telas 4K ou laptops com telas pequenas e resolução alta.
+
+### 📐 O que é escala fracionada?
+Tradicionalmente, o GNOME só permitia escalas inteiras: 100%, 200%, etc. Mas isso nem sempre é ideal — às vezes 100% é pequeno demais e 200% é grande demais. A escala fracionada permite valores como **125% ou 150%**, oferecendo um meio-termo mais confortável para leitura e uso.
+
+---
+
+### ⚙️ Como funciona no Wayland
+- O compositor (como o **Mutter**, usado pelo GNOME) sugere uma escala fracionada para cada superfície.
+- Os aplicativos que suportam o protocolo (como **GTK** e **Blender**) podem renderizar suas interfaces com mais nitidez, evitando borrões causados por redimensionamento forçado.
+- A escala é aplicada diretamente nos buffers gráficos, garantindo que os elementos da interface fiquem proporcionais e legíveis.
+
+---
+
+### ⚠️ Limitações e bugs
+- Alguns apps (especialmente Flatpaks ou baseados em Electron) ainda não suportam bem essa escala, podendo ficar **embaçados ou distorcidos**.
+- A compatibilidade depende do compositor e da versão do GNOME. O suporte está melhorando, mas ainda é considerado **experimental** em alguns casos.
+
+#### **Taxa de atualização variável (VRR)**
+
+🌀 A configuração `variable-refresh-rate` ativa o suporte ao **VRR (Variable Refresh Rate)** no GNOME Shell — um recurso que permite que o monitor **adapte dinamicamente sua taxa de atualização** à taxa de quadros da placa de vídeo.
+
+### 🎮 Benefícios práticos
+- **Elimina o screen tearing** (corte na imagem durante jogos ou vídeos)
+- **Reduz stuttering** (travamentos causados por sincronização forçada)
+- **Melhora a fluidez em jogos e animações**
+- **Economiza energia**, já que o monitor não precisa atualizar em taxa máxima o tempo todo
+
+---
+
+### ⚙️ Como funciona
+Quando ativado com:
+```bash
+gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"
+```
+...o GNOME Shell (a partir da versão 46) passa a permitir que monitores compatíveis com VRR (como FreeSync ou G-SYNC) **sincronizem sua taxa de atualização com o conteúdo exibido**, especialmente em **aplicativos em tela cheia**.
+
+---
+
+### 🧪 Requisitos
+- **Monitor compatível com VRR** (FreeSync, G-SYNC ou Adaptive Sync)
+- **Placa de vídeo compatível** (AMD, Intel Gen 11+, NVIDIA Pascal+)
+- **Conexão via DisplayPort ou HDMI 2.1**
+- **Sessão Wayland** (o suporte é nativo no GNOME 46+)
+
+---
+
+### 📋 Observações
+- Após ativar, é necessário **reiniciar a sessão** para aplicar.
+- A opção aparece em **Configurações → Tela → Taxa de atualização**, como “Variável (até xxx Hz)”.
+- Alguns monitores só ativam VRR em resoluções ou taxas específicas (ex: até 144Hz).
+
 ---
 
 ## 🎨 Personalização visual
