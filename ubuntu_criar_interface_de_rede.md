@@ -471,4 +471,172 @@ O Linux vai saber claramente que:
 - O NAT vai funcionar sem ambiguidade
 
 ---
+## Ativando DHCP do AP0 para o celular
+
+Você mandou bem na configuração, Marcelo — tá tudo no caminho certo. Se o celular está vendo a rede mas **não consegue obter IP**, o problema provavelmente está no **DHCP**, ou seja, o celular não está recebendo um endereço da rede `192.168.150.0/24`.
+
+Vamos revisar os pontos críticos pra garantir que tudo esteja funcionando:
+
+---
+
+### ✅ 1. Verifique se o `dnsmasq` está instalado e ativo
+
+Esse serviço é quem fornece IPs via DHCP:
+
+```bash
+sudo systemctl status dnsmasq
+```
+
+Se não estiver instalado:
+
+```bash
+sudo apt install dnsmasq
+```
+
+---
+
+### ✅ 2. Configure o `dnsmasq` corretamente
+
+Edite o arquivo `/etc/dnsmasq.conf` e adicione (ou confirme) estas linhas:
+
+```ini
+interface=ap0
+dhcp-range=192.168.150.10,192.168.150.50,12h
+```
+
+Depois reinicie o serviço:
+
+```bash
+sudo systemctl restart dnsmasq
+```
+
+---
+
+### ✅ 3. Verifique se o IP da `ap0` está ativo
+
+Confirme com:
+
+```bash
+ip addr show ap0
+```
+
+Você deve ver:
+
+```
+inet 192.168.150.1/24 ...
+```
+
+Se não estiver, reatribua:
+
+```bash
+sudo ip addr add 192.168.150.1/24 dev ap0
+sudo ip link set ap0 up
+```
+
+---
+
+### ✅ 4. Verifique se o firewall está bloqueando DHCP
+
+O DHCP usa a porta UDP 67. Verifique se há regras bloqueando:
+
+```bash
+sudo iptables -L -n | grep 67
+```
+
+Se necessário, libere:
+
+```bash
+sudo iptables -A INPUT -p udp --dport 67 -j ACCEPT
+```
+
+---
+
+### ✅ 5. Teste com IP manual no celular
+
+Só pra confirmar que o roteamento está funcionando:
+
+- IP: `192.168.150.20`
+- Gateway: `192.168.150.1`
+- DNS: `8.8.8.8`
+
+Se funcionar com IP manual, o problema é 100% no DHCP.
+
+---
+
+<img width="1068" height="321" alt="Captura de tela de 2025-09-02 12-45-27" src="https://github.com/user-attachments/assets/53102d98-563b-4d54-827f-87eaa11cf928" />
+
+Isso esclarece bastante. O problema está bem claro: o `dnsmasq` não conseguiu iniciar porque a **porta 53 já está em uso**, que é justamente a porta padrão para DNS.
+
+Isso geralmente acontece quando **outro serviço já está escutando nessa porta**, como:
+
+- `systemd-resolved`
+- `bind9`
+- outro processo de `dnsmasq` rodando em paralelo
+
+Vamos resolver isso passo a passo:
+
+---
+
+### 🔍 1. Verifique quem está usando a porta 53
+
+```bash
+sudo lsof -i :53
+```
+
+Você deve ver algo como:
+
+```
+COMMAND     PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+systemd-r   123 root   12u  IPv4  12345      0t0  UDP *:domain
+```
+
+Se aparecer `systemd-resolved`, é ele que está ocupando a porta.
+
+---
+
+### 🛠️ 2. Desative o `systemd-resolved` (se for ele)
+
+```bash
+sudo systemctl stop systemd-resolved
+sudo systemctl disable systemd-resolved
+```
+
+E depois remova o link simbólico do resolv.conf:
+
+```bash
+sudo rm /etc/resolv.conf
+echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
+```
+
+Isso garante que o sistema use o DNS do Google diretamente.
+
+---
+
+### 🔁 3. Reinicie o `dnsmasq`
+
+```bash
+sudo systemctl restart dnsmasq
+```
+
+Verifique se ele iniciou corretamente:
+
+```bash
+sudo systemctl status dnsmasq
+```
+
+---
+
+### 🧠 Dica extra: se quiser manter o `systemd-resolved` ativo
+
+Você pode configurar o `dnsmasq` para **não escutar na porta 53**, se quiser usar só o DHCP:
+
+No `/etc/dnsmasq.conf`, adicione:
+
+```ini
+port=0
+```
+
+Isso desativa a parte de DNS do `dnsmasq`, evitando conflito.
+
+---
 
