@@ -428,3 +428,47 @@ sudo systemctl start hostapd
 Procure pela rede **WiFi-do-Marcelo**, conecte com a senha `senha123` e pronto — internet compartilhada via Wi-Fi sem perder a conexão no seu PC.
 
 ---
+
+# Problema ao Atribuir IP ao `ap0`
+>Meu IP é 192.168.15.234 com GW 192.168.15.1
+
+Tem um detalhe importante que pode te salvar de dor de cabeça com roteamento e conflitos de IP.
+
+---
+
+### ⚠️ O problema de usar `192.168.15.236/24` na `ap0`
+
+Você está atribuindo à interface `ap0` um IP **dentro da mesma sub-rede** da sua conexão Wi-Fi (`wlo1`), que já está em `192.168.15.234/24`. Isso pode causar:
+
+- Conflitos de roteamento
+- Problemas de NAT
+- Dificuldade para o celular entender quem é o gateway
+
+---
+
+### ✅ O ideal: usar uma **sub-rede diferente** para `ap0`
+
+Por exemplo:
+
+```bash
+sudo ip addr add 192.168.88.1/24 dev ap0
+```
+
+Assim, o Wi-Fi (`wlo1`) continua na rede `192.168.15.0/24`, e o hotspot (`ap0`) opera em `192.168.88.0/24`. Isso separa bem as funções:
+
+| Interface | IP             | Função               |
+|-----------|----------------|----------------------|
+| wlo1      | 192.168.15.234 | Cliente da internet  |
+| ap0       | 192.168.88.1   | Gateway pro celular  |
+
+---
+
+### 🧠 Por que isso importa?
+
+O Linux vai saber claramente que:
+- Tudo que vem da rede `192.168.88.0/24` é do hotspot
+- Tudo que vai pra `192.168.15.0/24` é pra internet
+- O NAT vai funcionar sem ambiguidade
+
+---
+
