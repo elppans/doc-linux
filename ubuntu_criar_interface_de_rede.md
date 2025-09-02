@@ -167,6 +167,264 @@ sudo systemctl restart networking
 ---
 
 Se você estiver usando CentOS, Fedora ou RHEL, o caminho é diferente (via `nmcli` ou arquivos `ifcfg-eth1`).
+___
 
+## Criei um eth1, como compartilho a internet dele pro celular?
 
+Se você criou a interface `eth1` e quer compartilhar a internet dela com o celular (via cabo ou adaptador USB Ethernet, por exemplo), você pode transformar o Linux em um roteador simples. Aqui vai o passo a passo:
 
+---
+
+### 🔧 Pré-requisitos
+
+- A interface que **tem acesso à internet** (ex: `enp1s0`)
+- A interface que será usada para **compartilhar a internet** (ex: `eth1`)
+- O celular conectado via cabo à `eth1` (com DHCP ou IP fixo)
+
+---
+
+### 🛠️ Etapas para compartilhar a internet
+
+#### 1. **Ativar o encaminhamento de pacotes**
+```bash
+sudo sysctl -w net.ipv4.ip_forward=1
+```
+
+Para tornar permanente:
+```bash
+echo "net.ipv4.ip_forward = 1" | sudo tee -a /etc/sysctl.conf
+```
+
+---
+
+#### 2. **Configurar NAT com iptables**
+Supondo que `enp1s0` é sua interface com internet:
+
+```bash
+sudo iptables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE
+sudo iptables -A FORWARD -i eth1 -o enp1s0 -j ACCEPT
+sudo iptables -A FORWARD -i enp1s0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+```
+
+---
+
+#### 3. **Configurar IP na interface `eth1`**
+Você pode atribuir um IP fixo:
+
+```bash
+sudo ip addr add 192.168.100.1/24 dev eth1
+sudo ip link set eth1 up
+```
+
+---
+
+#### 4. **Configurar DHCP (opcional)**
+Se quiser que o celular receba IP automaticamente, instale e configure um servidor DHCP como `dnsmasq`.
+
+Exemplo básico de configuração:
+
+```bash
+sudo apt install dnsmasq
+```
+
+Adicione ao `/etc/dnsmasq.conf`:
+
+```ini
+interface=eth1
+dhcp-range=192.168.100.10,192.168.100.50,12h
+```
+
+Reinicie o serviço:
+
+```bash
+sudo systemctl restart dnsmasq
+```
+
+---
+
+### 📱 No celular
+- Conecte via cabo à interface `eth1`
+- Configure IP manual (se não usar DHCP):  
+  IP: `192.168.100.10`  
+  Gateway: `192.168.100.1`  
+  DNS: `8.8.8.8`
+
+---
+
+___
+
+## Transformar seu Linux com Wi-Fi (wlo1) em um roteador via cabo Ethernet (eth1) para o celular.
+
+---
+
+### ✅ Passo a passo otimizado
+
+#### 1. **Ative o encaminhamento de pacotes**
+```bash
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+```
+
+---
+
+#### 2. **Configure IP fixo na `eth1`**
+```bash
+sudo ip addr flush dev eth1
+sudo ip addr add 192.168.88.1/24 dev eth1
+sudo ip link set eth1 up
+```
+
+---
+
+#### 3. **Configure NAT para compartilhar a internet do Wi-Fi**
+```bash
+sudo iptables -t nat -A POSTROUTING -o wlo1 -j MASQUERADE
+sudo iptables -A FORWARD -i eth1 -o wlo1 -j ACCEPT
+sudo iptables -A FORWARD -i wlo1 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+```
+
+---
+
+#### 4. **Servidor DHCP (opcional, mas recomendado)**
+Instale e configure `dnsmasq` para o celular receber IP automaticamente:
+
+```bash
+sudo apt install dnsmasq
+```
+
+Adicione ao final do `/etc/dnsmasq.conf`:
+
+```ini
+interface=eth1
+dhcp-range=192.168.88.10,192.168.88.50,12h
+```
+
+Reinicie:
+```bash
+sudo systemctl restart dnsmasq
+```
+
+---
+
+### 📱 No celular
+- Conecte via cabo à `eth1`
+- Se não usar DHCP, configure manualmente:
+  - IP: `192.168.88.10`
+  - Gateway: `192.168.88.1`
+  - DNS: `8.8.8.8`
+
+---
+
+### 🧠 Extras que podem te interessar
+- Quer que isso funcione automaticamente no boot? Posso te ajudar a criar um serviço `systemd`.
+- Quer monitorar o tráfego entre interfaces? Dá pra usar `iftop`, `nload` ou até `tcpdump`.
+
+___
+
+## Transformar seu Linux com Wi-Fi (wlo1) em um roteador via Wi-Fi (ap0) para o celular.
+
+Essa é uma solução bem interessante: transformar seu Linux em um **hotspot Wi-Fi** usando a conexão já ativa no `wlo1`, sem perder o acesso à internet no próprio computador. O truque é criar uma **rede Wi-Fi separada** (virtual) que compartilha a internet do `wlo1` com o celular. Aqui vai o caminho das pedras:
+
+---
+
+### 🧭 Objetivo
+- Usar **`wlo1` como cliente Wi-Fi** (conectado à internet)
+- Criar um **hotspot Wi-Fi virtual** para o celular, sem desconectar o `wlo1`
+
+---
+
+### 🛠️ Solução: Usar `hostapd` + `dnsmasq` + `iptables`
+
+#### 1. **Verifique se sua placa Wi-Fi suporta modo AP + cliente**
+Nem todas suportam isso simultaneamente. Teste com:
+
+```bash
+iw list | grep -A 10 "Supported interface modes"
+```
+
+Procure por:
+```
+* AP
+* station
+```
+
+Se ambos aparecerem, ótimo!
+
+---
+
+#### 2. **Crie uma interface virtual**
+```bash
+sudo iw dev wlo1 interface add ap0 type __ap
+```
+
+Isso cria `ap0`, que será usada para o hotspot.
+
+---
+
+#### 3. **Configure IP para `ap0`**
+```bash
+sudo ip addr add 192.168.150.1/24 dev ap0
+sudo ip link set ap0 up
+```
+
+---
+
+#### 4. **Configure o `hostapd`**
+Crie o arquivo `/etc/hostapd/hostapd.conf`:
+
+```ini
+interface=ap0
+driver=nl80211
+ssid=WiFi-do-Marcelo
+hw_mode=g
+channel=6
+auth_algs=1
+wmm_enabled=0
+wpa=2
+wpa_passphrase=senha123
+wpa_key_mgmt=WPA-PSK
+rsn_pairwise=CCMP
+```
+
+E edite `/etc/default/hostapd` para apontar para esse arquivo:
+
+```ini
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+```
+
+---
+
+#### 5. **Configure DHCP com `dnsmasq`**
+Adicione ao `/etc/dnsmasq.conf`:
+
+```ini
+interface=ap0
+dhcp-range=192.168.150.10,192.168.150.50,12h
+```
+
+Reinicie:
+```bash
+sudo systemctl restart dnsmasq
+```
+
+---
+
+#### 6. **Configure NAT para compartilhar a internet**
+```bash
+sudo iptables -t nat -A POSTROUTING -o wlo1 -j MASQUERADE
+sudo iptables -A FORWARD -i ap0 -o wlo1 -j ACCEPT
+sudo iptables -A FORWARD -i wlo1 -o ap0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+```
+
+---
+
+#### 7. **Inicie o hotspot**
+```bash
+sudo systemctl start hostapd
+```
+
+---
+
+### 📱 No celular
+Procure pela rede **WiFi-do-Marcelo**, conecte com a senha `senha123` e pronto — internet compartilhada via Wi-Fi sem perder a conexão no seu PC.
+
+---
