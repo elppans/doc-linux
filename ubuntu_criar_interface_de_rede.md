@@ -640,3 +640,67 @@ Isso desativa a parte de DNS do `dnsmasq`, evitando conflito.
 
 ---
 
+# No celular, resolver "Conectado ao dispositivo. Sem acesso à internet."
+
+Boa, Marcelo! Já é um baita avanço 🎉. Se o IP e o gateway vieram certinho, mas o DNS não, o celular não consegue resolver nomes como `google.com`, mesmo que o roteamento esteja funcionando. Vamos resolver isso rapidinho.
+
+---
+
+### 🔧 1. Adicione um DNS manual no `dnsmasq.conf`
+
+Abra o arquivo `/etc/dnsmasq.conf` e adicione (ou edite) esta linha:
+
+```ini
+dhcp-option=option:dns-server,8.8.8.8
+```
+
+Isso força o `dnsmasq` a informar o DNS do Google para os dispositivos conectados.
+
+Depois reinicie:
+
+```bash
+sudo systemctl restart dnsmasq
+```
+
+---
+
+### 🧪 2. Teste o roteamento da internet
+
+No seu computador (host), teste se o roteamento está funcionando:
+
+```bash
+ping -c 3 8.8.8.8
+```
+
+Se isso funcionar, significa que o host tem acesso à internet e pode repassar para os clientes.
+
+---
+
+### 🔁 3. Verifique o IP Forwarding
+
+Confirme se o sistema está permitindo repassar pacotes:
+
+```bash
+cat /proc/sys/net/ipv4/ip_forward
+```
+
+Se retornar `0`, ative com:
+
+```bash
+sudo sysctl -w net.ipv4.ip_forward=1
+```
+
+E pra tornar permanente:
+
+```bash
+echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+```
+
+---
+
+### 📱 4. Reconecte o celular
+
+Desconecte e reconecte o Wi-Fi no celular. Ele deve pegar o DNS novo e liberar o acesso à internet.
+
+---
+
