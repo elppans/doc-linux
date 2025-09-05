@@ -1,6 +1,7 @@
 # Find com exclusão de arquivos
 
-No Ubuntu, um find em "/media/suporte4/EXF/" para encontrar arquivos de 1 GB pra mais e excluir. Ignorando o diretório "/media/suporte4/EXF/iso/"
+- Cenário:
+No Ubuntu, usar um find em "`/media/suporte4/EXF/`" para encontrar arquivos de 1 GB pra mais e excluir, ignorando o diretório "`/media/suporte4/EXF/iso/`"
 
 ```bash
 find /media/suporte4/EXF/ -path /media/suporte4/EXF/iso -prune -o -type f -size +1G -exec rm -v {} \;
