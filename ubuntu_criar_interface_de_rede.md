@@ -323,7 +323,7 @@ ___
 ## Transformar seu Linux com Wi-Fi (wlo1) em um roteador via Wi-Fi (ap0) para o celular.
 
 Essa é uma solução bem interessante: transformar seu Linux em um **hotspot Wi-Fi** usando a conexão já ativa no `wlo1`, sem perder o acesso à internet no próprio computador. O truque é criar uma **rede Wi-Fi separada** (virtual) que compartilha a internet do `wlo1` com o celular. Aqui vai o caminho das pedras:
-
+>Toda a cofiguração completa e direta (Somente comandos) está descrito [neste arquivo](https://raw.githubusercontent.com/elppans/iw-hotspot/refs/heads/main/ubuntu_criar_interface_de_rede-ap0.txt).
 ---
 
 ### 🧭 Objetivo
