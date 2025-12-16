@@ -1,0 +1,106 @@
+Economia de energia no Ubuntu
+
+No Linux (Ubuntu 16 e 22), o controle de suspensão/hibernação das placas de rede (Wi-Fi e Ethernet) é feito de forma diferente do Windows. Não existe um “Gerenciador de Dispositivos” gráfico equivalente, mas você pode configurar via modprobe, systemd, NetworkManager e ajustes de energia do kernel.
+__
+
+Evitar que a placa de rede seja desligada para economizar energia
+Verifique se o driver está habilitando power management:
+
+iwconfig
+
+Se aparecer Power Management:on, significa que o Wi-Fi pode dormir. Para desativar:
+
+sudo iwconfig wlan0 power off
+
+>(substitua wlan0 pelo nome da sua interface, que pode ser wlp2s0, etc.)
+
+Para tornar permanente:
+
+Crie um arquivo em /etc/NetworkManager/conf.d/default-wifi-powersave-off.conf com:
+
+[connection]
+wifi.powersave = 2
+
+Reinicie o NetworkManager:
+
+sudo systemctl restart NetworkManager
+___
+
+Configurações globais de energia (equivalente ao plano de energia do Windows)
+O kernel usa o parâmetro pcie_aspm para controlar economia de energia em placas PCIe (Ethernet geralmente está aqui).
+
+Para desativar:
+
+Edite /etc/default/grub e adicione em GRUB_CMDLINE_LINUX_DEFAULT:
+
+pcie_aspm=off
+
+Atualize o GRUB:
+
+sudo update-grub
+
+Reinicie.
+___
+
+Controle via systemd (equivalente ao powercfg)
+
+Você pode impedir que dispositivos sejam suspensos criando regras do udev:
+
+Crie /etc/udev/rules.d/10-network-card.rules com:
+
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="eth*", RUN+="/usr/bin/ethtool -s %k wol d"
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="wlan*", RUN+="/sbin/iwconfig %k power off"
+
+Isso garante que toda vez que a interface subir, o gerenciamento de energia será desativado.
+___
+
+Ethernet especificamente
+
+Use ethtool para verificar e desativar economia:
+
+sudo ethtool eth0
+
+Para desligar Wake-on-LAN e modos de economia:
+
+
+sudo ethtool -s eth0 wol d
+
+Para tornar permanente, crie um arquivo em /etc/network/if-up.d/disable-eth-power:
+
+
+#!/bin/sh
+ethtool -s eth0 wol d
+
+E dê permissão:
+
+
+sudo chmod +x /etc/network/if-up.d/disable-eth-power
+___
+
+Resumindo
+
+Wi-Fi → iwconfig wlan0 power off + configuração no NetworkManager.
+
+Ethernet → ethtool -s eth0 wol d + regra em /etc/network/if-up.d/.
+
+Global (PCIe) → pcie_aspm=off no GRUB.
+
+Automatização → regras udev ou scripts em /etc/network/if-up.d/.
+
+___
+
+/etc/default/grub > GRUB_CMDLINE_LINUX_DEFAULT:
+pcie_aspm=off
+
+echo -e '#!/bin/sh\nethtool -s eth0 wol d\n' | sudo tee /etc/network/if-up.d/disable-eth-power
+sudo chmod +x /etc/network/if-up.d/disable-eth-power
+
+echo -e '[connection]\nwifi.powersave = 2' | sudo tee /etc/NetworkManager/conf.d/default-wifi-powersave-off.conf
+sudo systemctl restart NetworkManager
+
+echo -e 'ACTION=="add", SUBSYSTEM=="net", KERNEL=="eth*", RUN+="/usr/bin/ethtool -s %k wol d"
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="wlan*", RUN+="/sbin/iwconfig %k power off"
+' | sudo tee /etc/udev/rules.d/10-network-card.rules
+
+
+
