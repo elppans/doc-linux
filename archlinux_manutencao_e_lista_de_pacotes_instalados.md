@@ -39,3 +39,8 @@ sudo paccache -ruk0       # Remove todas as versões antigas e desinstaladas
 pacman -Qs termo           # Pesquisa pacotes instalados que correspondem ao termo
 pacman -Ql nome-do-pacote  # Lista todos os arquivos instalados por um pacote
 ```
+- Comandos para remover pacotes não mais necessários
+```ini
+pacman -Qdt               # Lista pacotes órfãos (dependências não mais necessárias)
+sudo pacman -Rns $(pacman -Qdtq)   # Remove todos os pacotes órfãos listados
+```
