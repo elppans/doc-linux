@@ -23,12 +23,29 @@ git branch -r = Listar configuração de Branch
 git status = Mostrar o status da árvore de trabalho
 git log = Mostrar logs de commit
 git show = Ver as mudanças desde o último commit
-
 ```
 
 ## Configurando conta AUR para receber pacotes  
 
 ##### 1. Configurar autenticação e acesso de escrita para o AUR  
+
+Verifique se sua chave já está configurada e acessível no AUR:
+```bash
+ssh -T aur@aur.archlinux.org
+```
+
+Se já estiver tudo certo, aparecerá algo como:
+```php-template
+Hi <seu-usuario>! You've successfully authenticated...
+```
+Então, estando configurado a autenticação e acesso, pule para "Criação e configuração do pacote AUR"  
+
+Se der erro tipo:
+```php-template
+Permission denied (publickey)
+```
+Então sua chave SSH não está configurada no AUR.  
+Para configurar, comece criando um arquivo de identificação:  
 
 ```bash
 echo -e 'Host aur.archlinux.org
@@ -66,6 +83,7 @@ git clone ssh://aur@aur.archlinux.org/pacoteaur.git
 cd pacoteaur
 ```
 ##### 3. Faça configuração global para seu usuário  
+>Se já estiver configurado, pule para o item 4
 
 ```bash
 git config --global user.name  "auruser"
@@ -73,7 +91,25 @@ git config --global user.name  "auruser"
 ```bash
 git config --global user.email "auruser@aur.org"
 ```
-##### 4. Crie e configure os arquivos .gitignore e PKGBUILD  
+##### 4. Renomeia main → master e Cria a branch master no AUR
+```bash
+git branch -m master
+```
+```bash
+git push -u origin master
+```
+
+#### 5. Verifique se está configurado a branch master corretamente
+```bash
+git remote -v
+```
+```bash
+git branch -vv
+```
+```bash
+git ls-remote --symref origin HEAD
+```
+##### 6. Crie e configure os arquivos .gitignore e PKGBUILD  
 
 Sempre antes de upar a atualização, recrie um novo .SRCINFO com o comando makepkg  
 Então adicione, faça um commit e depois faça o upload das modificações  
