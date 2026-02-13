@@ -3,10 +3,10 @@
 Será usado um nome de usuário, e-mail e nome de pacote fictício para os exemplos.
 Basta substituir pelos seus dados reais.
 
-> Usuário = auruser
-> E-mail = [auruser@aur.org](mailto:auruser@aur.org)
-> Pacote = pacoteaur
-> Diretório de build = $HOME/build/custombuild
+> Usuário = auruser  
+> E-mail = [auruser@aur.org](mailto:auruser@aur.org)  
+> Pacote = pacoteaur  
+> Diretório de build = $HOME/build/custombuild  
 
 Este é um resumo dos comandos utilizados para configurar a conta AUR e gerenciar pacotes.
 Para mais detalhes, consulte os links no final do documento.
