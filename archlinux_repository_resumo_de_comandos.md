@@ -15,7 +15,7 @@ Diretório de configuração = $HOME/build/custombuild
 
 Uma lista de comandos git utilizado nos testes  
 
-```
+```ini
 git ls-files = Listar arquivos que estão no git
 git remote remove pacoteaur = Remover Branch específico
 git remote -v = Listar Branch e os links
@@ -30,7 +30,7 @@ git show = Ver as mudanças desde o último commit
 
 ##### 1. Configurar autenticação e acesso de escrita para o AUR  
 
-```
+```bash
 echo -e 'Host aur.archlinux.org
   IdentityFile ~/.ssh/aur
   User aur' | tee ~/.ssh/config
@@ -38,12 +38,12 @@ echo -e 'Host aur.archlinux.org
 
 ##### 2. Criar um par de chaves para adicionar em sua conta  
 
-```
+```bash
 ssh-keygen -f ~/.ssh/aur
 ```
 ##### 3. Verifique o arquivo com a chave e copie e depois adicione em sua conta, no campo `Chave pública SSH`  
 
-```
+```bash
 cat ~/.ssh/aur.pub
 ```
 
@@ -51,35 +51,43 @@ cat ~/.ssh/aur.pub
 
 ##### 1. Criar diretório de trabalho  
 
-```
+```bash
 mkdir -p $HOME/build/custombuild
+```
+```bash
 cd $HOME/build/custombuild
 ```
-
-
 ##### 2. Criar e acessar diretório do pacote AUR  
 
-```
+```bash
 git clone ssh://aur@aur.archlinux.org/pacoteaur.git
+```
+```bash
 cd pacoteaur
 ```
-
 ##### 3. Faça configuração global para seu usuário  
 
-```
+```bash
 git config --global user.name  "auruser"
+```
+```bash
 git config --global user.email "auruser@aur.org"
 ```
-
 ##### 4. Crie e configure os arquivos .gitignore e PKGBUILD  
 
 Sempre antes de upar a atualização, recrie um novo .SRCINFO com o comando makepkg  
 Então adicione, faça um commit e depois faça o upload das modificações  
 
-```
+```bash
 makepkg --printsrcinfo > .SRCINFO
+```
+```bash
 git add PKGBUILD .SRCINFO .gitignore
+```
+```bash
 git commit -m "Create Package pacoteaur"
+```
+```bash
 git push
 ```
 
@@ -90,19 +98,19 @@ Então se seu pacote ainda continua no seu HD após a criação, talvez possa pu
 
 ##### 1. Clonar e entrar no repositório  
 
-```
+```bash
 git clone https://aur.archlinux.org/pacoteaur.git && cd pacoteaur
 ```
 
 ##### 2. Adicionar o repositório remoto como 'pacoteaur'  
 
-```
+```bash
 git remote add -f -t master -m master pacoteaur ssh://aur@aur.archlinux.org/pacoteaur.git
 ```
 
 ##### 3. Configurar a referência remota padrão para push  
 
-```
+```bash
 git push --set-upstream qemu-android-cm-x86 HEAD
 ```
 ##### 4. Edite o necessário e faça como a opção 4 do ítem anterior  
