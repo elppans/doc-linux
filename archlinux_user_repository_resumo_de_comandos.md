@@ -99,6 +99,14 @@ cd $HOME/build/custombuild
 git clone ssh://aur@aur.archlinux.org/pacoteaur.git
 cd pacoteaur
 ```
+> **Importante:**
+> O comando `git clone` criará automaticamente um diretório com o nome do pacote contendo toda a estrutura e configurações necessárias do repositório Git (incluindo o remote `origin` já configurado para o AUR).
+>
+> Se o pacote **ainda não existir no AUR**, o repositório remoto será efetivamente criado no momento do primeiro `git push`.
+>
+> Se o pacote **já existir e você for o maintainer**, o repositório será apenas clonado normalmente.
+>
+> Caso o pacote já exista e você **não seja o maintainer**, você não terá permissão para enviar alterações.
 
 ## 3. Configurar identidade Git (se ainda não configurado)
 
