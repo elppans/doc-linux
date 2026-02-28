@@ -9,7 +9,7 @@ Em todos os tutoriais que lí, deve baixar o tema e plugins princiais via git, m
 Para instalar os principais pacotes, além do zsh, basta fazer o comando:
 
 ```bash
-yay -S zsh zsh-syntax-highlighting zsh-autosuggestions
+yay -S zsh zsh-autosuggestions zsh-syntax-highlighting zsh-fast-syntax-highlighting
 
 ```
 * Temas:
@@ -88,10 +88,17 @@ Depois edite o arquivo ~/.zshrc e vá até a linha "plugins" e junto com o que e
 
 ```
 plugins=(
-        git
-        zsh-autosuggestions
-        zsh-syntax-highlighting
-        colored-man-pages
+    git
+    sudo
+    web-search
+    archlinux
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fast-syntax-highlighting
+    copyfile
+    copybuffer
+    dirhistory
+    colored-man-pages
 )
 ```
 >Opcionalmente, já dá pra aproveitar e adicionar mais plugins que interessar da lista de [plugins do Wiki do OMZ](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins).
@@ -151,7 +158,36 @@ plugins=(
 ```
 
 Com isso, já dá pra saber que além de usar os plugins do OMZ, dá pra criar e customizar seus próprios plugins.  
+___
+ZSH no [ML4W](https://www.ml4w.com/) ([Hyprland](https://hypr.land/)) 
 
+Após instalar o ML4W, é usado o bash por padrão, mas dá pra customizar como iniciar o zsh nele, sem configurar o Shell do usuário.
+Clone o repositório do oh-my-zsh para o home e instale os plugins
+```bash
+git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME"/.oh-my-zsh
+yay -S zsh zsh-autosuggestions zsh-syntax-highlighting zsh-fast-syntax-highlighting
+ln -sf /usr/share/zsh/plugins/* "$HOME"/.oh-my-zsh/custom/plugins/
+```
+O arquivo de plugins do ZSH para configurar é este
+```ini
+$HOME/.config/zshrc/20-customization
+```
+Deve desativar o "fastfetch" no arquivo `"$HOME"/.config/bashrc/30-autostart`
+```ini
+if [[ $(tty) == *"pts"* ]]; then
+    if [ ! -f $HOME/.config/ml4w/settings/hide-fastfetch ]; then
+        #fastfetch
+	       echo
+    fi
+fi
+```
+Adicionar no final do arquivo `"$HOME"/.bashrc` 
+```ini
+zsh
+exit 0
+```
+Os plugins, basta deixar configurado como já mencionado mais acima.
+___
 * Fontes:  
 
 [https://ohmyz.sh/](https://ohmyz.sh/)
