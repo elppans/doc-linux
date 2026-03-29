@@ -33,6 +33,7 @@ Indice:
 29) [Ubuntu, initramfs](https://elppans.github.io/doc-linux/como_corrigir_o_erro_initramfs_no_linux)  
 30) [PDV Ubuntu 22.04, configurar Dual Boot](https://elppans.github.io/doc-linux/pdv_ubuntu_22_dual_boot)  
 31) [Ubuntu PRO](ubuntu_pro)  
+32) [Compartilhamento de Pastas e Performance no KVM/QEMU (Windows & Linux)](linux_virt_qemu_spice_compartilhamento_public)  
 
 
 
