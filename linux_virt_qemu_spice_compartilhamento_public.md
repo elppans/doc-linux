@@ -54,6 +54,10 @@ Basta instalar dois pequenos utilitários oficiais do projeto SPICE:
 
 Após instalar no Windows, abra o explorador de arquivos. O compartilhamento aparecerá como uma unidade de rede (ex: Drive `Z:` ou via rede `Spice Client Folder`). Tudo o que você jogar lá aparecerá no seu Linux.  
 
+#### No Windows, se não aparecer automaticamente
+Se não aparecer automaticamente, você pode tentar acessar digitando `\\localhost:9843` na barra de endereços do Explorer.  
+No Windows 7, após reiniciar, verifique se o serviço Spice webdavd está rodando. Pressione Win + R, digite services.msc, procure por Spice webdav proxy e veja se está "Iniciado".
+
 ### No Linux (Guest)
 
 A maioria das distros já vem pronta. Se não funcionar de primeira, instale o pacote de suporte:
@@ -62,6 +66,35 @@ A maioria das distros já vem pronta. Se não funcionar de primeira, instale o p
 sudo pacman -S spice-webdavd  # No Arch
 sudo apt install spice-webdavd # No Ubuntu/Debian
 ```
+
+#### No Linux, se não aparecer automaticamente ou não der para acessar
+
+O processo é um pouco diferente porque ele não mapeia automaticamente como uma unidade de rede "estática" como o Windows faz com o "localhost:9843".
+
+Se o Nautilus (ou seu gerenciador de arquivos) não detectar o compartilhamento automaticamente, você tem duas formas principais de acessar:
+
+1. Via Gerenciador de Arquivos (Nautilus, Thunar, Dolphin)
+Abra o seu gerenciador de arquivos e, na barra de endereços (geralmente Ctrl+L), digite o protocolo WebDAV do SPICE:
+
+```Plaintext
+dav://localhost:9843
+```
+>Nota: Algumas distros ou versões de gerenciadores podem exigir davs:// (se houver criptografia, o que é raro em VMs locais) ou simplesmente admin:// em casos específicos, mas o padrão para o SPICE é o dav://.
+
+2. Montagem Manual via Terminal ("Via Arch Linux")
+Se quiser montar a pasta em um diretório específico (ex: /mnt/spice_share), precisará do pacote `davfs2`.
+
+```bash
+sudo pacman -S davfs2
+```
+
+Montagem:
+
+```bash
+sudo mount -t davfs2 http://localhost:9843 /caminho/da/sua/pasta
+```
+>O SPICE WebDAV geralmente roda em HTTP internamente no canal serial, por isso o **http://** no comando de montagem.
+
 -----
 
 ## ⚡ Por que usar as "Hyper-V Features"?
