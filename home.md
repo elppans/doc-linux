@@ -34,6 +34,7 @@ Indice:
 30) [PDV Ubuntu 22.04, configurar Dual Boot](https://elppans.github.io/doc-linux/pdv_ubuntu_22_dual_boot)  
 31) [Ubuntu PRO](ubuntu_pro)  
 32) [Compartilhamento de Pastas e Performance no KVM/QEMU (Windows & Linux)](linux_virt_qemu_spice_compartilhamento_public)  
+33) [Erro AER no Linux: Análise e Solução](linux_pci_e_ssd_solução_erro_aer)  
 
 
 
