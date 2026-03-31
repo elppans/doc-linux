@@ -1,4 +1,4 @@
-# Erro AER no Ubuntu: Solução
+# Erro AER no Linux: Análise e Solução
 
 - Ao ligar o Notebook:
 <img width="913" height="583" alt="image" src="https://github.com/user-attachments/assets/c1a4775b-e44a-486d-ab22-e6c95ab207d6" />
