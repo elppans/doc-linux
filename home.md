@@ -32,7 +32,7 @@ Indice:
 28) [Ubuntu, Instalação do makedeb via código-fonte](instalar_makedeb_source_ubuntu)  
 29) [Ubuntu, teclado ABNT2](ubuntu_keyboard_abnt2)  
 30) [Ubuntu, initramfs](como_corrigir_o_erro_initramfs_no_linux)  
-31) [PDV Ubuntu 22.04, configurar Dual Boot](pdv_ubuntu_22_dual_boot)  
+31) [Ubuntu 22.04, configurar Dual Boot](ubuntu_22-pdv-dual_boot)  
 32) [Ubuntu PRO](ubuntu_pro)  
 33) [Compartilhamento de Pastas e Performance no KVM/QEMU (Windows & Linux)](linux_virt_qemu_spice_compartilhamento_public)  
 34) [Erro AER no Linux: Análise e Solução](linux_pci_e_ssd_solução_erro_aer)  
