@@ -1,7 +1,7 @@
 # Otimização de Armazenamento com BTRFS e Compressão ZSTD: Caso Prático em SSD de 1 TB
 
 ## Visão Geral
-Este artigo documenta o processo de manutenção, desfragmentação e compressão transparente de dados em um SSD secundário de 1 TB utilizando o sistema de arquivos **BTRFS** e o algoritmo **ZSTD**. A operação foi realizada em um ambiente Arch Linux, visando recuperar espaço em disco e melhorar a organização dos blocos físicos sem sacrificar a performance do sistema.
+Este artigo documenta o processo de manutenção, desfragmentação e compressão transparente de dados em um SSD secundário de 1 TB utilizando o sistema de arquivos **BTRFS** (montado em `/mnt/files`) e o algoritmo **ZSTD**. A operação foi realizada em um ambiente Arch Linux, visando recuperar espaço em disco e melhorar a organização dos blocos físicos sem sacrificar a performance do sistema.
 
 ---
 
@@ -83,9 +83,9 @@ Após uma compressão massiva como esta, os blocos de dados e metadados podem fi
 sudo btrfs balance start -musage=50 /mnt/files
 ```
 
-Para auditar e visualizar o ganho de espaço real por pasta futuramente, a melhor sintaxe descoberta para o comando `compsize` foi:
+Para auditar e visualizar o ganho de espaço real por pasta futuramente, a melhor sintaxe para o comando `compsize`:
 ```bash
-sudo compsize -x /mnt/files/*
+sudo compsize -x /mnt/files
 ```
 ___
 # Sobre o BTRFS e o `/etc/fstab` otimizado
@@ -109,7 +109,7 @@ Eu adicionaria a flag **`compress=zstd:3`**.
 
 ---
 
-### Como ficaria o meu `/etc/fstab` otimizado:
+### Como ficaria o `/etc/fstab` otimizado:
 
 ```text
 rw,relatime,ssd,discard=async,compress=zstd:3,space_cache=v2,subvolid=256,subvol=/@
@@ -131,7 +131,7 @@ sudo btrfs filesystem defragment -r -czstd /
 
 ---
 
-### Um ponto de atenção: `relatime` vs `noatime`
+# Um ponto de atenção: `relatime` vs `noatime`
 Eu estava usando `relatime`, que atualiza a data de acesso aos arquivos apenas se eles forem modificados ou após 24h. 
 * Queria **performance máxima** sem se importar em saber "quando foi a última vez que abri este ou aquele arquivo", então mudei para **`noatime`**. Isso elimina centenas de pequenas operações de escrita que o Linux faz toda vez que apenas lê um arquivo.
 
@@ -197,7 +197,6 @@ O Facebook (criador do ZSTD) e os desenvolvedores do BTRFS escolheram o **3** po
 | **zstd:3** | 🟢 Rápido (Equilibrado) | 🟢 Muito Bom | ☁️ Baixo |
 | **zstd:9** | 🟡 Moderado | 🔵 Ótimo | 🌡️ Médio |
 | **zstd:15** | 🔴 Lento | ⚡ Máximo | 🔥 Alto |
-
 
 
 ---
