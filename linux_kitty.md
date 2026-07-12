@@ -46,6 +46,7 @@ Este mini tutorial reúne os atalhos de teclado e Mouse para o gerenciamento de 
 
 | Ação | Atalho |
 | --- | --- |
+| Mostrar o Help no navegador | `Ctrl` + `Shift` + `F1` |
+| Consultar mapa de atalhos completo | `Ctrl` + `Shift` + `F3` |
 | Alternar Full Screen (Tela Cheia Opaca) | `Ctrl` + `Shift` + `F11` |
 | Alternar Full Screen (Mantendo Transparência) | `Ctrl` + `Shift` + `F10` |
-| Consultar mapa de atalhos completo | `Ctrl` + `Shift` + `F3` |
