@@ -2,7 +2,7 @@
 
 Este mini tutorial reúne os atalhos de teclado e Mouse para o gerenciamento de janelas, abas, fontes, navegação no Kitty Terminal e manipulação de janelas no ambiente gráfico.
 
-![alt text](<Captura de tela de 2026-07-11 22-02-14.png>)
+![alt text](<img/linux_kitty.png>)
 ## Manipulação de Janelas (Interface Gráfica)
 
 | Ação | Atalho |
