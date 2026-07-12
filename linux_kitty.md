@@ -32,6 +32,7 @@ Este mini tutorial reúne os atalhos de teclado e Mouse para o gerenciamento de 
 | --- | --- |
 | Aumentar o tamanho do texto | `Ctrl` + `Shift` + `+` |
 | Diminuir o tamanho do texto | `Ctrl` + `Shift` + `-` |
+| Restaurar o tamanho do texto | `Ctrl` + `Shift` + `Backspace` |
 
 ## Navegação e Histórico (Scrollback)
 
