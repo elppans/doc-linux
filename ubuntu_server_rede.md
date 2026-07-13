@@ -91,7 +91,7 @@ Se os testes funcionarem, sua configuração está concluída!
 
 ---
 
-- Mas fontes e métodos
+- Mas fontes e métodos:  
 [Como configurar a rede no Ubuntu Server através do Netplan](https://diolinux.com.br/sistemas-operacionais/ubuntu-server-netplan-config-tutorial.html)  
 [Configuração de redes](https://ubuntu-com.translate.goog/server/docs/explanation/networking/configuring-networks/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc#)  
 [Como configurar rede no Ubuntu Server 24.04](https://bernardoazevedo.com.br/content/Como%20configurar%20rede%20no%20Ubuntu%20Server%2024.04)
