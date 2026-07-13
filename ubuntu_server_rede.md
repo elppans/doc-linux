@@ -2,7 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/95de9693-9dee-49c4-8ef9-ca96d927e9cb)
 
-Essa tela pertence à configuração de IPv4 no **Ubuntu Server**, e você está configurando manualmente as informações de rede para a interface `ens33`. Aqui está um passo a passo para preencher corretamente os campos:
+Essa tela pertence à configuração de IPv4 no **Ubuntu Server**, uma tela para configurar manualmente as informações de rede para a interface (Neste exemplo, a nerface é `ens33`). A seguir uma descrição de cada enrada:
 
 1. **Método IPv4:**  
    Já está em "Manual", o que significa que você precisa fornecer os detalhes manualmente.
