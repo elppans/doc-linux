@@ -35,9 +35,10 @@ Indice:
 31) [Ubuntu, initramfs](como_corrigir_o_erro_initramfs_no_linux)  
 32) [Ubuntu 22.04, configurar Dual Boot](ubuntu_22-pdv-dual_boot)  
 33) [Ubuntu PRO](ubuntu_pro)  
-34) [Compartilhamento de Pastas e Performance no KVM/QEMU (Windows & Linux)](linux_virt_qemu_spice_compartilhamento_public)  
-35) [Linux, Erro AER: Análise e Solução](linux_pci_e_ssd_solução_erro_aer)  
-36) [Linux, Atalhos do Kitty Terminal e Sistema](linux_kitty)  
+34) [Ubuntu Server, configuração da rede](ubuntu_server_rede)  
+35) [Compartilhamento de Pastas e Performance no KVM/QEMU (Windows & Linux)](linux_virt_qemu_spice_compartilhamento_public)  
+36) [Linux, Erro AER: Análise e Solução](linux_pci_e_ssd_solução_erro_aer)  
+37) [Linux, Atalhos do Kitty Terminal e Sistema](linux_kitty)  
 
 
 
