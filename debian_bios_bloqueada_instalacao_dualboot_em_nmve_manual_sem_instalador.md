@@ -139,6 +139,7 @@ dd if=/dev/sdX of=/dev/nvme1n1 bs=64K conv=noerror,sync status=progress
 ```
 >(onde `sdX` é o seu SSD com Debian).
 3. Após a cópia, é melhor usar o `gparted` para expandir a partição no NVMe (já que o SSD deve ser menor ou igual a 1TB) e reinstalar o GRUB para garantir que os UUIDs de boot apontem para o local correto.
+>Existe a opção de [fazer a expansão da partição de forma fácil via Terminal usando o **parted** ou **groupart**](https://elppans.github.io/doc-linux/linux_redimensonar_ou_expandir_particao).
 ___
 ## Com BIOS/CMOS bloqueado, configurar boot no Windows/Linux
 
