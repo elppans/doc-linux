@@ -1,5 +1,6 @@
 # Debian. BIOS Bloqueada, Instalacao DUALBOOT em NMVE manualmente SEM instalador
-
+>- *Debian. Instalacao em NMVE estilo ArchLinux*
+---
 - **Introdução:**
 
 > Cliente mandou uma máquina com 2 NMVE de 1TB (931,51 GiB). Um está com Windows 2012 R2 instalado e o outro está vazio.
@@ -129,7 +130,7 @@ UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  /               ext4    errors=remoun
 ___
 ### Alternativa: Clonagem (dd)
 
-Se não quer configurar tudo do zero, pode simplesmente clonar o seu SSD atual para o NVMe (Mas a instalação limpa é muito mais divertida xD):
+Se não quer configurar tudo do zero, pode simplesmente clonar o seu SSD atual para o NVMe (Mas a instalação limpa é muito mais divertida 😆):
 
 1. Dê o boot pelo SSD.
 2. Use o comando: 
