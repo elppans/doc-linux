@@ -19,3 +19,7 @@ Isso é um fix clássico para SSDs NVMe (principalmente certos modelos com firmw
 ---
 
 **Por que isso resolveu seu congelamento progressivo:** os dois sintomas combinados — AER gerando erros falsos no PCIe e o NVMe entrando/saindo mal de estados de energia — são causas muito comuns de notebooks que "vão travando com o tempo" (ao contrário de travar na hora do boot), porque o problema só aparece depois que o hardware tenta economizar energia ou após acumular erros no PCIe.
+
+---
+
+> 📖 Para um diagnóstico mais detalhado (identificação do dispositivo culpado via `lspci`, e limpeza dos logs gerados pelo erro), veja: [Erro AER no Linux: Análise e Solução](./linux_pci_e_ssd_solucao_erro_aer)
