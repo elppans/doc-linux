@@ -42,6 +42,7 @@ Indice:
 38) [Compartilhamento de Pastas e Performance no KVM/QEMU (Windows & Linux)](linux_virt_qemu_spice_compartilhamento_public)  
 39) [Linux, Erro AER: Análise e Solução](linux_pci_e_ssd_solução_erro_aer)  
 40) [Linux, Atalhos do Kitty Terminal e Sistema](linux_kitty)  
+41) [Linux, Ocultar usuário da tela de login](linux_ocultar_usuario_da_tela_de_login)  
 
 
 
