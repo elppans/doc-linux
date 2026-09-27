@@ -38,9 +38,10 @@ Indice:
 34) [Ubuntu 22.04, configurar Dual Boot](ubuntu_22-pdv-dual_boot)  
 35) [Ubuntu PRO](ubuntu_pro)  
 36) [Ubuntu Server, configuração da rede](ubuntu_server_rede)  
-37) [Compartilhamento de Pastas e Performance no KVM/QEMU (Windows & Linux)](linux_virt_qemu_spice_compartilhamento_public)  
-38) [Linux, Erro AER: Análise e Solução](linux_pci_e_ssd_solução_erro_aer)  
-39) [Linux, Atalhos do Kitty Terminal e Sistema](linux_kitty)  
+37) [Ubuntu, Upgrade do 22.04 para 24,94](ubuntu_upgrade_2204_2404)  
+38) [Compartilhamento de Pastas e Performance no KVM/QEMU (Windows & Linux)](linux_virt_qemu_spice_compartilhamento_public)  
+39) [Linux, Erro AER: Análise e Solução](linux_pci_e_ssd_solução_erro_aer)  
+40) [Linux, Atalhos do Kitty Terminal e Sistema](linux_kitty)  
 
 
 
