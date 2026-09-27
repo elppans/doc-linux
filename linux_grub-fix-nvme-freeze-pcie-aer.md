@@ -22,4 +22,4 @@ Isso é um fix clássico para SSDs NVMe (principalmente certos modelos com firmw
 
 ---
 
-> 📖 Para um diagnóstico mais detalhado (identificação do dispositivo culpado via `lspci`, e limpeza dos logs gerados pelo erro), veja: [Erro AER no Linux: Análise e Solução](./linux_pci_e_ssd_solucao_erro_aer)
+> 📖 Para um diagnóstico mais detalhado (identificação do dispositivo culpado via `lspci`, e limpeza dos logs gerados pelo erro), veja: [Erro AER no Linux: Análise e Solução](./linux_pci_e_ssd_solucao_erro_aer.md)
